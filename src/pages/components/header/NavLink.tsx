@@ -3,9 +3,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 interface Props {
-  href: String;
+  href: string;
   onClick?: any;
-  children: String | undefined;
+  children: string | undefined;
 }
 
 export default function NavLink(props: Props) {
@@ -16,8 +16,8 @@ export default function NavLink(props: Props) {
     <Link
       href={`${props.href}`}
       className={`${
-        isActive && "decoration-green-light underline underline-offset-8"
-      } text-gold-500 hover:text-green-light px-3 py-2 text-2xl font-medium`}
+        isActive && "underline decoration-green-light underline-offset-8"
+      } px-3 py-2 text-2xl font-medium text-gold-500 hover:text-green-light`}
       onClick={props.onClick}
     >
       {props.children}
