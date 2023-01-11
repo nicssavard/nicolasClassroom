@@ -6,7 +6,7 @@ import { api } from "../utils/api";
 
 import "../styles/globals.css";
 
-import { Header } from "./components/header/Header";
+import Header from "./components/header/Header";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,

@@ -13,7 +13,7 @@ import SearchBar from "./SearchBar";
 
 import { signIn, signOut, useSession } from "next-auth/react";
 
-export const Header: React.FC = () => {
+const Header: React.FC = () => {
   //const user: User | null = useUserStore((state) => state.user);
 
   const { data: sessionData } = useSession();
@@ -174,3 +174,5 @@ export const Header: React.FC = () => {
     </Disclosure>
   );
 };
+
+export default Header;
