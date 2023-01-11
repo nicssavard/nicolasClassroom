@@ -1,6 +1,6 @@
 import Image from "next/image";
-import WFLKLogo from "../../../../public/wflk.png";
-import DefaultUserImage from "../../../../public/user.png";
+import WFLKLogo from "../../../public/wflk.png";
+import DefaultUserImage from "../../../public/user.png";
 
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
