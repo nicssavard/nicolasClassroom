@@ -137,11 +137,19 @@ const Header: React.FC = () => {
             <div className="pt-4 pb-3 border-t border-gray-700">
               <div className="flex items-center justify-center px-5">
                 <div className="flex-shrink-0">
-                  <img
-                    className="w-10 h-10 rounded-full"
-                    src={`http://localhost:5000/${sessionData?.user?.image}`}
-                    alt=""
-                  />
+                  {sessionData?.user?.image ? (
+                    <img
+                      className="w-8 h-8 rounded-full"
+                      src={`${sessionData?.user?.image}`}
+                      alt=""
+                    />
+                  ) : (
+                    <Image
+                      className="w-8 h-8 rounded-full"
+                      src={DefaultUserImage}
+                      alt="WFLK"
+                    />
+                  )}
                 </div>
                 <div className="ml-3">
                   <div className="text-4xl font-medium text-gold-500">

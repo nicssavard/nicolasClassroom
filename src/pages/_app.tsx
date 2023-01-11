@@ -6,7 +6,7 @@ import { api } from "../utils/api";
 
 import "../styles/globals.css";
 
-import Header from "./components/header/Header";
+import Header from "../components/header/Header";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -15,7 +15,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
   return (
     <SessionProvider session={session}>
       <Header></Header>
-      <Component {...pageProps} />
+      <div className="min-h-screen bg-gradient-to-r from-cyan-500 to-blue-500">
+        <Component {...pageProps} />
+      </div>
     </SessionProvider>
   );
 };
