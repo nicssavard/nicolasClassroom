@@ -1,5 +1,5 @@
 import Image from "next/image";
-import WFLKLogo from "../../../public/wflk.png";
+import WFLKLogo from "../../../public/wflk2.png";
 import DefaultUserImage from "../../../public/user.png";
 
 import { Fragment } from "react";
