@@ -19,7 +19,7 @@ const Header: React.FC = () => {
   const { data: sessionData } = useSession();
   console.log(sessionData);
   return (
-    <Disclosure as="nav" className="shadow bg-green-dark">
+    <Disclosure as="nav" className="shadow font-face-gm bg-green-dark">
       {({ open }) => (
         <>
           <div className="px-2 mx-auto max-w-7xl sm:px-4 lg:px-8">

@@ -26,7 +26,7 @@ export default function Subject(props: Props) {
               fill={true}
             />
           </div>
-          <div className="pt-2 text-2xl text-gold-500 sm:pt-3 1080:text-4xl">
+          <div className="pt-2 text-3xl text-gold-500 sm:pt-3 1080:text-4xl">
             <h1>{props.subject.name}</h1>
           </div>
         </div>
