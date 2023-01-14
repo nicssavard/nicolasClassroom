@@ -53,14 +53,51 @@ model User {
     email         String?   @unique
     emailVerified DateTime?
     image         String?
+    points        Int       @default(0)
+    tries         Int       @default(0)
+    group_id       Int
     accounts      Account[]
     sessions      Session[]
 }
 
+model Homework {
+    id      Int      @id @default(autoincrement())
+    name    String
+    image   String
+}
+
+model Teacher {
+    id      Int      @id @default(autoincrement())
+    name    String
+    image   String
+    successImage String[]
+    failureImage String[]
+}
+
+model Group {
+    id      Int      @id @default(autoincrement())
+    name    String
+}
+
 model Subject {
-    id     String  @id @default(cuid())
+    id     Int  @id @default(autoincrement())
     name   String
     image  String
+}
+
+model Class {
+    id     Int  @id @default(autoincrement())
+    name   String
+    image  String
+    subject_id Int
+}
+
+model Flashcard {
+    id     Int  @id @default(autoincrement())
+    name   String
+    image  String
+    audio  String
+    class_id Int
 }
 
 model VerificationToken {
