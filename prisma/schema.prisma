@@ -70,8 +70,8 @@ model Teacher {
     id      Int      @id @default(autoincrement())
     name    String
     image   String
-    successImage String[]
-    failureImage String[]
+    success_image String[]
+    failure_image String[]
 }
 
 model Group {

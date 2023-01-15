@@ -82,8 +82,8 @@ create table "public"."Teacher" (
     "id" integer not null default nextval('"Teacher_id_seq"'::regclass),
     "name" text not null,
     "image" text not null,
-    "successImage" text[],
-    "failureImage" text[]
+    "success_image" text[],
+    "failure_image" text[]
 );
 
 
