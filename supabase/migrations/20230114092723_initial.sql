@@ -30,7 +30,7 @@ create table "public"."Class" (
     "id" integer not null default nextval('"Class_id_seq"'::regclass),
     "name" text not null,
     "image" text not null,
-    "subject_id" integer not null
+    "subject_name" text not null
 );
 
 
@@ -46,7 +46,7 @@ create table "public"."Flashcard" (
     "name" text not null,
     "image" text not null,
     "audio" text not null,
-    "class_id" integer not null
+    "class_name" text not null
 );
 
 
@@ -95,7 +95,7 @@ create table "public"."User" (
     "image" text,
     "points" integer not null default 0,
     "tries" integer not null default 0,
-    "group_id" integer not null
+    "group_name" text not null
 );
 
 

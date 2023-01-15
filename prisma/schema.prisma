@@ -55,7 +55,7 @@ model User {
     image         String?
     points        Int       @default(0)
     tries         Int       @default(0)
-    group_id       Int
+    group_name    String
     accounts      Account[]
     sessions      Session[]
 }
@@ -89,7 +89,7 @@ model Class {
     id     Int  @id @default(autoincrement())
     name   String
     image  String
-    subject_id Int
+    subject_name String
 }
 
 model Flashcard {
@@ -97,7 +97,7 @@ model Flashcard {
     name   String
     image  String
     audio  String
-    class_id Int
+    class_name String
 }
 
 model VerificationToken {
