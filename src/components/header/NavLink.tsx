@@ -14,7 +14,7 @@ export default function NavLink(props: Props) {
 
   return (
     <Link
-      href={`${props.href}`}
+      href={`/${props.href}`}
       className={`${
         isActive && "underline decoration-green-light underline-offset-8"
       } px-3 py-2 text-2xl font-medium text-gold-500 hover:text-green-light`}

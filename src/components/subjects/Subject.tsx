@@ -20,7 +20,7 @@ export default function Subject(props: Props) {
           <div className="relative w-32 h-32 sm:h-56 sm:w-56 1080:h-64 1080:w-64">
             <Image
               className="rounded-lg"
-              src={`/${props.subject.image}`}
+              src={`/subjects/${props.subject.image}`}
               alt="Subject Image"
               fill={true}
             />
