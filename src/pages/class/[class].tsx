@@ -8,7 +8,7 @@ const askQuestion = () => {
 };
 const Class: React.FC = () => {
   const router = useRouter();
-  let className = router.query.class;
+  //let className = router.query.class;
   const { data: teacher } = api.teachers.getOneTeacher.useQuery();
 
   return (
