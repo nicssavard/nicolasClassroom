@@ -2,11 +2,14 @@ import Flashcard from "./Flashcard";
 
 interface Props {
   flashcards: { image: string; name: string; audio: string }[];
+  onClick: (answer: string) => void;
 }
 
 export default function FlashcardsBoard(props: Props) {
   const flashcardsList = props.flashcards.map((flashcard, index) => {
-    return <Flashcard subject={flashcard} key={index} />;
+    return (
+      <Flashcard onClick={props.onClick} subject={flashcard} key={index} />
+    );
   });
 
   return (

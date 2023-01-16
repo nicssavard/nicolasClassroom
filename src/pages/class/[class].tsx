@@ -3,9 +3,6 @@ import FlashcardsBoard from "../../components/wordsGame/FlashcardsBoard";
 import { useRouter } from "next/router";
 import { api } from "../../utils/api";
 
-const askQuestion = () => {
-  console.log("ask question");
-};
 const Class: React.FC = () => {
   const router = useRouter();
   let className = router.query.class;
@@ -16,14 +13,42 @@ const Class: React.FC = () => {
   const { data: flashcards } = api.flashcards.getFlashcardsByClass.useQuery({
     class: className,
   });
-  console.log("flashcards");
-  console.log(flashcards);
+  let question: number;
+  if (flashcards) {
+    question = Math.floor(Math.random() * flashcards.length);
+  }
+
+  const askQuestion = () => {
+    if (flashcards) {
+      var audio = new Audio(`/flashcards/${flashcards[question]?.audio}`);
+      audio.play();
+    }
+  };
+
+  const checkAnswer = (answer: string) => {
+    if (flashcards) {
+      if (answer === flashcards[question]?.name) {
+        alert("Correct!");
+        let newQuestion = Math.floor(Math.random() * flashcards.length);
+        while (question === newQuestion) {
+          newQuestion = Math.floor(Math.random() * flashcards.length);
+        }
+        question = newQuestion;
+      } else {
+        alert("Wrong!");
+      }
+    }
+  };
+
   return (
     <div className="pt-5 text-center">
       <div>
         {teacher && <Teacher onClick={askQuestion} teacher={teacher}></Teacher>}
         {flashcards && (
-          <FlashcardsBoard flashcards={flashcards}></FlashcardsBoard>
+          <FlashcardsBoard
+            onClick={checkAnswer}
+            flashcards={flashcards}
+          ></FlashcardsBoard>
         )}
       </div>
     </div>

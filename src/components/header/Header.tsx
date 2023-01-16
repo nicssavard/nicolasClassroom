@@ -6,33 +6,29 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-//import useUserStore from "../../store/store";
 import NavLink from "./NavLink";
 import SearchBar from "./SearchBar";
-//import "../../../styles/globals.css";
 
 import { signIn, signOut, useSession } from "next-auth/react";
 
 const Header: React.FC = () => {
-  //const user: User | null = useUserStore((state) => state.user);
-
   const { data: sessionData } = useSession();
   console.log(sessionData);
   return (
-    <Disclosure as="nav" className="shadow font-face-gm bg-green-dark">
+    <Disclosure as="nav" className="font-face-gm bg-green-dark shadow">
       {({ open }) => (
         <>
-          <div className="px-2 mx-auto max-w-7xl sm:px-4 lg:px-8">
-            <div className="relative flex items-center justify-between h-16">
+          <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
+            <div className="relative flex h-16 items-center justify-between">
               <div className="flex items-center px-2 lg:px-0">
                 <Link href="/subjects">
                   <Image
-                    className="block w-auto h-9 lg:hidden"
+                    className="block h-9 w-auto lg:hidden"
                     src={WFLKLogo}
                     alt="WFLK"
                   />
                   <Image
-                    className="hidden w-auto h-9 lg:block"
+                    className="hidden h-9 w-auto lg:block"
                     src={WFLKLogo}
                     alt="WFLK"
                   />
@@ -49,31 +45,31 @@ const Header: React.FC = () => {
               <SearchBar />
               <div className="flex lg:hidden">
                 {/* Mobile menu button */}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-green-light hover:bg-green-light hover:text-green-dark focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-light">
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-green-light hover:bg-green-light hover:text-green-dark focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-light">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XMarkIcon className="block w-8 h-8" aria-hidden="true" />
+                    <XMarkIcon className="block h-8 w-8" aria-hidden="true" />
                   ) : (
-                    <Bars3Icon className="block w-8 h-8" aria-hidden="true" />
+                    <Bars3Icon className="block h-8 w-8" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
               <div className="hidden lg:ml-4 lg:block">
                 <div className="flex items-center">
                   {/* Profile dropdown */}
-                  <Menu as="div" className="relative flex-shrink-0 ml-4">
+                  <Menu as="div" className="relative ml-4 flex-shrink-0">
                     <div>
-                      <Menu.Button className="flex text-sm text-white bg-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-green-light focus:ring-offset-2 focus:ring-offset-gray-800">
+                      <Menu.Button className="flex rounded-full bg-gray-800 text-sm text-white focus:outline-none focus:ring-2 focus:ring-green-light focus:ring-offset-2 focus:ring-offset-gray-800">
                         <span className="sr-only">Open user menu</span>
                         {sessionData?.user?.image ? (
                           <img
-                            className="w-8 h-8 rounded-full"
+                            className="h-8 w-8 rounded-full"
                             src={`${sessionData?.user?.image}`}
                             alt=""
                           />
                         ) : (
                           <Image
-                            className="w-8 h-8 rounded-full"
+                            className="h-8 w-8 rounded-full"
                             src={DefaultUserImage}
                             alt="WFLK"
                           />
@@ -89,7 +85,7 @@ const Header: React.FC = () => {
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                      <Menu.Items className="absolute right-0 z-10 flex flex-col w-48 py-1 mt-2 origin-top-right rounded-md shadow-lg bg-green-dark ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Items className="absolute right-0 z-10 mt-2 flex w-48 origin-top-right flex-col rounded-md bg-green-dark py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         {sessionData?.user?.name !== null && (
                           <Menu.Item>
                             <NavLink href="settings">
@@ -119,7 +115,7 @@ const Header: React.FC = () => {
           </div>
 
           <Disclosure.Panel className="lg:hidden">
-            <div className="flex flex-col px-2 pt-2 pb-3 space-y-1">
+            <div className="flex flex-col space-y-1 px-2 pt-2 pb-3">
               {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
               <Disclosure.Button as={NavLink} href="subjects">
                 subjects
@@ -134,18 +130,18 @@ const Header: React.FC = () => {
                 homeworks
               </Disclosure.Button>
             </div>
-            <div className="pt-4 pb-3 border-t border-gray-700">
+            <div className="border-t border-gray-700 pt-4 pb-3">
               <div className="flex items-center justify-center px-5">
                 <div className="flex-shrink-0">
                   {sessionData?.user?.image ? (
                     <img
-                      className="w-8 h-8 rounded-full"
+                      className="h-8 w-8 rounded-full"
                       src={`${sessionData?.user?.image}`}
                       alt=""
                     />
                   ) : (
                     <Image
-                      className="w-8 h-8 rounded-full"
+                      className="h-8 w-8 rounded-full"
                       src={DefaultUserImage}
                       alt="WFLK"
                     />
@@ -160,7 +156,7 @@ const Header: React.FC = () => {
                   </div> */}
                 </div>
               </div>
-              <div className="flex flex-col px-2 mt-3 space-y-1">
+              <div className="mt-3 flex flex-col space-y-1 px-2">
                 <Disclosure.Button as={NavLink} href="settings">
                   {sessionData?.user?.name}
                 </Disclosure.Button>
