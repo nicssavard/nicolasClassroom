@@ -20,7 +20,7 @@ const Class: React.FC = () => {
 
   const askQuestion = () => {
     if (flashcards) {
-      var audio = new Audio(`/flashcards/${flashcards[question]?.audio}`);
+      let audio = new Audio(`/flashcards/${flashcards[question]?.audio}`);
       audio.play();
     }
   };
