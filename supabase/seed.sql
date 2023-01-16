@@ -15,7 +15,7 @@ insert into public."Teacher" (name, image, success_image, failure_image)
 values ('Nicolas', 'nicolas.jpg', ARRAY ['success1', 'success2'], ARRAY ['failure1', 'failure2']);
   
 insert into public."Flashcard" (name, image, audio, class_name)
-values ('Cat', 'cat.jpg', 'cat.mp3', 'Domestic animals'),
+values ('Cat', 'cat.png', 'cat.mp3', 'Domestic animals'),
   ('Dog', 'dog.jpg', 'dog.mp3', 'Domestic animals');
   -- ('Bird', 'bird.jpg', 'bird.mp3', 'Domestic animals'),
   -- ('Mouse', 'mouse.jpg', 'mouse.mp3', 'Domestic animals');
@@ -24,3 +24,14 @@ values ('Cat', 'cat.jpg', 'cat.mp3', 'Domestic animals'),
   -- ('Lion', 'lion.jpg', 'lion.mp3', 'Zoo animals'),
   -- ('Tiger', 'tiger.jpg', 'tiger.mp3', 'Zoo animals');
   
+-- drop table if exists public."Account";
+-- drop table if exists public."Class";
+-- drop table if exists public."Example";
+-- drop table if exists public."Flashcard";
+-- drop table if exists public."Group";
+-- drop table if exists public."Homework";
+-- drop table if exists public."Session";
+-- drop table if exists public."Subject";
+-- drop table if exists public."Teacher";
+-- drop table if exists public."User";
+-- drop table if exists public."VerificationToken";

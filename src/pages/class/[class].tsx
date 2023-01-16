@@ -8,21 +8,25 @@ const askQuestion = () => {
 };
 const Class: React.FC = () => {
   const router = useRouter();
-  //let className = router.query.class;
+  let className = router.query.class;
   const { data: teacher } = api.teachers.getOneTeacher.useQuery();
-
+  if (!className) {
+    className = "";
+  }
+  const { data: flashcards } = api.flashcards.getFlashcardsByClass.useQuery({
+    class: className,
+  });
+  console.log("flashcards");
+  console.log(flashcards);
   return (
     <div className="pt-5 text-center">
       <div>
         {teacher && <Teacher onClick={askQuestion} teacher={teacher}></Teacher>}
-        <FlashcardsBoard></FlashcardsBoard>
+        {flashcards && (
+          <FlashcardsBoard flashcards={flashcards}></FlashcardsBoard>
+        )}
       </div>
     </div>
   );
 };
 export default Class;
-
-// export const getServerSideProps: GetServerSideProps = async () => {
-//   const teacher = await getTeacher();
-//   return { props: { teacher: teacher } };
-// };

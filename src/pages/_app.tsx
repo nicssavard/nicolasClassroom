@@ -9,15 +9,6 @@ import "../styles/globals.css";
 
 import Header from "../components/header/Header";
 
-// import { Inter } from "@next/font/google";
-// import localFont from "@next/font/local";
-// const myFont = localFont({ src: "../../public/ubuntu/Ubuntu-Title.ttf" });
-// console.log(myFont);
-// const inter = Inter({
-//   subsets: ["latin"],
-//   variable: "--font-inter",
-// });
-
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
