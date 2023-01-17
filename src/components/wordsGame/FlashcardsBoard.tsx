@@ -19,7 +19,7 @@ export default function FlashcardsBoard(props: Props) {
   });
 
   return (
-    <div className="m-auto flex flex-wrap justify-center pt-5 text-center sm:w-4/5 xl:w-4/6 1080:w-4/6 1440:w-1/2">
+    <div className="m-auto flex flex-wrap justify-center text-center  xl:w-5/6 1080:w-4/6 1080:pt-5 1440:w-2/3">
       {flashcardsList}
     </div>
   );

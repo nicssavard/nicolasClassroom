@@ -36,7 +36,7 @@ export default function Flashcard(props: Props) {
       } m-2 cursor-pointer rounded-lg bg-green-dark p-2 shadow duration-300 hover:scale-105 hover:bg-green-light sm:m-5 sm:p-3 1080:mx-10`}
     >
       <div>
-        <div className="relative h-32 w-32 sm:h-48 sm:w-48 1080:h-64 1080:w-64">
+        <div className="relative h-32 w-32 sm:h-40 sm:w-40 1080:h-64 1080:w-64">
           <Image
             draggable="false"
             className="rounded-lg"

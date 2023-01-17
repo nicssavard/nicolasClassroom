@@ -16,9 +16,9 @@ values ('Nicolas', 'nicolas.jpg', ARRAY ['success1.jpg', 'success2.jpg'], ARRAY 
   
 insert into public."Flashcard" (name, image, audio, class_name)
 values ('Cat', 'cat.png', 'cat.mp3', 'Domestic animals'),
-  ('Dog', 'dog.jpg', 'dog.mp3', 'Domestic animals');
-  -- ('Bird', 'bird.jpg', 'bird.mp3', 'Domestic animals'),
-  -- ('Mouse', 'mouse.jpg', 'mouse.mp3', 'Domestic animals');
+  ('Dog', 'dog.jpg', 'dog.mp3', 'Domestic animals'),
+  ('Bird', 'bird.jpg', 'bird.mp3', 'Domestic animals'),
+  ('Mouse', 'mouse.jpg', 'mouse.mp3', 'Domestic animals');
   -- ('Cow', 'cow.jpg', 'cow.mp3', 'Farm animals'),
   -- ('Pig', 'pig.jpg', 'pig.mp3', 'Farm animals'),
   -- ('Lion', 'lion.jpg', 'lion.mp3', 'Zoo animals'),
