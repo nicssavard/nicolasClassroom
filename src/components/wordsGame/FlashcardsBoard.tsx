@@ -6,6 +6,7 @@ interface Props {
 }
 
 export default function FlashcardsBoard(props: Props) {
+  console.log("render flashcards");
   const flashcardsList = props.flashcards.map((flashcard, index) => {
     return (
       <Flashcard onClick={props.onClick} subject={flashcard} key={index} />

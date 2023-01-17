@@ -22,7 +22,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
       </Head>
       <Header></Header>
       <div
-        className={`font-face-gm min-h-screen bg-gradient-to-r from-cyan-500 to-blue-500 `}
+        className={`font-face-gm min-h-screen bg-gradient-to-r from-cyan-500 to-blue-500 text-center `}
       >
         <Component {...pageProps} />
       </div>

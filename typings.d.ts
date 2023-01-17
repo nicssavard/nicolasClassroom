@@ -8,7 +8,7 @@ type Class = {
 };
 
 type Flashcard = {
-  _id: string;
+  id: number;
   name: string;
   audio: string;
   image: string;
@@ -43,4 +43,12 @@ type User = {
   };
   failureImage: [string];
   successImage: [string];
+};
+
+type Teacher = {
+  id: number;
+  name: string;
+  image: string;
+  success_image: string[];
+  failure_image: string[];
 };

@@ -12,7 +12,7 @@ values ('Domestic animals', 'domestic_animals.png', 'Words'),
   ('Zoo animals', 'zoo_animals.jpg', 'Words');
 
 insert into public."Teacher" (name, image, success_image, failure_image)
-values ('Nicolas', 'nicolas.jpg', ARRAY ['success1', 'success2'], ARRAY ['failure1', 'failure2']);
+values ('Nicolas', 'nicolas.jpg', ARRAY ['success1.jpg', 'success2.jpg'], ARRAY ['failure1', 'failure2']);
   
 insert into public."Flashcard" (name, image, audio, class_name)
 values ('Cat', 'cat.png', 'cat.mp3', 'Domestic animals'),
