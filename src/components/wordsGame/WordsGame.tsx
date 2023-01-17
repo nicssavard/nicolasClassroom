@@ -8,11 +8,9 @@ interface Props {
 }
 
 export default function WordsGame(props: Props) {
-  console.log("render words game");
-  //console.log(props.teacher);
-  //console.log(props.flashcards);
-  const [question, setQuestion] = useState<any>();
+  const [question, setQuestion] = useState<any>(1);
   const [modalIsOpen, setModalIsOpen] = useState<any>();
+
   const successImage =
     props.teacher.success_image[
       Math.floor(Math.random() * props.teacher.success_image.length)
@@ -36,7 +34,7 @@ export default function WordsGame(props: Props) {
       correctAnswers();
       changeQuestion();
     } else {
-      alert("Wrong!");
+      //alert("Wrong!");
     }
   };
 
@@ -55,16 +53,21 @@ export default function WordsGame(props: Props) {
     setQuestion(newQuestion);
   };
 
-  return (
-    <>
-      {modalIsOpen && <SuccessModal image={successImage}></SuccessModal>}
-      <div onClick={askQuestion} className="mx-auto w-fit">
-        <Teacher teacher={props.teacher}></Teacher>
-      </div>
-      <FlashcardsBoard
-        onClick={checkAnswer}
-        flashcards={props.flashcards}
-      ></FlashcardsBoard>
-    </>
-  );
+  if (question || question === 0) {
+    return (
+      <>
+        {modalIsOpen && <SuccessModal image={successImage}></SuccessModal>}
+        <div onClick={askQuestion} className="mx-auto w-fit">
+          <Teacher teacher={props.teacher}></Teacher>
+        </div>
+        <FlashcardsBoard
+          onClick={checkAnswer}
+          flashcards={props.flashcards}
+          answer={props.flashcards[question]?.name}
+        ></FlashcardsBoard>
+      </>
+    );
+  }
+
+  return <div>Loading</div>;
 }

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import SuccessModal from "./SuccessModal";
 
 interface Props {
   teacher: Teacher;
@@ -7,9 +6,9 @@ interface Props {
 
 export default function Teacher(props: Props) {
   return (
-    <div className="m-auto w-fit cursor-pointer rounded-lg bg-green-dark p-2 shadow duration-300 hover:scale-105 hover:bg-green-light sm:p-3">
+    <div className="m-auto w-fit cursor-pointer rounded-lg bg-green-dark p-2 shadow duration-300 hover:scale-105 hover:bg-green-light 1080:p-3">
       <div>
-        <div className="relative h-32 w-32 sm:h-56 sm:w-56 1080:h-64 1080:w-64">
+        <div className="xl:h-42 xl:w-42 relative h-32 w-32 1080:h-64 1080:w-64">
           <Image
             draggable="false"
             className="rounded-lg"

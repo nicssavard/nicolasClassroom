@@ -13,7 +13,6 @@ import { signIn, signOut, useSession } from "next-auth/react";
 
 const Header: React.FC = () => {
   const { data: sessionData } = useSession();
-  //console.log(sessionData);
   return (
     <Disclosure as="nav" className="font-face-gm bg-green-dark shadow">
       {({ open }) => (
