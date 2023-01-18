@@ -40,6 +40,10 @@ export default function Flashcard(props: Props) {
       dragConstraints={positionRef}
       dragElastic={1}
       whileTap={{ scale: 0.95 }}
+      onPanEnd={(event, info) => {
+        console.log("pan");
+        clickHandler();
+      }}
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.2 }}
       initial={{ y: 500 }}
