@@ -28,7 +28,7 @@ export default function Flashcard(props: Props) {
       //execute function after 1 second
       setTimeout(() => {
         setDisplay(false);
-      }, 1000);
+      }, 500);
     }
     props.onClick(props.flashcard.name);
   };
@@ -43,7 +43,7 @@ export default function Flashcard(props: Props) {
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.2 }}
       initial={{ y: 500 }}
-      animate={{ y: 0 }}
+      animate={{ y: 0, transition: { duration: 1 } }}
       onClick={clickHandler}
       className={`m-2 cursor-pointer rounded-lg bg-green-dark p-2 shadow-2xl  sm:m-5 1080:mx-10`}
     >

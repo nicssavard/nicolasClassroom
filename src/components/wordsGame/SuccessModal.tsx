@@ -41,7 +41,7 @@ export default function SuccessModal(props: Props) {
                 <motion.div
                   initial={{ y: -1000 }}
                   animate={{ y: 0 }}
-                  transition={{ duration: 1 }}
+                  transition={{ delay: 0.5, duration: 1 }}
                 >
                   <div className="relative h-64 w-64 2xl:h-96 2xl:w-96 ">
                     <Image
