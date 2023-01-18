@@ -69,5 +69,5 @@ export default function WordsGame(props: Props) {
     );
   }
 
-  return <div>Loading</div>;
+  return <div></div>;
 }

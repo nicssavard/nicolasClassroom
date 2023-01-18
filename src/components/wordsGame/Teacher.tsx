@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface Props {
   teacher: Teacher;
@@ -6,7 +7,14 @@ interface Props {
 
 export default function Teacher(props: Props) {
   return (
-    <div className="m-auto w-fit cursor-pointer rounded-lg bg-green-dark p-2 shadow duration-300 hover:scale-105 hover:bg-green-light 1080:p-3">
+    <motion.div
+      whileHover={{
+        scale: 1.05,
+        transition: { duration: 0.1 },
+      }}
+      whileTap={{ scale: 0.95 }}
+      className="m-auto w-fit cursor-pointer rounded-lg bg-green-dark p-2 shadow-2xl duration-300 1080:p-3"
+    >
       <div>
         <div className="xl:h-42 xl:w-42 relative h-32 w-32 sm:h-40 sm:w-40 1080:h-64 1080:w-64">
           <Image
@@ -21,6 +29,6 @@ export default function Teacher(props: Props) {
           <h1>{props.teacher.name}</h1>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

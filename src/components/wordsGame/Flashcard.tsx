@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 interface Props {
   flashcard: {
@@ -13,6 +14,7 @@ interface Props {
 
 export default function Flashcard(props: Props) {
   const [display, setDisplay] = useState(true);
+  const positionRef = useRef(null);
   useEffect(() => {
     const initialiseDisplay = () => {
       setDisplay(true);
@@ -23,19 +25,29 @@ export default function Flashcard(props: Props) {
 
   const clickHandler = () => {
     if (props.answer !== props.flashcard.name) {
-      setDisplay(false);
+      //execute function after 1 second
+      setTimeout(() => {
+        setDisplay(false);
+      }, 1000);
     }
     props.onClick(props.flashcard.name);
   };
 
+  if (!display) return <div></div>;
   return (
-    <div
+    <motion.div
+      drag
+      dragConstraints={positionRef}
+      dragElastic={1}
+      whileTap={{ scale: 0.95 }}
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.2 }}
+      initial={{ y: 500 }}
+      animate={{ y: 0 }}
       onClick={clickHandler}
-      className={`${
-        !display && "hidden"
-      } m-2 cursor-pointer rounded-lg bg-green-dark p-2 shadow duration-300 hover:scale-105 hover:bg-green-light sm:m-5 sm:p-3 1080:mx-10`}
+      className={`m-2 cursor-pointer rounded-lg bg-green-dark p-2 shadow-2xl  sm:m-5 1080:mx-10`}
     >
-      <div>
+      <motion.div ref={positionRef}>
         <div className="relative h-32 w-32 sm:h-40 sm:w-40 1080:h-64 1080:w-64">
           <Image
             draggable="false"
@@ -48,7 +60,7 @@ export default function Flashcard(props: Props) {
         <div className="pt-2 text-3xl text-gold-500 sm:pt-3 1080:text-4xl">
           <h1>{props.flashcard.name}</h1>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

@@ -14,7 +14,7 @@ const Class: React.FC = () => {
   });
 
   if (!flashcards || !teacher) {
-    return <div>Loading</div>;
+    return <div></div>;
   }
   return (
     <div className="select-none pt-5">
