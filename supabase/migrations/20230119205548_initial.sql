@@ -93,9 +93,9 @@ create table "public"."User" (
     "email" text,
     "emailVerified" timestamp(3) without time zone,
     "image" text,
-    "points" integer not null default 0,
-    "tries" integer not null default 0,
-    "group_name" text not null
+    "points" integer default 0,
+    "tries" integer default 0,
+    "group_name" text
 );
 
 
