@@ -4,11 +4,10 @@ interface Props {
   flashcards: { image: string; name: string; audio: string }[];
   onClick: (answer: string) => void;
   answer: string | undefined;
+  isMobile: boolean;
 }
 
 export default function FlashcardsBoard(props: Props) {
-  let screenWidth = screen.width > 768;
-
   const flashcardsList = props.flashcards.map((flashcard, index) => {
     return (
       <Flashcard
@@ -16,7 +15,7 @@ export default function FlashcardsBoard(props: Props) {
         flashcard={flashcard}
         key={index}
         answer={props.answer}
-        screenWidth={screenWidth}
+        isMobile={props.isMobile}
       />
     );
   });

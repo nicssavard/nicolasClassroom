@@ -10,7 +10,7 @@ interface Props {
   onClick: (answer: string) => void;
   key: number;
   answer: string | undefined;
-  screenWidth: boolean;
+  isMobile: boolean;
 }
 
 export default function Flashcard(props: Props) {
@@ -25,7 +25,6 @@ export default function Flashcard(props: Props) {
   }, [props.answer]);
 
   const clickHandler = () => {
-    console.log("click");
     if (props.answer !== props.flashcard.name) {
       //execute function after 1 second
       setTimeout(() => {
@@ -44,8 +43,9 @@ export default function Flashcard(props: Props) {
         dragElastic={1}
         whileTap={{ scale: 0.95 }}
         onPanEnd={(event, info) => {
-          console.log("pan");
-          clickHandler();
+          if (props.isMobile) {
+            clickHandler();
+          }
         }}
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.2 }}
@@ -53,9 +53,8 @@ export default function Flashcard(props: Props) {
         animate={{ y: 0, transition: { duration: 1 } }}
         onClick={() => {
           //Make sure that the function is not executed on twice mobile devices
-          if (!props.screenWidth) {
-            clickHandler();
-          }
+
+          clickHandler();
         }}
         className={` cursor-pointer rounded-lg bg-green-dark p-2 shadow-2xl`}
       >

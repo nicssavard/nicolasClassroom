@@ -9,7 +9,6 @@ interface Props {
 }
 export default function SuccessModal(props: Props) {
   const [open, setOpen] = useState(true);
-  console.log("render success modal: " + props.image);
 
   return (
     <Transition.Root show={open} as={Fragment}>

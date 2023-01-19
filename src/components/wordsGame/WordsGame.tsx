@@ -11,6 +11,7 @@ export default function WordsGame(props: Props) {
   const [question, setQuestion] = useState<any>(1);
   const [modalIsOpen, setModalIsOpen] = useState<any>();
   const isMobile = screen.width < 768;
+
   const successImage =
     props.teacher.success_image[
       Math.floor(Math.random() * props.teacher.success_image.length)
@@ -76,6 +77,7 @@ export default function WordsGame(props: Props) {
           onClick={checkAnswer}
           flashcards={props.flashcards}
           answer={props.flashcards[question]?.name}
+          isMobile={isMobile}
         ></FlashcardsBoard>
       </>
     );
