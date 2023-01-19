@@ -23,10 +23,10 @@ export default function SuccessModal(props: Props) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="borde fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+          <div className="fixed inset-0 max-h-screen w-screen border bg-gray-500 bg-opacity-75 transition-opacity" />
         </Transition.Child>
 
-        <div className="fixed inset-0 z-10 overflow-y-auto">
+        <div className="fixed inset-0 z-10 max-h-screen w-screen overflow-y-auto">
           <div className="flex min-h-full  items-center justify-center p-4 text-center sm:p-0">
             <Transition.Child
               as={Fragment}
@@ -41,7 +41,7 @@ export default function SuccessModal(props: Props) {
                 <motion.div
                   initial={{ y: -1000 }}
                   animate={{ y: 0 }}
-                  transition={{ delay: 0.5, duration: 1 }}
+                  transition={{ delay: 1, duration: 1 }}
                 >
                   <div className="relative h-64 w-64 2xl:h-96 2xl:w-96 ">
                     <Image

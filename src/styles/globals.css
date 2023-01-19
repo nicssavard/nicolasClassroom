@@ -12,3 +12,7 @@
 .font-face-gm {
   font-family: "Ubuntu";
 }
+
+html {
+  padding-right: 0 !important;
+}

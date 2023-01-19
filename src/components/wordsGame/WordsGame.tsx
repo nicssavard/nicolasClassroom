@@ -22,7 +22,7 @@ export default function WordsGame(props: Props) {
     };
     initialiseVar();
   }, []);
-  console.log(question);
+
   const askQuestion = () => {
     const audio = new Audio(`/flashcards/${props.flashcards[question]?.audio}`);
     audio.play();

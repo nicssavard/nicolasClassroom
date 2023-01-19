@@ -7,6 +7,8 @@ interface Props {
 }
 
 export default function FlashcardsBoard(props: Props) {
+  let screenWidth = screen.width > 768;
+
   const flashcardsList = props.flashcards.map((flashcard, index) => {
     return (
       <Flashcard
@@ -14,6 +16,7 @@ export default function FlashcardsBoard(props: Props) {
         flashcard={flashcard}
         key={index}
         answer={props.answer}
+        screenWidth={screenWidth}
       />
     );
   });
