@@ -10,7 +10,7 @@ interface Props {
 export default function WordsGame(props: Props) {
   const [question, setQuestion] = useState<any>(1);
   const [modalIsOpen, setModalIsOpen] = useState<any>();
-
+  const isMobile = screen.width < 768;
   const successImage =
     props.teacher.success_image[
       Math.floor(Math.random() * props.teacher.success_image.length)
@@ -57,7 +57,19 @@ export default function WordsGame(props: Props) {
     return (
       <>
         {modalIsOpen && <SuccessModal image={successImage}></SuccessModal>}
-        <div onClick={askQuestion} className="mx-auto w-fit">
+        <div
+          onClick={() => {
+            if (!isMobile) {
+              askQuestion();
+            }
+          }}
+          onTouchStart={() => {
+            if (isMobile) {
+              askQuestion();
+            }
+          }}
+          className="mx-auto w-fit"
+        >
           <Teacher teacher={props.teacher}></Teacher>
         </div>
         <FlashcardsBoard
