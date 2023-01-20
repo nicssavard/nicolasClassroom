@@ -1,10 +1,8 @@
 type Class = {
-  _id: string;
-  subject: string;
+  id: number;
+  subject_name: string;
   name: string;
   image: string;
-  teacher: string;
-  flashcards: [string];
 };
 
 type Flashcard = {

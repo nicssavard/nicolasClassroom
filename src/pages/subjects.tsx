@@ -7,5 +7,5 @@ export default function Subjects(): JSX.Element {
   if (subjects) {
     return <ListSubject subjects={subjects}></ListSubject>;
   }
-  return <div>loading</div>;
+  return <div></div>;
 }

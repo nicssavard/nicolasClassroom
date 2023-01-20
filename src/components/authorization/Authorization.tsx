@@ -7,7 +7,6 @@ export default function Authorization(props: any) {
   if (sessionData) {
     return <div>{props.children}</div>;
   } else {
-    console.log("not logged in");
     return <SignIn></SignIn>;
   }
 }

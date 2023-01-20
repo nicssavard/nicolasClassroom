@@ -38,7 +38,7 @@ export default function SignIn() {
                 signIn("credentials", {
                   username: usernameRef.current?.value,
                   password: passwordRef.current?.value,
-                  //redirect to home page after login
+                  //redirect to home page after successfull login
                   callbackUrl: "/",
                 })
               }
