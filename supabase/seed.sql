@@ -1,4 +1,7 @@
 -- in supabase/seed.sql
+insert into public."User" (id, name, encrypted_password, image)
+values ('cld3oqdd00000vkp0l96pt39i', 'nicolas', '2f1995444cf9df2d9eb382c4971883a0:35cd1fecd18d6e6bb5f0446d725bb19b03d660453231cbfece7ecd0fe740aedc', 'nicolas.jpg');
+
 insert into public."Subject" (name, image)
 values
   ('Words', 'words.jpg'),
@@ -12,7 +15,7 @@ values ('Domestic animals', 'domestic_animals.png', 'Words'),
   ('Zoo animals', 'zoo_animals.jpg', 'Words');
 
 insert into public."Teacher" (name, image, success_image, failure_image)
-values ('Nicolas', 'nicolas.jpg', ARRAY ['success1.jpg', 'success2.jpg'], ARRAY ['failure1', 'failure2']);
+values ('nicolas', 'nicolas.jpg', ARRAY ['success1.jpg', 'success2.jpg'], ARRAY ['failure1', 'failure2']);
   
 insert into public."Flashcard" (name, image, audio, class_name)
 values ('Cat', 'cat.png', 'cat.mp3', 'Domestic animals'),

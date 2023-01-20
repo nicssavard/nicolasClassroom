@@ -90,6 +90,7 @@ create table "public"."Teacher" (
 create table "public"."User" (
     "id" text not null,
     "name" text,
+    "encrypted_password" text,
     "email" text,
     "emailVerified" timestamp(3) without time zone,
     "image" text,

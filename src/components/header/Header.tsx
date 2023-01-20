@@ -13,6 +13,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 
 const Header: React.FC = () => {
   const { data: sessionData } = useSession();
+  console.log(sessionData);
   return (
     <Disclosure as="nav" className="font-face-gm bg-green-dark shadow-2xl">
       {({ open }) => (
@@ -63,7 +64,7 @@ const Header: React.FC = () => {
                         {sessionData?.user?.image ? (
                           <img
                             className="h-8 w-8 rounded-full"
-                            src={`${sessionData?.user?.image}`}
+                            src={`users/${sessionData?.user?.image}`}
                             alt=""
                           />
                         ) : (
@@ -97,7 +98,7 @@ const Header: React.FC = () => {
                         </Menu.Item>
                         <Menu.Item>
                           <NavLink
-                            href="/"
+                            href=""
                             onClick={
                               sessionData ? () => signOut() : () => signIn()
                             }
@@ -135,7 +136,7 @@ const Header: React.FC = () => {
                   {sessionData?.user?.image ? (
                     <img
                       className="h-8 w-8 rounded-full"
-                      src={`${sessionData?.user?.image}`}
+                      src={`users/${sessionData?.user?.image}`}
                       alt=""
                     />
                   ) : (
