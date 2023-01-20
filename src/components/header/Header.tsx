@@ -64,7 +64,7 @@ const Header: React.FC = () => {
                         {sessionData?.user?.image ? (
                           <img
                             className="h-8 w-8 rounded-full"
-                            src={`users/${sessionData?.user?.image}`}
+                            src={`/users/${sessionData?.user?.image}`}
                             alt=""
                           />
                         ) : (
@@ -136,7 +136,7 @@ const Header: React.FC = () => {
                   {sessionData?.user?.image ? (
                     <img
                       className="h-8 w-8 rounded-full"
-                      src={`users/${sessionData?.user?.image}`}
+                      src={`/users/${sessionData?.user?.image}`}
                       alt=""
                     />
                   ) : (

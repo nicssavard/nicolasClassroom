@@ -38,9 +38,9 @@ export default function SuccessModal(props: Props) {
             >
               <Dialog.Panel className="rounded-lg  p-2">
                 <motion.div
-                  initial={{ y: -1000 }}
+                  initial={{ y: -2000 }}
                   animate={{ y: 0 }}
-                  transition={{ delay: 1, duration: 1 }}
+                  transition={{ duration: 2 }}
                 >
                   <div className="relative h-64 w-64 2xl:h-96 2xl:w-96 ">
                     <Image
