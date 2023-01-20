@@ -3,6 +3,8 @@ import DiscordProvider from "next-auth/providers/discord";
 import CredentialsProvider from "next-auth/providers/credentials";
 // Prisma adapter for NextAuth, optional and can be removed
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
+//import { privateEncrypt } from "crypto";
+/* eslint-disable @typescript-eslint/no-var-requires */
 const encryptpwd = require("encrypt-with-password");
 
 import { env } from "../../../env/server.mjs";
