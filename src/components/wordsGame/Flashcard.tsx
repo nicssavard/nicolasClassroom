@@ -56,7 +56,7 @@ export default function Flashcard(props: Props) {
 
           clickHandler();
         }}
-        className={` cursor-pointer rounded-lg bg-green-dark p-2 shadow-2xl`}
+        className={` cursor-pointer rounded-lg bg-green-dark p-1 shadow-2xl sm:p-2`}
       >
         <motion.div>
           <div className="relative h-32 w-32 sm:h-40 sm:w-40 1080:h-64 1080:w-64">
@@ -68,7 +68,7 @@ export default function Flashcard(props: Props) {
               fill={true}
             />
           </div>
-          <div className="pt-2 text-3xl text-gold-500 sm:pt-3 1080:text-4xl">
+          <div className="pt-1  text-3xl text-gold-500 sm:pt-2 1080:text-4xl">
             <h1>{props.flashcard.name}</h1>
           </div>
         </motion.div>
