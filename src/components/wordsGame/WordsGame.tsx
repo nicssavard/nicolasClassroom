@@ -8,6 +8,7 @@ interface Props {
 }
 
 export default function WordsGame(props: Props) {
+  console.log(props.flashcards);
   const [question, setQuestion] = useState<any>(1);
   const [modalIsOpen, setModalIsOpen] = useState<any>();
   const isMobile = screen.width < 768;
@@ -35,7 +36,12 @@ export default function WordsGame(props: Props) {
       correctAnswers();
       changeQuestion();
     } else {
-      //alert("Wrong!");
+      const audio = new Audio(
+        `/flashcards/${props.flashcards[question]?.audio}`
+      );
+      setTimeout(() => {
+        audio.play();
+      }, 1000);
     }
   };
 
@@ -58,27 +64,29 @@ export default function WordsGame(props: Props) {
     return (
       <>
         {modalIsOpen && <SuccessModal image={successImage}></SuccessModal>}
-        <div
-          onClick={() => {
-            if (!isMobile) {
-              askQuestion();
-            }
-          }}
-          onTouchStart={() => {
-            if (isMobile) {
-              askQuestion();
-            }
-          }}
-          className="mx-auto w-fit"
-        >
-          <Teacher teacher={props.teacher}></Teacher>
+        <div className="select-none pt-5">
+          <div
+            onClick={() => {
+              if (!isMobile) {
+                askQuestion();
+              }
+            }}
+            onTouchStart={() => {
+              if (isMobile) {
+                askQuestion();
+              }
+            }}
+            className="mx-auto w-fit"
+          >
+            <Teacher teacher={props.teacher}></Teacher>
+          </div>
+          <FlashcardsBoard
+            onClick={checkAnswer}
+            flashcards={props.flashcards}
+            answer={props.flashcards[question]?.name}
+            isMobile={isMobile}
+          ></FlashcardsBoard>
         </div>
-        <FlashcardsBoard
-          onClick={checkAnswer}
-          flashcards={props.flashcards}
-          answer={props.flashcards[question]?.name}
-          isMobile={isMobile}
-        ></FlashcardsBoard>
       </>
     );
   }

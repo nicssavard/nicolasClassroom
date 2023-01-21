@@ -3,6 +3,9 @@ import { z } from "zod";
 import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
 
 export const flashcardsRouter = createTRPCRouter({
+  getFlashcards: publicProcedure.query(({ ctx }) => {
+    return ctx.prisma.flashcard.findMany();
+  }),
   getFlashcardsByClass: publicProcedure
     .input(z.object({ class: z.union([z.string(), z.array(z.string())]) }))
     .query(({ ctx, input }) => {

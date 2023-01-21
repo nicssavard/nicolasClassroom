@@ -16,10 +16,6 @@ const Class: React.FC = () => {
   if (!flashcards || !teacher) {
     return <div></div>;
   }
-  return (
-    <div className="select-none pt-5">
-      <WordsGame teacher={teacher} flashcards={flashcards}></WordsGame>
-    </div>
-  );
+  return <WordsGame teacher={teacher} flashcards={flashcards}></WordsGame>;
 };
 export default Class;
