@@ -97,6 +97,7 @@ create table "public"."User" (
     "image" text,
     "points" integer default 0,
     "tries" integer default 0,
+    "is_admin" boolean default false,
     "group_name" text
 );
 

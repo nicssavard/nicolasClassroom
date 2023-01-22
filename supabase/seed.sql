@@ -1,6 +1,10 @@
 -- in supabase/seed.sql
-insert into public."User" (id, name, encrypted_password, image)
-values ('cld3oqdd00000vkp0l96pt39i', 'nicolas', '2f1995444cf9df2d9eb382c4971883a0:35cd1fecd18d6e6bb5f0446d725bb19b03d660453231cbfece7ecd0fe740aedc', 'nicolas.jpg');
+insert into public."User" (id, name, is_admin, encrypted_password, image)
+values ('cld3oqdd00000vkp0l96pt39i', 'nicolas', TRUE, '2f1995444cf9df2d9eb382c4971883a0:35cd1fecd18d6e6bb5f0446d725bb19b03d660453231cbfece7ecd0fe740aedc', 'nicolas.jpg');
+
+insert into public."User" (id, name, group_name, is_admin, encrypted_password, image)
+values ('cld3oqdd00010vkp0l96pt39i', 'student1', 'kc1', FALSE, 'e1ee12038f4c068fdd112925c07847e8:777fcb34e2b2a0a8b5f38207740d0ab0936aa901bd833cfd0a444027d9bec560', 'student1.jpg'),
+       ('cld3oqdd00210vkp0l96pt39i', 'student2', 'kc1', FALSE, '4449632f043648976d9a296dcf9b0084:d39913587963ef2e1d8ae6ec200a00e6237133b0e794edd2f56476a94d601d6d', 'student2.jpg');
 
 insert into public."Subject" (name, image)
 values

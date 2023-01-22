@@ -45,10 +45,6 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        const encryptKey = env.PASSWORD_ENCRYPTION_KEY;
-        console.log("credentials", credentials);
-        console.log(credentials?.username);
-        console.log(credentials?.password);
         if (!credentials?.username) {
           return null;
         }
@@ -56,13 +52,8 @@ export const authOptions: NextAuthOptions = {
         const user = await prisma.user.findFirst({
           where: { name: credentials?.username },
         });
-        console.log("password");
-        console.log(user?.encrypted_password);
         let passwordIsValid = null;
         try {
-          console.log(
-            encryptpwd.decrypt(user?.encrypted_password, credentials?.password)
-          );
           passwordIsValid =
             env.PASSWORD_ENCRYPTION_KEY ===
             encryptpwd.decrypt(user?.encrypted_password, credentials?.password);

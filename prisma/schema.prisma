@@ -56,6 +56,7 @@ model User {
     image         String?
     points        Int?       @default(0)
     tries         Int?       @default(0)
+    is_admin      Boolean?   @default(false)
     group_name    String?
     accounts      Account[]
     sessions      Session[]
