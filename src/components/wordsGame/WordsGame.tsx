@@ -3,6 +3,8 @@ import FlashcardsBoard from "./FlashcardsBoard";
 import SuccessModal from "./SuccessModal";
 import { useState, useEffect } from "react";
 import { StarIcon } from "@heroicons/react/24/outline";
+import { useSession } from "next-auth/react";
+import { api } from "../../utils/api";
 
 interface Props {
   teacher: Teacher;
@@ -10,7 +12,15 @@ interface Props {
 }
 
 export default function WordsGame(props: Props) {
-  console.log(props.flashcards);
+  const { data: sessionData } = useSession();
+  console.log(sessionData);
+  let user: User | undefined;
+  if (sessionData?.user?.name) {
+    ({ data: user } = api.users.getUserByName.useQuery({
+      name: sessionData?.user.name,
+    }));
+  }
+
   const [question, setQuestion] = useState<any>(1);
   const [modalIsOpen, setModalIsOpen] = useState<any>();
   const [stars, setStars] = useState<any>(0);
@@ -100,6 +110,7 @@ export default function WordsGame(props: Props) {
               {displayStars}
             </div>
             <Teacher teacher={props.teacher}></Teacher>
+            {user?.is_admin && <div>ADMIN</div>}
           </div>
           <FlashcardsBoard
             onClick={checkAnswer}

@@ -34,6 +34,7 @@ type User = {
   image: string;
   position: string;
   priviledge: string;
+  is_admin: boolean;
   points: number;
   group: {
     _id: string;
