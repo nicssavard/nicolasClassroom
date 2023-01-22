@@ -28,22 +28,22 @@ type Subject = {
 };
 
 type User = {
-  _id: string;
-  username: string;
-  name: string;
-  image: string;
-  position: string;
-  priviledge: string;
-  is_admin: boolean;
-  points: number;
-  group: {
+  id: string;
+  username?: string;
+  name: string | null;
+  image: string | null;
+  position?: string;
+  priviledge?: string;
+  is_admin: boolean | null;
+  points: number | null;
+  group?: {
     _id: string;
     name: string;
     teacher: string;
     image: string;
   };
-  failureImage: [string];
-  successImage: [string];
+  failureImage?: [string];
+  successImage?: [string];
 };
 
 type Teacher = {
