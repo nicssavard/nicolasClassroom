@@ -46,6 +46,7 @@ create table "public"."Flashcard" (
     "name" text not null,
     "image" text not null,
     "audio" text not null,
+    "subject_name" text not null,
     "class_name" text not null
 );
 

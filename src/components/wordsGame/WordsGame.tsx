@@ -2,6 +2,8 @@ import Teacher from "./Teacher";
 import FlashcardsBoard from "./FlashcardsBoard";
 import SuccessModal from "./SuccessModal";
 import { useState, useEffect } from "react";
+import { StarIcon } from "@heroicons/react/24/outline";
+
 interface Props {
   teacher: Teacher;
   flashcards: Flashcard[];
@@ -11,6 +13,7 @@ export default function WordsGame(props: Props) {
   console.log(props.flashcards);
   const [question, setQuestion] = useState<any>(1);
   const [modalIsOpen, setModalIsOpen] = useState<any>();
+  const [stars, setStars] = useState<any>(0);
   const isMobile = screen.width < 768;
 
   const successImage =
@@ -50,6 +53,9 @@ export default function WordsGame(props: Props) {
     setTimeout(() => {
       setModalIsOpen(false);
     }, 5000);
+    if (stars < 10) {
+      setStars(stars + 1);
+    }
   };
 
   const changeQuestion = () => {
@@ -59,6 +65,18 @@ export default function WordsGame(props: Props) {
     }
     setQuestion(newQuestion);
   };
+
+  const starsIcon = () => {
+    let starss = [];
+    for (let i = 0; i < stars; i++) {
+      starss.push(
+        <StarIcon className="mx-auto h-8 w-8 fill-yellow-500 sm:h-12 sm:w-12"></StarIcon>
+      );
+    }
+    return starss;
+  };
+
+  const displayStars = starsIcon();
 
   if (question || question === 0) {
     return (
@@ -78,6 +96,9 @@ export default function WordsGame(props: Props) {
             }}
             className="mx-auto w-fit"
           >
+            <div className="flex-column fixed left-2 flex h-28 w-28 flex-wrap content-start items-start justify-start sm:h-40 sm:w-40">
+              {displayStars}
+            </div>
             <Teacher teacher={props.teacher}></Teacher>
           </div>
           <FlashcardsBoard

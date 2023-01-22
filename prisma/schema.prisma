@@ -98,6 +98,7 @@ model Flashcard {
     name   String
     image  String
     audio  String
+    subject_name   String
     class_name String
 }
 

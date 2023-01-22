@@ -68,7 +68,7 @@ export default function Flashcard(props: Props) {
               fill={true}
             />
           </div>
-          <div className="pt-1  text-3xl text-gold-500 sm:pt-2 1080:text-4xl">
+          <div className="pt-1  text-2xl text-gold-500 sm:pt-2 sm:text-3xl 1080:text-4xl">
             <h1>{props.flashcard.name}</h1>
           </div>
         </motion.div>

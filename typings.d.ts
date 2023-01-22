@@ -10,6 +10,8 @@ type Flashcard = {
   name: string;
   audio: string;
   image: string;
+  subject_name: string;
+  class_name: string;
 };
 
 type Group = {

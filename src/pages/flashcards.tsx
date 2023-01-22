@@ -5,7 +5,9 @@ import { api } from "../utils/api";
 
 export default function Flashcards() {
   const [game, setGame] = useState(false);
-  const { data: flashcards } = api.flashcards.getFlashcards.useQuery();
+  const { data: flashcards } = api.flashcards.getFlashcardsBySubject.useQuery({
+    subject: "Words",
+  });
   const { data: teacher } = api.teachers.getOneTeacher.useQuery();
   const [flashcardsList, setFlashcardslist] = useState<Flashcard[]>([]);
 
