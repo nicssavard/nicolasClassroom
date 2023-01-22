@@ -67,13 +67,13 @@ export default function WordsGame(props: Props) {
   };
 
   const starsIcon = () => {
-    let starss = [];
+    const starsList = [];
     for (let i = 0; i < stars; i++) {
-      starss.push(
+      starsList.push(
         <StarIcon className="mx-auto h-8 w-8 fill-yellow-500 sm:h-12 sm:w-12"></StarIcon>
       );
     }
-    return starss;
+    return starsList;
   };
 
   const displayStars = starsIcon();
