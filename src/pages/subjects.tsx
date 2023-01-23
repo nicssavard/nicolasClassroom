@@ -1,11 +1,22 @@
+import { GetServerSideProps } from "next";
 import ListSubject from "../components/subjects/ListSubjects";
 
-import { api } from "../utils/api";
+import prisma from "../utils/prisma";
 
-export default function Subjects(): JSX.Element {
-  const { data: subjects } = api.subjects.getSubjects.useQuery();
-  if (subjects) {
-    return <ListSubject subjects={subjects}></ListSubject>;
+interface Props {
+  subjects: Subject[];
+}
+export default function Subjects(props: Props): JSX.Element {
+  if (props.subjects) {
+    return <ListSubject subjects={props.subjects}></ListSubject>;
   }
   return <div></div>;
 }
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const subjects = await prisma.subject.findMany();
+  return {
+    props: {
+      subjects: subjects,
+    },
+  };
+};
