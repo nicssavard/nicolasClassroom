@@ -9,8 +9,6 @@ export const flashcardsRouter = createTRPCRouter({
   getFlashcardsByClass: publicProcedure
     .input(z.object({ class: z.union([z.string(), z.array(z.string())]) }))
     .query(({ ctx, input }) => {
-      console.log("test");
-      console.log(input.class);
       if (Array.isArray(input.class)) {
         return ctx.prisma.flashcard.findMany({
           where: {
@@ -29,8 +27,6 @@ export const flashcardsRouter = createTRPCRouter({
   getFlashcardsBySubject: publicProcedure
     .input(z.object({ subject: z.string() }))
     .query(({ ctx, input }) => {
-      console.log("test");
-      console.log(input.subject);
       if (Array.isArray(input.subject)) {
         return ctx.prisma.flashcard.findMany({
           where: {

@@ -10,14 +10,20 @@ import NavLink from "./NavLink";
 import SearchBar from "./SearchBar";
 
 import { signIn, signOut, useSession } from "next-auth/react";
+import { api } from "../../utils/api";
+import useStore from "../../store/userStore";
 
 const Header: React.FC = () => {
   const { data: sessionData } = useSession();
-  console.log(sessionData);
-  //if sessionData is null, then return nothing
-  // if (sessionData === null) {
-  //   return null;
-  // }
+  //placeholder will never be used, but it is needed to prevent a typescript error
+  const { data: user } = api.users.getUserByName.useQuery({
+    name: sessionData?.user?.name ? sessionData.user.name : "placeholder",
+  });
+  const setUser = useStore((state) => state.setUser);
+  if (user) {
+    setUser(user);
+  }
+
   return (
     <Disclosure as="nav" className="font-face-gm bg-green-dark shadow-2xl">
       {({ open }) => (

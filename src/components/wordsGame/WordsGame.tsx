@@ -4,29 +4,19 @@ import SuccessModal from "./SuccessModal";
 import Student from "./Student";
 import { useState, useEffect } from "react";
 import { StarIcon } from "@heroicons/react/24/outline";
-import { useSession } from "next-auth/react";
 import { api } from "../../utils/api";
-
+import useStore from "../../store/userStore";
 interface Props {
   teacher: Teacher;
   flashcards: Flashcard[];
 }
 
 export default function WordsGame(props: Props) {
-  const { data: sessionData } = useSession();
-  console.log(sessionData);
-  let user: User | undefined;
-  if (sessionData?.user?.name) {
-    ({ data: user } = api.users.getUserByName.useQuery({
-      name: sessionData?.user.name,
-    }));
-  }
+  const user = useStore((state) => state.user);
+  console.log(user);
+
   const { data: students } = api.users.getUsers.useQuery();
-  console.log(students);
-  // if (user && user.is_admin) {
-  //   const { data: students } = api.users.getUsers.useQuery();
-  //   console.log(3);
-  // }
+  const [correctAnswersAmount, setCorrectAnswersAmount] = useState<any>(0);
   const [student, setStudent] = useState<User | undefined>();
   const [question, setQuestion] = useState<any>(1);
   const [modalIsOpen, setModalIsOpen] = useState<any>();
@@ -83,8 +73,8 @@ export default function WordsGame(props: Props) {
     setTimeout(() => {
       setModalIsOpen(false);
     }, 5000);
-    if (stars < 10) {
-      setStars(stars + 1);
+    if (correctAnswersAmount < 10) {
+      setCorrectAnswersAmount(correctAnswersAmount + 1);
     }
   };
 
@@ -98,7 +88,7 @@ export default function WordsGame(props: Props) {
 
   const starsIcon = () => {
     const starsList = [];
-    for (let i = 0; i < stars; i++) {
+    for (let i = 0; i < correctAnswersAmount; i++) {
       starsList.push(
         <StarIcon className="mx-auto h-8 w-8 fill-yellow-500 sm:h-12 sm:w-12"></StarIcon>
       );

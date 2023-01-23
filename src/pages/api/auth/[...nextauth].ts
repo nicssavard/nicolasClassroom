@@ -63,7 +63,7 @@ export const authOptions: NextAuthOptions = {
 
         if (passwordIsValid) {
           // Any object returned will be saved in `user` property of the JWT
-          console.log("user", user);
+
           return user;
         } else {
           // If you return null then an error will be displayed advising the user to check their details.
