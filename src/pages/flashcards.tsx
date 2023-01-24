@@ -2,23 +2,27 @@ import ListFlashcards from "../components/flashcards/ListFlashcards";
 import WordsGame from "../components/wordsGame/WordsGame";
 import { useState } from "react";
 import { api } from "../utils/api";
+import { GetServerSideProps } from "next";
+import prisma from "../utils/prisma";
 
-export default function Flashcards() {
+interface Props {
+  flashcards: Flashcard[];
+  teacher: Teacher;
+}
+
+export default function Flashcards({
+  flashcards,
+  teacher,
+}: Props): JSX.Element {
   const [game, setGame] = useState(false);
-  const { data: flashcards } = api.flashcards.getFlashcardsBySubject.useQuery({
-    subject: "Words",
-  });
-  const { data: teacher } = api.teachers.getOneTeacher.useQuery();
   const [flashcardsList, setFlashcardslist] = useState<Flashcard[]>([]);
 
   const addFlashcard = (flashcard: Flashcard) => {
     setFlashcardslist([...flashcardsList, flashcard]);
-    console.log(flashcardsList);
   };
 
   const removeFlashcard = (flashcard: Flashcard) => {
     setFlashcardslist(flashcardsList.filter((f) => f !== flashcard));
-    console.log(flashcardsList);
   };
   if (game && teacher) {
     return (
@@ -49,3 +53,16 @@ export default function Flashcards() {
   }
   return <div></div>;
 }
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const flashcards = await prisma.flashcard.findMany({
+    where: { subject_name: "Words" },
+  });
+  const teacher = await prisma.teacher.findFirst();
+  return {
+    props: {
+      flashcards: flashcards,
+      teacher: teacher,
+    },
+  };
+};
