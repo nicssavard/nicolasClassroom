@@ -6,9 +6,9 @@ interface Props {
   subjects: Subject[];
 }
 
-export default function Subjects(props: Props): JSX.Element {
-  if (props.subjects) {
-    return <ListSubject subjects={props.subjects}></ListSubject>;
+export default function Subjects({ subjects }: Props): JSX.Element {
+  if (subjects) {
+    return <ListSubject subjects={subjects}></ListSubject>;
   }
   return <div></div>;
 }

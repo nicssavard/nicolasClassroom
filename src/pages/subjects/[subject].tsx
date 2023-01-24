@@ -6,8 +6,8 @@ interface Props {
   classes: Class[];
 }
 
-export default function Subjects(props: Props): JSX.Element {
-  return <ListClasses classes={props.classes}></ListClasses>;
+export default function Subjects({ classes }: Props): JSX.Element {
+  return <ListClasses classes={classes}></ListClasses>;
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {

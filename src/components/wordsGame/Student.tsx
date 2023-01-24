@@ -25,8 +25,8 @@ export default function Student(props: Props) {
             transition: { duration: 0.1 },
           }}
           transition={{ duration: 0.1 }}
-          initial={{ y: -500 }}
-          animate={{ y: 0, transition: { duration: 1 } }}
+          initial={{ scale: 0 }}
+          animate={{ scale: 1, transition: { duration: 1 } }}
           whileTap={{ scale: 0.95, transition: { duration: 1 } }}
           className="m-auto w-fit cursor-pointer rounded-lg bg-green-dark p-1 shadow-2xl sm:p-2 1080:p-3"
         >

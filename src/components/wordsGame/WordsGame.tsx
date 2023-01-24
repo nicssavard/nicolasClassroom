@@ -13,14 +13,12 @@ interface Props {
 
 export default function WordsGame(props: Props) {
   const user = useStore((state) => state.user);
-  console.log(user);
 
   const { data: students } = api.users.getUsers.useQuery();
   const [correctAnswersAmount, setCorrectAnswersAmount] = useState<any>(0);
   const [student, setStudent] = useState<User | undefined>();
   const [question, setQuestion] = useState<any>(1);
   const [modalIsOpen, setModalIsOpen] = useState<any>();
-  const [stars, setStars] = useState<any>(0);
   const isMobile = screen.width < 768;
 
   const successImage =
@@ -45,7 +43,6 @@ export default function WordsGame(props: Props) {
       if (newStudent) {
         setStudent(newStudent);
       }
-      console.log(newStudent);
     }
   };
   const askQuestion = () => {
