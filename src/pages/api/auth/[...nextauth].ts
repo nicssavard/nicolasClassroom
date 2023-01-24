@@ -3,6 +3,7 @@ import DiscordProvider from "next-auth/providers/discord";
 import CredentialsProvider from "next-auth/providers/credentials";
 // Prisma adapter for NextAuth, optional and can be removed
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
+const bcrypt = require("bcrypt");
 //import { privateEncrypt } from "crypto";
 /* eslint-disable @typescript-eslint/no-var-requires */
 const encryptpwd = require("encrypt-with-password");
@@ -52,18 +53,14 @@ export const authOptions: NextAuthOptions = {
         const user = await prisma.user.findFirst({
           where: { name: credentials?.username },
         });
-        let passwordIsValid = null;
-        try {
-          passwordIsValid =
-            env.PASSWORD_ENCRYPTION_KEY ===
-            encryptpwd.decrypt(user?.encrypted_password, credentials?.password);
-        } catch (error) {
-          console.log("error", error);
-        }
+
+        const passwordIsValid = await bcrypt.compare(
+          credentials?.password,
+          user?.encrypted_password
+        );
 
         if (passwordIsValid) {
           // Any object returned will be saved in `user` property of the JWT
-
           return user;
         } else {
           // If you return null then an error will be displayed advising the user to check their details.
