@@ -73,7 +73,7 @@ export default function WordsGame(props: Props) {
     setTimeout(() => {
       setModalIsOpen(false);
     }, 5000);
-    if (correctAnswersAmount < 10) {
+    if (correctAnswersAmount < 9) {
       setCorrectAnswersAmount(correctAnswersAmount + 1);
     }
   };

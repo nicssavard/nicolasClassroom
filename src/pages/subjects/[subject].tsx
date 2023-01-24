@@ -1,19 +1,24 @@
 import ListClasses from "../../components/classes/ListClasses";
-import { useRouter } from "next/router";
-import { api } from "../../utils/api";
+import { GetServerSideProps } from "next";
+import prisma from "../../utils/prisma";
 
-export default function Subjects(): JSX.Element {
-  const router = useRouter();
-  let subject = router.query.subject;
-  if (!subject) {
-    subject = "";
-  }
-  const { data: classes } = api.classes.getClassesForSubject.useQuery({
-    subject: subject,
+interface Props {
+  classes: Class[];
+}
+
+export default function Subjects(props: Props): JSX.Element {
+  return <ListClasses classes={props.classes}></ListClasses>;
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const subject = context.query.subject;
+  const classes = await prisma.class.findMany({
+    where: { subject_name: subject },
   });
 
-  if (classes) {
-    return <ListClasses classes={classes}></ListClasses>;
-  }
-  return <div>loading</div>;
-}
+  return {
+    props: {
+      classes: classes,
+    },
+  };
+};
