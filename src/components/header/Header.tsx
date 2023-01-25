@@ -21,7 +21,6 @@ const Header: React.FC = () => {
   });
   const setUser = useStore((state) => state.setUser);
   if (user) {
-    console.log("user: ", user);
     setUser(user);
   }
 
