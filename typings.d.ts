@@ -29,7 +29,7 @@ type Subject = {
 
 type User = {
   id: string;
-  username?: string;
+  username?: string | null;
   name: string | null;
   image: string | null;
   position?: string;

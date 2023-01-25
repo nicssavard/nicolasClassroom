@@ -1,11 +1,11 @@
 -- in supabase/seed.sql
-insert into public."User" (id, name, is_admin, encrypted_password, image)
-values ('cld3oqdd00000vkp0l96pt39i', 'nicolas', TRUE, '$2b$10$QkPCWNvFjPGPZ7K4BnCQtO.OjbXlSFKHum8XnggM7U.haLkyJSwYy', 'nicolas.jpg');
+insert into public."User" (id, username, name, is_admin, encrypted_password, image)
+values ('cld3oqdd00000vkp0l96pt39i', 'nicolas', 'nicolas', TRUE, '$2b$10$QkPCWNvFjPGPZ7K4BnCQtO.OjbXlSFKHum8XnggM7U.haLkyJSwYy', 'nicolas.jpg');
 
-insert into public."User" (id, name, group_name, is_admin, encrypted_password, image)
-values ('cld3oqdd00010vkp0l96pt39i', 'student1', 'kc1', FALSE, '$2b$10$MAcXguCFHTV5ES5xG9CF8.BYAfWkqyB/E6R7/rQLUHGj19NO4uecq', 'student1.jpg'),
-       ('cld3oqdd00210vkp0l96pt39i', 'student2', 'kc1', FALSE, '$2b$10$RnIhgvVkWb8r2aVmIBnoxuyZDDw2NHhYpx1sR9nVyXO6dl.kkW1Ha', 'student2.jpg'),
-       ('cld3oqda00210vkp0l96pt39i', 'abby', 'kc1', FALSE, '$2b$10$lEsy9v0/9p.o3AaHH0smnuqRgWdEu64jNDYR1YI4qjIyPVBwlEWb6', 'abby.jpg');
+insert into public."User" (id, username, name, group_name, is_admin, encrypted_password, image)
+values ('cld3oqdd00010vkp0l96pt39i', 'student1', 'student1', 'kc1', FALSE, '$2b$10$MAcXguCFHTV5ES5xG9CF8.BYAfWkqyB/E6R7/rQLUHGj19NO4uecq', 'student1.jpg'),
+       ('cld3oqdd00210vkp0l96pt39i', 'student2', 'student2', 'kc1', FALSE, '$2b$10$RnIhgvVkWb8r2aVmIBnoxuyZDDw2NHhYpx1sR9nVyXO6dl.kkW1Ha', 'student2.jpg'),
+       ('cld3oqda00210vkp0l96pt39i', 'kc1abby', 'abby', 'kc1', FALSE, '$2b$10$lEsy9v0/9p.o3AaHH0smnuqRgWdEu64jNDYR1YI4qjIyPVBwlEWb6', 'abby.jpg');
 
 insert into public."Subject" (name, image)
 values

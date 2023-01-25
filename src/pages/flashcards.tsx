@@ -1,7 +1,7 @@
 import ListFlashcards from "../components/flashcards/ListFlashcards";
 import WordsGame from "../components/wordsGame/WordsGame";
 import { useState } from "react";
-import { api } from "../utils/api";
+
 import { GetServerSideProps } from "next";
 import prisma from "../utils/prisma";
 

@@ -8,7 +8,7 @@ const bcrypt = require("bcrypt");
 
 import { env } from "../../../env/server.mjs";
 import { prisma } from "../../../server/db";
-//import { api } from "../../../utils/api.js";
+
 export const authOptions: NextAuthOptions = {
   // Include user.id on session
   // callbacks: {
@@ -49,7 +49,7 @@ export const authOptions: NextAuthOptions = {
         }
 
         const user = await prisma.user.findFirst({
-          where: { name: credentials?.username },
+          where: { username: credentials?.username },
         });
 
         const passwordIsValid = await bcrypt.compare(

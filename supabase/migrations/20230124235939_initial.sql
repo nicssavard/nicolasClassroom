@@ -90,6 +90,7 @@ create table "public"."Teacher" (
 
 create table "public"."User" (
     "id" text not null,
+    "username" text,
     "name" text,
     "encrypted_password" text,
     "email" text,
@@ -146,6 +147,8 @@ CREATE UNIQUE INDEX "Teacher_pkey" ON public."Teacher" USING btree (id);
 CREATE UNIQUE INDEX "User_email_key" ON public."User" USING btree (email);
 
 CREATE UNIQUE INDEX "User_pkey" ON public."User" USING btree (id);
+
+CREATE UNIQUE INDEX "User_username_key" ON public."User" USING btree (username);
 
 CREATE UNIQUE INDEX "VerificationToken_identifier_token_key" ON public."VerificationToken" USING btree (identifier, token);
 
