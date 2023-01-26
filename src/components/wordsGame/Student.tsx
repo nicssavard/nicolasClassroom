@@ -42,9 +42,9 @@ export default function Student(props: Props) {
                 fill={true}
               />
             </div>
-            {/* <div className="pt-2 text-3xl text-gold-500 sm:pt-3 1080:text-4xl">
-              <h1>{props.student.name}</h1>
-            </div> */}
+            <div className="pt-2 text-3xl text-gold-500 sm:pt-3 1080:text-4xl">
+              <h1>{props.student.points}</h1>
+            </div>
           </div>
         </motion.div>
       </div>

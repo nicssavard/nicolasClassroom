@@ -5,6 +5,7 @@ import Student from "./Student";
 import { useState, useEffect } from "react";
 import { StarIcon } from "@heroicons/react/24/outline";
 import useStore from "../../store/userStore";
+import { api } from "../../utils/api";
 
 interface Props {
   teacher: Teacher;
@@ -14,6 +15,9 @@ interface Props {
 
 export default function WordsGame({ flashcards, teacher, students }: Props) {
   const user = useStore((state) => state.user);
+
+  const username = "nicolas";
+  const addOne = api.users.addOnePoint.useMutation();
 
   const [correctAnswersAmount, setCorrectAnswersAmount] = useState<any>(0);
   const [student, setStudent] = useState<User | undefined>();
@@ -74,6 +78,11 @@ export default function WordsGame({ flashcards, teacher, students }: Props) {
   };
 
   const correctAnswers = () => {
+    if (student?.username) {
+      addOne.mutate({ username: student.username });
+    } else if (user?.username) {
+      addOne.mutate({ username: user.username });
+    }
     setModalIsOpen(true);
     setTimeout(() => {
       setModalIsOpen(false);

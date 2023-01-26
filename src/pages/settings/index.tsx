@@ -39,7 +39,6 @@ interface Props {
 }
 
 export default function Settings({ groups }: Props): JSX.Element {
-  console.log(groups);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [content, setContent] = useState("Group");
   return (
