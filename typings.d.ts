@@ -15,10 +15,8 @@ type Flashcard = {
 };
 
 type Group = {
-  _id: string;
+  id?: string;
   name: string;
-  teacher: string;
-  image: string;
 };
 
 type Subject = {

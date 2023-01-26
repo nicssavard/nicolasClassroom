@@ -7,6 +7,12 @@ values ('cld3oqdd00010vkp0l96pt39i', 'student1', 'student1', 'kc1', FALSE, '$2b$
        ('cld3oqdd00210vkp0l96pt39i', 'student2', 'student2', 'kc1', FALSE, '$2b$10$RnIhgvVkWb8r2aVmIBnoxuyZDDw2NHhYpx1sR9nVyXO6dl.kkW1Ha', 'student2.jpg'),
        ('cld3oqda00210vkp0l96pt39i', 'kc1abby', 'abby', 'kc1', FALSE, '$2b$10$lEsy9v0/9p.o3AaHH0smnuqRgWdEu64jNDYR1YI4qjIyPVBwlEWb6', 'abby.jpg');
 
+insert into public."Group" (name)
+values 
+  ('kc1'),
+  ('kc2'),
+  ('default');
+  
 insert into public."Subject" (name, image)
 values
   ('Words', 'words.jpg'),

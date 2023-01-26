@@ -29,7 +29,7 @@ export default function Flashcard(props: Props) {
       //execute function after 1 second
       setTimeout(() => {
         setDisplay(false);
-      }, 500);
+      }, 100);
     }
     props.onClick(props.flashcard.name);
   };

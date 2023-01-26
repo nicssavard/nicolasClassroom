@@ -3,12 +3,14 @@ import { useState } from "react";
 import { proseWrap } from "../../../prettier.config.cjs";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import useStore from "../../store/userStore";
 
 interface Props {
   student: User | undefined;
   pickStudent: () => void;
 }
 export default function Student(props: Props) {
+  const group = useStore((state) => state.group);
   const pickStudent = () => {
     props.pickStudent();
   };
@@ -53,7 +55,7 @@ export default function Student(props: Props) {
       className="fixed right-2 flex rounded-xl bg-green-dark py-2 px-4 text-xl font-bold text-gold-500  "
       onClick={pickStudent}
     >
-      Student
+      {group} Students
     </button>
   );
 }

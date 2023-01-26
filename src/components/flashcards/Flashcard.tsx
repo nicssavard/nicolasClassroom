@@ -13,11 +13,9 @@ export default function Flashcard(props: Props) {
   const [isSelected, setIsSelected] = useState(false);
   const onClickHandler = () => {
     if (isSelected) {
-      console.log("Unselected");
       props.removeFlashcard(props.flashcard);
       setIsSelected(false);
     } else {
-      console.log("Selected");
       props.addFlashcard(props.flashcard);
       setIsSelected(true);
     }

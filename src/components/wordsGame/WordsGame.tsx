@@ -4,37 +4,37 @@ import SuccessModal from "./SuccessModal";
 import Student from "./Student";
 import { useState, useEffect } from "react";
 import { StarIcon } from "@heroicons/react/24/outline";
-import { api } from "../../utils/api";
 import useStore from "../../store/userStore";
+
 interface Props {
   teacher: Teacher;
   flashcards: Flashcard[];
+  students: User[];
 }
 
-export default function WordsGame(props: Props) {
+export default function WordsGame({ flashcards, teacher, students }: Props) {
   const user = useStore((state) => state.user);
 
-  const { data: students } = api.users.getUsers.useQuery();
   const [correctAnswersAmount, setCorrectAnswersAmount] = useState<any>(0);
   const [student, setStudent] = useState<User | undefined>();
   const [question, setQuestion] = useState<any>(1);
   const [modalIsOpen, setModalIsOpen] = useState<any>();
+  let audioIsPlaying = false;
   const isMobile = screen.width < 768;
-
   const successImage =
-    props.teacher.success_image[
-      Math.floor(Math.random() * props.teacher.success_image.length)
+    teacher.success_image[
+      Math.floor(Math.random() * teacher.success_image.length)
     ];
   useEffect(() => {
     const initialiseVar = () => {
-      setQuestion(Math.floor(Math.random() * props.flashcards.length));
+      setQuestion(Math.floor(Math.random() * flashcards.length));
       setModalIsOpen(false);
     };
     initialiseVar();
   }, []);
 
   const pickStudent = () => {
-    if (students) {
+    if (students[0]) {
       let newStudent = students[Math.floor(Math.random() * students.length)];
       while (student === newStudent) {
         newStudent = students[Math.floor(Math.random() * students.length)];
@@ -46,22 +46,30 @@ export default function WordsGame(props: Props) {
     }
   };
   const askQuestion = () => {
-    const audio = new Audio(`/flashcards/${props.flashcards[question]?.audio}`);
+    const audio = new Audio(`/flashcards/${flashcards[question]?.audio}`);
     audio.play();
   };
 
+  let audio: HTMLAudioElement = new Audio(
+    `/flashcards/${flashcards[question]?.audio}`
+  );
+
   const checkAnswer = (answer: string) => {
-    const rightAnswer = answer === props.flashcards[question]?.name;
+    const rightAnswer = answer === flashcards[question]?.name;
     if (rightAnswer) {
       correctAnswers();
       changeQuestion();
     } else {
-      const audio = new Audio(
-        `/flashcards/${props.flashcards[question]?.audio}`
-      );
-      setTimeout(() => {
-        audio.play();
-      }, 1000);
+      if (!audioIsPlaying) {
+        audioIsPlaying = true;
+        audio = new Audio(`/flashcards/${flashcards[question]?.audio}`);
+        setTimeout(() => {
+          audio.play();
+        }, 1000);
+        setTimeout(() => {
+          audioIsPlaying = false;
+        }, audio.duration * 1000 + 1000);
+      }
     }
   };
 
@@ -76,9 +84,9 @@ export default function WordsGame(props: Props) {
   };
 
   const changeQuestion = () => {
-    let newQuestion = Math.floor(Math.random() * props.flashcards.length);
+    let newQuestion = Math.floor(Math.random() * flashcards.length);
     while (question === newQuestion) {
-      newQuestion = Math.floor(Math.random() * props.flashcards.length);
+      newQuestion = Math.floor(Math.random() * flashcards.length);
     }
     setQuestion(newQuestion);
   };
@@ -87,7 +95,10 @@ export default function WordsGame(props: Props) {
     const starsList = [];
     for (let i = 0; i < correctAnswersAmount; i++) {
       starsList.push(
-        <StarIcon className="mx-auto h-8 w-8 fill-yellow-500 sm:h-12 sm:w-12"></StarIcon>
+        <StarIcon
+          key={i}
+          className="mx-auto h-8 w-8 fill-yellow-500 sm:h-12 sm:w-12"
+        ></StarIcon>
       );
     }
     return starsList;
@@ -119,13 +130,13 @@ export default function WordsGame(props: Props) {
                 }
               }}
             >
-              <Teacher teacher={props.teacher}></Teacher>
+              <Teacher teacher={teacher}></Teacher>
             </div>
           </div>
           <FlashcardsBoard
             onClick={checkAnswer}
-            flashcards={props.flashcards}
-            answer={props.flashcards[question]?.name}
+            flashcards={flashcards}
+            answer={flashcards[question]?.name}
             isMobile={isMobile}
           ></FlashcardsBoard>
         </div>
