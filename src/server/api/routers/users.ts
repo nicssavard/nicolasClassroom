@@ -27,7 +27,7 @@ export const usersRouter = createTRPCRouter({
   addOnePoint: publicProcedure
     .input(z.object({ username: z.string() }))
     .mutation(({ ctx, input }) => {
-      return ctx.prisma.user.update({
+      return ctx.prisma.user.updateMany({
         where: {
           username: input.username,
         },
