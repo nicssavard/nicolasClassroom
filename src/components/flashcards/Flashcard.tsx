@@ -25,7 +25,7 @@ export default function Flashcard(props: Props) {
     <div
       onClick={onClickHandler}
       className={`${
-        isSelected ? "bg-green-light" : "bg-green-dark"
+        isSelected ? "bg-palette-700" : "bg-palette-700 opacity-50"
       } m-2 cursor-pointer  rounded-lg p-2 shadow duration-300 hover:scale-105 sm:m-5 sm:p-3 xl:mx-10`}
     >
       <div>

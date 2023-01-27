@@ -15,7 +15,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
   pageProps: { session, ...pageProps },
 }) => {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-cyan-500 to-blue-500">
+    <div className="min-h-screen bg-palette-500">
       <SessionProvider session={session}>
         <Head>
           <title>Nicolas Classroom</title>

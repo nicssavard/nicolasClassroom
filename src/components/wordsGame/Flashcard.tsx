@@ -58,7 +58,7 @@ export default function Flashcard(props: Props) {
         }}
         className={`${
           !display && "opacity-40"
-        } cursor-pointer rounded-lg bg-green-dark p-1 shadow-2xl sm:p-2`}
+        } cursor-pointer rounded-lg bg-palette-700 p-1 shadow-2xl sm:p-2`}
       >
         <motion.div>
           <div className="relative h-32 w-32 sm:h-40 sm:w-40 1080:h-64 1080:w-64">

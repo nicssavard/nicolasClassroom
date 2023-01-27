@@ -15,7 +15,7 @@ interface Props {
 
 export default function WordsGame({ flashcards, teacher, students }: Props) {
   const user = useStore((state) => state.user);
-  const addOne = api.users.addOnePoint.useMutation();
+  const addOne: any = api.users.addOnePoint.useMutation();
 
   const [correctAnswersAmount, setCorrectAnswersAmount] = useState<any>(0);
   const [student, setStudent] = useState<User | undefined>();

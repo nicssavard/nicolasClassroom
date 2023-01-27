@@ -12,7 +12,7 @@ interface Props {
 export default function Class(props: Props) {
   return (
     <Link className="m-2 sm:m-5 xl:mx-10" href={`/class/${props.class.name}`}>
-      <div className="rounded-lg bg-green-dark p-2 shadow duration-300 hover:scale-105 hover:bg-green-light sm:p-3">
+      <div className="rounded-lg bg-palette-700 p-2 shadow duration-300 hover:scale-105 hover:bg-palette-800 sm:p-3">
         <div>
           <div className="relative h-32 w-32 sm:h-56 sm:w-56 1080:h-64 1080:w-64">
             <Image

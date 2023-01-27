@@ -21,13 +21,13 @@ export default function SelectGroup({ groups }: Props): JSX.Element {
   };
   return (
     <>
-      <div className="my-10 mx-auto flex w-4/6 flex-col rounded-2xl bg-green-light text-center sm:w-1/4 1080:w-1/6">
+      <div className="my-10 mx-auto flex w-4/6 flex-col rounded-2xl bg-palette-600 text-center sm:w-1/4 1080:w-1/6">
         {/* username and password input */}
         <div className="p-3">
           <h1 className="text-xl font-bold ">Select the group</h1>
           <div className="flex flex-col space-y-4 pt-3">
             <select
-              className="rounded-lg bg-gray-200 p-3"
+              className="rounded-lg bg-palette-100 p-3"
               name="group"
               id="group"
               ref={groupRef}
