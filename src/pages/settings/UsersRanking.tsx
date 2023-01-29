@@ -9,8 +9,9 @@ export default function UsersRanking({ users }: Props) {
   const ranking = users.map((user) => {
     return (
       <div key={user.id}>
-        <p>{user.name}</p>
-        <p>{user.points}</p>
+        <div>
+          {user.name}: {user.points} points
+        </div>
       </div>
     );
   });

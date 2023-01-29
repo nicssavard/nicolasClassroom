@@ -9,11 +9,13 @@ import { api } from "../utils/api";
 interface Props {
   flashcards: Flashcard[];
   teacher: Teacher;
+  subjects: Subject[];
 }
 
 export default function Flashcards({
   flashcards,
   teacher,
+  subjects,
 }: Props): JSX.Element {
   const group = useStore((state) => state.group);
   const { data: students } = api.users.getUsersByGroup.useQuery({
@@ -21,6 +23,22 @@ export default function Flashcards({
   });
   const [game, setGame] = useState(false);
   const [flashcardsList, setFlashcardslist] = useState<Flashcard[]>([]);
+  const [flashcardsDisplayed, setFlashcardsDisplayed] =
+    useState<Flashcard[]>(flashcards);
+
+  //const [subject, setSubject] = useState<any>(subjects[0].name || "");
+
+  const subjectsList = subjects.map((subject: Subject) => {
+    return (
+      <option key={subject._id} value={subject.name}>
+        {subject.name}
+      </option>
+    );
+  });
+
+  const subjectHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    console.log(e.target.value);
+  };
 
   const addFlashcard = (flashcard: Flashcard) => {
     setFlashcardslist([...flashcardsList, flashcard]);
@@ -41,11 +59,17 @@ export default function Flashcards({
   if (flashcards) {
     return (
       <>
-        <div>Select flashcards to review</div>
+        <div className="flex flex-row justify-center">
+          <div>Select flashcards to review</div>
+          <select onChange={subjectHandler} name="subject" id="subject">
+            {subjectsList}
+          </select>
+        </div>
+
         <ListFlashcards
           addFlashcard={addFlashcard}
           removeFlashcard={removeFlashcard}
-          flashcards={flashcards}
+          flashcards={flashcardsDisplayed}
         ></ListFlashcards>
         <div className="pt-5">
           <button
@@ -64,14 +88,15 @@ export default function Flashcards({
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const flashcards = await prisma.flashcard.findMany({
-    where: { subject_name: "Words" },
-  });
+  const flashcards = await prisma.flashcard.findMany();
   const teacher = await prisma.teacher.findFirst();
+  const subjects = await prisma.subject.findMany();
+
   return {
     props: {
       flashcards: flashcards,
       teacher: teacher,
+      subjects: subjects,
     },
   };
 };
