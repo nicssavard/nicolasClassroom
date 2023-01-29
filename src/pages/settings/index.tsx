@@ -13,12 +13,13 @@ import {
 } from "@heroicons/react/24/outline";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import SelectGroup from "./SelectGroup";
+import UsersRanking from "./UsersRanking";
 import { GetServerSideProps } from "next";
 import prisma from "../../utils/prisma";
 
 const navigation = [
   { name: "Group", href: "#", icon: HomeIcon, current: true },
-  { name: "Team", href: "#", icon: UsersIcon, current: false },
+  { name: "Users ranking", href: "#", icon: UsersIcon, current: false },
   { name: "Projects", href: "#", icon: FolderIcon, current: false },
   { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
   { name: "Documents", href: "#", icon: InboxIcon, current: false },
@@ -36,9 +37,10 @@ function classNames(...classes: string[]) {
 
 interface Props {
   groups: Group[];
+  users: User[];
 }
 
-export default function Settings({ groups }: Props): JSX.Element {
+export default function Settings({ groups, users }: Props): JSX.Element {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [content, setContent] = useState("Group");
   return (
@@ -188,6 +190,7 @@ export default function Settings({ groups }: Props): JSX.Element {
 
           <main className="flex-1">
             {content === "Group" && <SelectGroup groups={groups} />}
+            {content === "Users ranking" && <UsersRanking users={users} />}
           </main>
         </div>
       </div>
@@ -197,10 +200,12 @@ export default function Settings({ groups }: Props): JSX.Element {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const groups = await prisma.group.findMany();
-
+  const users = await prisma.user.findMany();
+  users.sort((a: any, b: any) => b.points - a.points);
   return {
     props: {
       groups: groups,
+      users: users,
     },
   };
 };

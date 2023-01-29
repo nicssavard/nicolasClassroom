@@ -9,7 +9,7 @@ export default function Admin() {
     console.log("not logged in");
     return (
       <button
-        className="px-10 py-3 font-semibold no-underline transition rounded-full bg-white/10 hover:bg-white/20"
+        className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
         onClick={sessionData ? () => signOut() : () => signIn()}
       >
         {sessionData ? "Sign out" : "Sign in"}

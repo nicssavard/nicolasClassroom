@@ -96,16 +96,23 @@ const Header: React.FC = () => {
                       leaveTo="transform opacity-0 scale-95"
                     >
                       <Menu.Items className="absolute right-0 z-10 mt-2 flex w-48 origin-top-right flex-col rounded-md bg-green-dark py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        {sessionData?.user?.name !== null && (
+                        {user?.is_admin && user?.name && (
+                          <Menu.Item>
+                            <NavLink href="settings">{user.name}</NavLink>
+                          </Menu.Item>
+                        )}
+                        {/* {sessionData?.user?.name !== null && (
                           <Menu.Item>
                             <NavLink href="settings">
                               {sessionData?.user?.name}
                             </NavLink>
                           </Menu.Item>
+                        )} */}
+                        {user?.is_admin && (
+                          <Menu.Item>
+                            <NavLink href="admin">admin</NavLink>
+                          </Menu.Item>
                         )}
-                        <Menu.Item>
-                          <NavLink href="admin">admin</NavLink>
-                        </Menu.Item>
                         <Menu.Item>
                           <NavLink
                             href=""
