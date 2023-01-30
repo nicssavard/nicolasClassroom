@@ -1,6 +1,6 @@
 type Class = {
   id: number;
-  subject_name: string;
+  subject_id: number;
   name: string;
   image: string;
 };
@@ -10,38 +10,31 @@ type Flashcard = {
   name: string;
   audio: string;
   image: string;
-  subject_name: string;
-  class_name: string;
+  class_id: number;
+  subject_id: number;
 };
 
 type Group = {
-  id?: string;
+  id: number;
   name: string;
 };
 
 type Subject = {
-  _id: string;
+  id: number;
   name: string;
   image: string;
 };
 
 type User = {
   id: string;
-  username?: string | null;
-  name: string | null;
-  image: string | null;
-  position?: string;
-  priviledge?: string;
-  is_admin: boolean | null;
-  points: number | null;
-  group?: {
-    _id: string;
-    name: string;
-    teacher: string;
-    image: string;
-  };
-  failureImage?: [string];
-  successImage?: [string];
+  username: string;
+  name: string;
+  encrypted_password: string;
+  image: string;
+  is_admin: boolean;
+  points: number;
+  tries: number;
+  group_id: number;
 };
 
 type Teacher = {

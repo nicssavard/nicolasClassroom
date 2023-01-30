@@ -49,16 +49,17 @@ model Session {
 
 model User {
     id            String    @id @default(cuid())
-    username      String?   
-    name          String?
-    encrypted_password      String?
+    username      String   
+    name          String
+    encrypted_password      String
     email         String?   @unique
     emailVerified DateTime?
-    image         String?
-    points        Int?       @default(0)
-    tries         Int?       @default(0)
-    is_admin      Boolean?   @default(false)
-    group_name    String?
+    image         String
+    points        Int      @default(0)
+    tries         Int       @default(0)
+    is_admin      Boolean   @default(false)
+    group         Group    @relation(fields: [group_id], references: [id])
+    group_id      Int
     accounts      Account[]
     sessions      Session[]
 }
@@ -78,21 +79,26 @@ model Teacher {
 }
 
 model Group {
-    id      Int      @id @default(autoincrement())
-    name    String
+  id        Int       @id @default(autoincrement())
+  name      String
+  users     User[]
 }
 
 model Subject {
     id     Int  @id @default(autoincrement())
     name   String
     image  String
+    flashcards Flashcard[]
+    class Class[]
 }
 
 model Class {
     id     Int  @id @default(autoincrement())
     name   String
     image  String
-    subject_name String
+    subject Subject @relation(fields: [subject_id], references: [id])
+    subject_id Int
+    flashcards Flashcard[]
 }
 
 model Flashcard {
@@ -100,8 +106,10 @@ model Flashcard {
     name   String
     image  String
     audio  String
-    subject_name   String
-    class_name String
+    class Class @relation(fields: [class_id], references: [id])
+    class_id Int
+    subject Subject @relation(fields: [subject_id], references: [id])
+    subject_id Int
 }
 
 model VerificationToken {

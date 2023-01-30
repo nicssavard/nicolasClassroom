@@ -12,7 +12,7 @@ interface Props {
 export default function Class({ flashcards, teacher }: Props): JSX.Element {
   const group = useStore((state) => state.group);
   const { data: students } = api.users.getUsersByGroup.useQuery({
-    group: group,
+    group_id: group.id,
   });
 
   if (!flashcards || !teacher || !students) {
@@ -28,8 +28,19 @@ export default function Class({ flashcards, teacher }: Props): JSX.Element {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  // if (!context.query.class) {
+  //   return {
+  //     notFound: true,
+  //   };
+  // }
+  let class_id: any = Array.isArray(context.query.class)
+    ? context.query.class[0]
+    : context.query.class;
+  if (class_id) {
+    class_id = parseInt(class_id);
+  }
   const flashcards = await prisma.flashcard.findMany({
-    where: { class_name: context.query.class },
+    where: { class_id: class_id },
   });
   const teacher = await prisma.teacher.findFirst();
 

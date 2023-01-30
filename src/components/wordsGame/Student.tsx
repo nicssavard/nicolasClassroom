@@ -55,7 +55,7 @@ export default function Student(props: Props) {
       className="fixed right-2 flex rounded-xl bg-palette-800 py-2 px-4 text-xl font-bold text-gold-500  "
       onClick={pickStudent}
     >
-      {group} Students
+      {group.name} Students
     </button>
   );
 }

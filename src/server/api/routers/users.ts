@@ -7,11 +7,11 @@ export const usersRouter = createTRPCRouter({
     return ctx.prisma.user.findMany();
   }),
   getUsersByGroup: publicProcedure
-    .input(z.object({ group: z.string() }))
+    .input(z.object({ group_id: z.number() }))
     .query(({ ctx, input }) => {
       return ctx.prisma.user.findMany({
         where: {
-          group_name: input.group,
+          group_id: input.group_id,
         },
       });
     }),

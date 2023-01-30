@@ -17,7 +17,11 @@ export default function SelectGroup({ groups }: Props): JSX.Element {
   });
 
   const groupSubmitHandler = () => {
-    setGroup(groupRef?.current?.value);
+    const group = groups.find((group) => group.name === groupRef.current.value);
+    console.log(group);
+    if (group) {
+      setGroup(group);
+    }
   };
   return (
     <>

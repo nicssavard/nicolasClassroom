@@ -1,10 +1,11 @@
+import { Group } from "@prisma/client";
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
 interface UserState {
   user: User;
-  group: string;
-  setGroup: (group: string) => void;
+  group: Group;
+  setGroup: (group: Group) => void;
   setUser: (user: User) => void;
 }
 
@@ -12,10 +13,20 @@ const useStore = create<UserState>()(
   devtools(
     persist(
       (set) => ({
-        user: { name: "", is_admin: false, id: "", image: "", points: 0 },
-        group: "kc1",
-        setGroup: (group) => set(() => ({ group: group })),
-        setUser: (user) => set(() => ({ user: user })),
+        user: {
+          username: "",
+          name: "",
+          encrypted_password: "",
+          is_admin: false,
+          id: "",
+          image: "",
+          points: 0,
+          tries: 0,
+          group_id: 0,
+        },
+        group: { id: 1, name: "kc1" },
+        setGroup: (group: Group) => set(() => ({ group: group })),
+        setUser: (user: User) => set(() => ({ user: user })),
       }),
       {
         name: "user-storage",

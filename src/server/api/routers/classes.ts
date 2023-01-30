@@ -7,20 +7,21 @@ export const classesRouter = createTRPCRouter({
     return ctx.prisma.class.findMany();
   }),
   getClassesForSubject: publicProcedure
-    .input(z.object({ subject: z.union([z.string(), z.array(z.string())]) }))
+    //.input(z.object({ subject: z.union([z.string(), z.array(z.string())]) }))
+    .input(z.object({ subject_id: z.number() }))
     .query(({ ctx, input }) => {
-      if (Array.isArray(input.subject)) {
-        return ctx.prisma.class.findMany({
-          where: {
-            subject_name: {
-              in: input.subject,
-            },
-          },
-        });
-      }
+      // if (Array.isArray(input.subject)) {
+      //   return ctx.prisma.class.findMany({
+      //     where: {
+      //       subject_name: {
+      //         in: input.subject,
+      //       },
+      //     },
+      //   });
+      // }
       return ctx.prisma.class.findMany({
         where: {
-          subject_name: input.subject,
+          subject_id: input.subject_id,
         },
       });
     }),

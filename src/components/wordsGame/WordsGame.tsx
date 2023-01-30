@@ -36,14 +36,18 @@ export default function WordsGame({ flashcards, teacher, students }: Props) {
   }, []);
 
   const pickStudent = () => {
-    if (students[0]) {
-      let newStudent = students[Math.floor(Math.random() * students.length)];
-      while (student === newStudent) {
-        newStudent = students[Math.floor(Math.random() * students.length)];
-      }
+    if (students.length === 1) {
+      setStudent(students[0]);
+    } else {
+      if (students[0]) {
+        let newStudent = students[Math.floor(Math.random() * students.length)];
+        while (student === newStudent) {
+          newStudent = students[Math.floor(Math.random() * students.length)];
+        }
 
-      if (newStudent) {
-        setStudent(newStudent);
+        if (newStudent) {
+          setStudent(newStudent);
+        }
       }
     }
   };
@@ -91,6 +95,10 @@ export default function WordsGame({ flashcards, teacher, students }: Props) {
   };
 
   const changeQuestion = () => {
+    if (flashcards.length === 1) {
+      setQuestion(0);
+      return;
+    }
     let newQuestion = Math.floor(Math.random() * flashcards.length);
     while (question === newQuestion) {
       newQuestion = Math.floor(Math.random() * flashcards.length);

@@ -3,6 +3,7 @@ import Image from "next/image";
 
 interface Props {
   subject: {
+    id: number;
     image: string;
     name: string;
   };
@@ -13,7 +14,7 @@ export default function Subject(props: Props) {
   return (
     <Link
       className="m-2 sm:m-5 xl:mx-10"
-      href={`/subjects/${props.subject.name}`}
+      href={`/subjects/${props.subject.id}`}
     >
       <div className="rounded-lg bg-palette-700 p-2 shadow duration-300 hover:scale-105 hover:bg-palette-800 sm:p-3">
         <div>

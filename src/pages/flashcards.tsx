@@ -19,7 +19,7 @@ export default function Flashcards({
 }: Props): JSX.Element {
   const group = useStore((state) => state.group);
   const { data: students } = api.users.getUsersByGroup.useQuery({
-    group: group,
+    group_id: group.id,
   });
   const [game, setGame] = useState(false);
   const [flashcardsList, setFlashcardslist] = useState<Flashcard[]>([]);
@@ -30,7 +30,7 @@ export default function Flashcards({
 
   const subjectsList = subjects.map((subject: Subject) => {
     return (
-      <option key={subject._id} value={subject.name}>
+      <option key={subject.id} value={subject.name}>
         {subject.name}
       </option>
     );

@@ -11,8 +11,14 @@ export default function Subjects({ classes }: Props): JSX.Element {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  let subject_id: any = Array.isArray(context.query.subject)
+    ? context.query.subject[0]
+    : context.query.subject;
+  if (subject_id) {
+    subject_id = parseInt(subject_id);
+  }
   const classes = await prisma.class.findMany({
-    where: { subject_name: context.query.subject },
+    where: { subject_id: subject_id },
   });
 
   return {
