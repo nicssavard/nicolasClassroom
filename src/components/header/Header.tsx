@@ -55,12 +55,22 @@ const Header: React.FC = () => {
               <SearchBar />
               <div className="flex lg:hidden">
                 {/* Mobile menu button */}
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-green-light hover:bg-green-light hover:text-green-dark focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-light">
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md  text-green-light  hover:text-green-dark focus:outline-none   ">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XMarkIcon className="block h-8 w-8" aria-hidden="true" />
+                    <img
+                      className="h-9 w-9 rounded-full"
+                      src={`/users/${sessionData?.user?.image}`}
+                      alt=""
+                    />
                   ) : (
-                    <Bars3Icon className="block h-8 w-8" aria-hidden="true" />
+                    //<XMarkIcon className="block h-8 w-8" aria-hidden="true" />
+                    <img
+                      className="h-9 w-9 rounded-full"
+                      src={`/users/${sessionData?.user?.image}`}
+                      alt=""
+                    />
+                    //<Bars3Icon className="block h-8 w-8" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
@@ -96,7 +106,7 @@ const Header: React.FC = () => {
                       leaveTo="transform opacity-0 scale-95"
                     >
                       <Menu.Items className="absolute right-0 z-10 mt-2 flex w-48 origin-top-right flex-col rounded-md bg-green-dark py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        {user?.is_admin && user?.name && (
+                        {user?.is_admin && (
                           <Menu.Item>
                             <NavLink href="settings">{user.name}</NavLink>
                           </Menu.Item>
@@ -146,10 +156,27 @@ const Header: React.FC = () => {
               <Disclosure.Button as={NavLink} href="#">
                 homeworks
               </Disclosure.Button>
+              {user?.is_admin && (
+                <Disclosure.Button as={NavLink} href="settings">
+                  {sessionData?.user?.name}
+                </Disclosure.Button>
+              )}
+              {user?.is_admin && (
+                <Disclosure.Button as={NavLink} href="admin">
+                  admin
+                </Disclosure.Button>
+              )}
+              <Disclosure.Button
+                as={NavLink}
+                href="#"
+                onClick={sessionData ? () => signOut() : () => signIn()}
+              >
+                {sessionData ? "Log out" : "Log in"}
+              </Disclosure.Button>
             </div>
-            <div className="border-t border-gray-700 pt-4 pb-3">
+            <div className="border-t border-gray-700">
               <div className="flex items-center justify-center px-5">
-                <div className="flex-shrink-0">
+                {/* <div className="flex-shrink-0">
                   {sessionData?.user?.image ? (
                     <img
                       className="h-8 w-8 rounded-full"
@@ -163,23 +190,27 @@ const Header: React.FC = () => {
                       alt="WFLK"
                     />
                   )}
-                </div>
+                </div> */}
                 <div className="ml-3">
-                  <div className="text-4xl font-medium text-gold-500">
+                  {/* <div className="text-4xl font-medium text-gold-500">
                     {sessionData?.user?.name}
-                  </div>
+                  </div> */}
                   {/* <div className="text-lg font-medium text-gray-400">
                     {user?.position}
                   </div> */}
                 </div>
               </div>
-              <div className="mt-3 flex flex-col space-y-1 px-2">
-                <Disclosure.Button as={NavLink} href="settings">
-                  {sessionData?.user?.name}
-                </Disclosure.Button>
-                <Disclosure.Button as={NavLink} href="admin">
-                  admin
-                </Disclosure.Button>
+              {/* <div className="mt-3 flex flex-col space-y-1 px-2">
+                {user?.is_admin && (
+                  <Disclosure.Button as={NavLink} href="settings">
+                    {sessionData?.user?.name}
+                  </Disclosure.Button>
+                )}
+                {user?.is_admin && (
+                  <Disclosure.Button as={NavLink} href="admin">
+                    admin
+                  </Disclosure.Button>
+                )}
                 <Disclosure.Button
                   as={NavLink}
                   href="#"
@@ -187,7 +218,7 @@ const Header: React.FC = () => {
                 >
                   {sessionData ? "Log out" : "Log in"}
                 </Disclosure.Button>
-              </div>
+              </div> */}
             </div>
           </Disclosure.Panel>
         </>

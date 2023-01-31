@@ -21,6 +21,9 @@ export default function Class(props: Props) {
               src={`/classes/${props.class.image}`}
               alt="Subject Image"
               fill={true}
+              sizes="(max-width: 768px) 100vw,
+            (max-width: 1200px) 50vw,
+            25vw"
             />
           </div>
           <div className="w-32 pt-2 text-3xl text-gold-500 sm:w-56 sm:pt-3 1080:w-64 1080:text-4xl">

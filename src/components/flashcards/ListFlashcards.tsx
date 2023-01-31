@@ -2,6 +2,7 @@ import Flashcard from "./Flashcard";
 
 interface Props {
   flashcards: Flashcard[];
+  flashcardsSubject: number;
   addFlashcard: (flashcard: Flashcard) => void;
   removeFlashcard: (flashcard: Flashcard) => void;
 }
@@ -10,6 +11,7 @@ export default function ListFlashcards(props: Props) {
   const flashcardList = props.flashcards.map((flashcard, index) => {
     return (
       <Flashcard
+        flashcardsSubject={props.flashcardsSubject}
         addFlashcard={props.addFlashcard}
         removeFlashcard={props.removeFlashcard}
         flashcard={flashcard}

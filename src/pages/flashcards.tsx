@@ -23,21 +23,25 @@ export default function Flashcards({
   });
   const [game, setGame] = useState(false);
   const [flashcardsList, setFlashcardslist] = useState<Flashcard[]>([]);
-  const [flashcardsDisplayed, setFlashcardsDisplayed] =
-    useState<Flashcard[]>(flashcards);
-
-  //const [subject, setSubject] = useState<any>(subjects[0].name || "");
-
+  // const [flashcardsDisplayed, setFlashcardsDisplayed] = useState<Flashcard[]>(
+  //   flashcards.filter((f) => f.subject_id === 1)
+  // );
+  const [flashcardsSubject, setFlashcardsSubject] = useState<number>(1);
   const subjectsList = subjects.map((subject: Subject) => {
     return (
-      <option key={subject.id} value={subject.name}>
+      <option key={subject.id} value={subject.id}>
         {subject.name}
       </option>
     );
   });
 
   const subjectHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(e.target.value);
+    //console.log(e.target.value);
+    const subjectId = parseInt(e.target.value);
+    // setFlashcardsDisplayed(
+    //   flashcards.filter((f) => f.subject_id === subjectId)
+    // );
+    setFlashcardsSubject(subjectId);
   };
 
   const addFlashcard = (flashcard: Flashcard) => {
@@ -59,21 +63,26 @@ export default function Flashcards({
   if (flashcards) {
     return (
       <>
-        <div className="flex flex-row justify-center">
-          <div>Select flashcards to review</div>
-          <select onChange={subjectHandler} name="subject" id="subject">
+        <div className="mt-4 flex flex-row justify-center">
+          <select
+            className="rounded-xl p-1"
+            onChange={subjectHandler}
+            name="subject"
+            id="subject"
+          >
             {subjectsList}
           </select>
         </div>
 
         <ListFlashcards
+          flashcardsSubject={flashcardsSubject}
           addFlashcard={addFlashcard}
           removeFlashcard={removeFlashcard}
-          flashcards={flashcardsDisplayed}
+          flashcards={flashcards}
         ></ListFlashcards>
         <div className="pt-5">
           <button
-            className="rounded-full bg-green-dark py-2 px-4 text-4xl font-bold text-gold-500 hover:bg-green-light"
+            className="rounded-full bg-palette-700 py-2 px-4 text-4xl font-bold text-gold-500 hover:bg-green-light"
             onClick={() => {
               setGame(true);
             }}

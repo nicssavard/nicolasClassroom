@@ -18,13 +18,12 @@ export default function SearchBar() {
 
   const searchClass = (event: any) => {
     event.preventDefault();
-    console.log("searching for class: " + search.current.value);
     let valid = false;
     if (classesData)
       classesData.forEach((eclass: any) => {
         if (eclass.name === search.current.value) {
           setIsValid(true);
-          router.push(`/class/${search.current.value}`);
+          router.push(`/class/${eclass.id}`);
           valid = true;
           return;
         }

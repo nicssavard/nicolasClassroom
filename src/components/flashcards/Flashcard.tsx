@@ -4,6 +4,7 @@ import { useState } from "react";
 
 interface Props {
   flashcard: Flashcard;
+  flashcardsSubject: number;
   key: number;
   addFlashcard: (flashcard: Flashcard) => void;
   removeFlashcard: (flashcard: Flashcard) => void;
@@ -20,11 +21,13 @@ export default function Flashcard(props: Props) {
       setIsSelected(true);
     }
   };
-
   return (
     <div
       onClick={onClickHandler}
       className={`${
+        props.flashcard.subject_id === props.flashcardsSubject ? "" : "hidden"
+      }
+      ${
         isSelected ? "bg-palette-700" : "bg-palette-700 opacity-50"
       } m-2 cursor-pointer  rounded-lg p-2 shadow duration-300 hover:scale-105 sm:m-5 sm:p-3 xl:mx-10`}
     >
@@ -35,6 +38,9 @@ export default function Flashcard(props: Props) {
             src={`/flashcards/${props.flashcard.image}`}
             alt="Subject Image"
             fill={true}
+            sizes="(max-width: 768px) 100vw,
+            (max-width: 1200px) 50vw,
+            25vw"
           />
         </div>
         <div className="pt-2 text-3xl text-gold-500 sm:pt-3 1080:text-4xl">
