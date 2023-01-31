@@ -10,7 +10,7 @@ export default function UsersRanking({ users }: Props) {
     return (
       <div key={user.id}>
         <div>
-          {user.name}: {user.points} points
+          {user.username}: {user.points} points
         </div>
       </div>
     );
