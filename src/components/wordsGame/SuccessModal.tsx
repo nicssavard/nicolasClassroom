@@ -49,10 +49,6 @@ export default function SuccessModal(props: Props) {
                       src={`/teachers/${props.image}`}
                       alt="Flashcard Image"
                       fill={true}
-                      sizes="(max-width: 768px) 100vw,
-            (max-width: 1200px) 50vw,
-            25vw"
-                      priority
                     />
                   </div>
                   <div className="text-center">

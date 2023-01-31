@@ -69,9 +69,6 @@ export default function Flashcard(props: Props) {
               src={`/flashcards/${props.flashcard.image}`}
               alt="Flashcard Image"
               fill={true}
-              sizes="(max-width: 768px) 100vw,
-            (max-width: 1200px) 50vw,
-            25vw"
             />
           </div>
           <div className="pt-1  text-2xl text-gold-500 sm:pt-2 sm:text-3xl 1080:text-4xl">
