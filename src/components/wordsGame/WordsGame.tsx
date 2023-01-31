@@ -17,10 +17,10 @@ export default function WordsGame({ flashcards, teacher, students }: Props) {
   const user = useStore((state) => state.user);
   const addOne: any = api.users.addOnePoint.useMutation();
 
-  const [correctAnswersAmount, setCorrectAnswersAmount] = useState<any>(0);
+  const [correctAnswersAmount, setCorrectAnswersAmount] = useState<number>(0);
   const [student, setStudent] = useState<User | undefined>();
-  const [question, setQuestion] = useState<any>(1);
-  const [modalIsOpen, setModalIsOpen] = useState<any>();
+  const [question, setQuestion] = useState<number>(1);
+  const [modalIsOpen, setModalIsOpen] = useState<boolean | undefined>();
   let audioIsPlaying = false;
   const isMobile = screen.width < 768;
   const successImage =
@@ -33,7 +33,7 @@ export default function WordsGame({ flashcards, teacher, students }: Props) {
       setModalIsOpen(false);
     };
     initialiseVar();
-  }, []);
+  }, [flashcards.length]);
 
   const pickStudent = () => {
     if (students.length === 1) {

@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 
 interface Props {
   href: string;
-  onClick?: any;
+  onClick?: () => void;
   children: string | undefined;
 }
 

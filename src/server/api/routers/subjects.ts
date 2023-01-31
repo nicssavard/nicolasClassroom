@@ -1,6 +1,6 @@
-import { z } from "zod";
+//import { z } from "zod";
 
-import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
+import { createTRPCRouter, publicProcedure } from "../trpc";
 
 export const subjectsRouter = createTRPCRouter({
   getSubjects: publicProcedure.query(({ ctx }) => {

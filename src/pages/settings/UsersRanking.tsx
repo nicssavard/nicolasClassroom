@@ -1,4 +1,4 @@
-import { GetServerSideProps } from "next";
+import type { GetServerSideProps } from "next";
 import prisma from "../../utils/prisma";
 
 interface Props {
@@ -19,7 +19,7 @@ export default function UsersRanking({ users }: Props) {
   return <div>{ranking}</div>;
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const users = await prisma.user.findMany();
   return {
     props: {

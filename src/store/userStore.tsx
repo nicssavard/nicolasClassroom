@@ -1,4 +1,4 @@
-import { Group } from "@prisma/client";
+import type { Group } from "@prisma/client";
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 

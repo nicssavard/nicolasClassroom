@@ -2,7 +2,7 @@ import ListFlashcards from "../components/flashcards/ListFlashcards";
 import WordsGame from "../components/wordsGame/WordsGame";
 import { useState } from "react";
 import useStore from "../store/userStore";
-import { GetServerSideProps } from "next";
+import type { GetServerSideProps } from "next";
 import prisma from "../utils/prisma";
 import { api } from "../utils/api";
 
@@ -96,7 +96,7 @@ export default function Flashcards({
   return <div></div>;
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const flashcards = await prisma.flashcard.findMany();
   const teacher = await prisma.teacher.findFirst();
   const subjects = await prisma.subject.findMany();

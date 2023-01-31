@@ -1,5 +1,5 @@
 import ListClasses from "../../components/classes/ListClasses";
-import { GetServerSideProps } from "next";
+import type { GetServerSideProps } from "next";
 import prisma from "../../utils/prisma";
 
 interface Props {
@@ -11,7 +11,9 @@ export default function Subjects({ classes }: Props): JSX.Element {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  let subject_id: any = Array.isArray(context.query.subject)
+  let subject_id: string | number | undefined = Array.isArray(
+    context.query.subject
+  )
     ? context.query.subject[0]
     : context.query.subject;
   if (subject_id) {

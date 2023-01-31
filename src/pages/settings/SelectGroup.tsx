@@ -1,4 +1,3 @@
-import { GetServerSideProps } from "next";
 import { useRef } from "react";
 import useStore from "../../store/userStore";
 

@@ -1,8 +1,7 @@
 import { Fragment, useState } from "react";
-import { Dialog, Menu, Transition } from "@headlessui/react";
+import { Dialog, Transition } from "@headlessui/react";
 import {
   Bars3BottomLeftIcon,
-  BellIcon,
   CalendarIcon,
   ChartBarIcon,
   FolderIcon,
@@ -11,10 +10,9 @@ import {
   UsersIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import SelectGroup from "./SelectGroup";
 import UsersRanking from "./UsersRanking";
-import { GetServerSideProps } from "next";
+import type { GetServerSideProps } from "next";
 import prisma from "../../utils/prisma";
 
 const navigation = [
@@ -24,11 +22,6 @@ const navigation = [
   { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
   { name: "Documents", href: "#", icon: InboxIcon, current: false },
   { name: "Reports", href: "#", icon: ChartBarIcon, current: false },
-];
-const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Settings", href: "#" },
-  { name: "Sign out", href: "#" },
 ];
 
 function classNames(...classes: string[]) {
@@ -198,7 +191,7 @@ export default function Settings({ groups, users }: Props): JSX.Element {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const groups = await prisma.group.findMany();
   const users = await prisma.user.findMany();
   users.sort((a: any, b: any) => b.points - a.points);

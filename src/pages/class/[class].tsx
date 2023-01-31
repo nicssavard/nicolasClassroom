@@ -1,4 +1,4 @@
-import { GetServerSideProps } from "next";
+import type { GetServerSideProps } from "next";
 import WordsGame from "../../components/wordsGame/WordsGame";
 import { api } from "../../utils/api";
 import prisma from "../../utils/prisma";
@@ -33,7 +33,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   //     notFound: true,
   //   };
   // }
-  let class_id: any = Array.isArray(context.query.class)
+  let class_id: string | undefined | number = Array.isArray(context.query.class)
     ? context.query.class[0]
     : context.query.class;
   if (class_id) {

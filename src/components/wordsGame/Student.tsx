@@ -1,6 +1,3 @@
-import { api } from "../../utils/api";
-import { useState } from "react";
-import { proseWrap } from "../../../prettier.config.cjs";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import useStore from "../../store/userStore";
