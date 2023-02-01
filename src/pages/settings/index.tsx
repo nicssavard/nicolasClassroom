@@ -106,6 +106,7 @@ export default function Settings({ groups, users }: Props): JSX.Element {
                         <a
                           key={item.name}
                           href={item.href}
+                          onClick={() => setContent(item.name)}
                           className={classNames(
                             item.current
                               ? "bg-gray-100 text-gray-900"
@@ -170,7 +171,7 @@ export default function Settings({ groups, users }: Props): JSX.Element {
           </div>
         </div>
         <div className="flex flex-1 flex-col md:pl-64">
-          <div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-transparent ">
+          <div className="sticky top-0 z-0 flex h-16 flex-shrink-0 bg-transparent ">
             <button
               type="button"
               className=" px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"

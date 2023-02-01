@@ -71,7 +71,7 @@ export default function Flashcard(props: Props) {
               fill={true}
             />
           </div>
-          <div className="w-32 pt-1 text-2xl text-gold-500  sm:w-56 sm:pt-2 sm:text-3xl 1080:w-64 1080:text-4xl">
+          <div className="w-32 pt-1 text-2xl text-gold-500  sm:w-40 sm:pt-2 sm:text-3xl 1080:w-64 1080:text-4xl">
             <h1>{props.flashcard.name}</h1>
           </div>
         </motion.div>

@@ -51,7 +51,11 @@ values ('cld3oqdd01000vkp0l96pt39i', 'nicolas', 'nicolas', 3, TRUE, '$2b$10$QkPC
        ('cld3oqdn01210vsp0l96ot39d', 'kc2saga', 'saga', 2, FALSE, '$2b$10$Tpvc0WkJn5xSnUPJsHMILOo7mAa3XrWhTqZWMp0UUwicp35i145su', 'kc2saga.jpg'),
        ('cld3oqdm01210vsp0l96ot39s', 'kc2simon', 'simon', 2, FALSE, '$2b$10$6z9DXDDZM04JXLhF2B3Q.u0PMU5Q38xB1jM1bRpMyhKzX4F3rJCfG', 'kc2simon.jpg'),
        ('cld3qqda01210vsp0l96ot39a', 'kc2sun', 'sun', 2, FALSE, '$2b$10$JqouTnz4C0N8cDhCZp/.cOM5dvhTwdEOqtwqiUcllVEbIgsVcYDC6', 'kc2sun.jpg'),
-       ('cld3wqda01210vsp0l96ot39z', 'kc2tina', 'tina', 2, FALSE, '$2b$10$124HWrOFwrZvAlEbCWdMW.Ei4VJZ.ysRt6.I6eXDIBrJ4Wfy8Clne', 'kc2tina.jpg');
+       ('cld3wqda01210vsp0l96ot39z', 'kc2tina', 'tina', 2, FALSE, '$2b$10$124HWrOFwrZvAlEbCWdMW.Ei4VJZ.ysRt6.I6eXDIBrJ4Wfy8Clne', 'kc2tina.jpg'),
+       ('cld3wqda01210csp0l96ot39z', 'kc2frank', 'frank', 2, FALSE, '$2b$10$tpvihzm3HlJ5vNapk5yPI.nAiulRd5i/zUde9/ohn7XCsv59xG8H6', 'kc2frank.jpg'),
+       ('cld3wqda01210nsp0l96ot39z', 'kc2nic', 'nic', 2, FALSE, '$2b$10$IbX/gQE7KiYEViAn/UOnUeWWsGT6Xyip0dAQtp6DQuPKet1TwGzqC', 'kc2nic.jpg'),
+       ('cld3wqda01250nsp0l96ot39z', 'kc2susie', 'susie', 2, FALSE, '$2b$10$CYV27GhIygMZoSjgJaXrIu7dU06lSbNizH9RDXjo/eq2P9T0vd8su', 'kc2susie.jpg'),
+       ('cld3wqda01210nsp0l96ot39z', 'kc2zoey', 'zoey', 2, FALSE, '$2b$10$D0Xg2u.CpldTsscT365q9OQ7i.16rUJTPLKwYVVN/keOKXmO7x9N2', 'kc2zoey.jpg');
        
 
        
