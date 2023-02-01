@@ -78,7 +78,9 @@ values (1, 'Domestic animals', 'domestic_animals.png', 1),
   (10, 'wxyz', 'wxyz.jpg', 3),
   (11, '1-4', '1-4.jpg', 4),
   (12, '5-8', '5-8.jpg', 4),
-  (13, '9-12', '9-12.jpg', 4);
+  (13, '9-12', '9-12.jpg', 4),
+  (14, 'what is your name?', 'what is your name.jpg', 2),
+  (15, 'how is the weather?', 'how is the weather.jpg', 2);
   
 
   -- ('Numbers', 'numbers.jpg', 'Math');
@@ -163,7 +165,17 @@ values ('Cat', 'cat.png', 'cat.mp3', 1, 1),
   ('9', '9.jpg', '9.mp3', 4, 13),
   ('10', '10.jpg', '10.mp3', 4, 13),
   ('11', '11.jpg', '11.mp3', 4, 13),
-  ('12', '12.jpg', '12.mp3', 4, 13);
+  ('12', '12.jpg', '12.mp3', 4, 13),
+  ('my name is teacher nicolas', 'teacher nicolas.jpg', 'teacher nicolas.mp3', 2, 14),
+  ('my name is doraemon', 'doraemon.jpg', 'doraemon.mp3', 2, 14),
+  ('my name is ultraman', 'ultraman.jpg', 'ultraman.mp3', 2, 14),
+  ('my name is elsa', 'elsa.jpg', 'elsa.mp3', 2, 14),
+  ('it is sunny', 'sunny.jpg', 'sunny.mp3', 2, 15),
+  ('it is rainy', 'rainy.jpg', 'rainy.mp3', 2, 15),
+  ('it is cloudy', 'cloudy.jpg', 'cloudy.mp3', 2, 15),
+  ('it is windy', 'windy.jpg', 'windy.mp3', 2, 15),
+  ('it is stormy', 'stormy.jpg', 'stormy.mp3', 2, 15),
+  ('it is snowy', 'snowy.jpg', 'snowy.mp3', 2, 15);
   
   -- ('Cow', 'cow.jpg', 'cow.mp3', 'Farm animals'),
   -- ('Pig', 'pig.jpg', 'pig.mp3', 'Farm animals'),
