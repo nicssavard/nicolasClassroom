@@ -28,11 +28,6 @@ export default function Class({ flashcards, teacher }: Props): JSX.Element {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  // if (!context.query.class) {
-  //   return {
-  //     notFound: true,
-  //   };
-  // }
   let class_id: string | undefined | number = Array.isArray(context.query.class)
     ? context.query.class[0]
     : context.query.class;

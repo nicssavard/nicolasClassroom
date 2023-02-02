@@ -1,4 +1,3 @@
-import type { GetServerSideProps } from "next";
 import ListSubject from "../components/subjects/ListSubjects";
 import prisma from "../utils/prisma";
 
@@ -12,7 +11,7 @@ export default function Subjects({ subjects }: Props): JSX.Element {
   }
   return <div></div>;
 }
-export const getServerSideProps: GetServerSideProps = async () => {
+export async function getStaticProps() {
   const subjects = await prisma.subject.findMany();
 
   return {
@@ -20,4 +19,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
       subjects: subjects,
     },
   };
-};
+}

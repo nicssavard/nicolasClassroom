@@ -48,7 +48,7 @@ export const authOptions: NextAuthOptions = {
         let password = "";
         if (credentials?.username && credentials?.password) {
           username = credentials.username.toLowerCase();
-          password = credentials.password.toLocaleLowerCase();
+          password = credentials.password.toLowerCase();
         }
 
         if (!credentials?.username) {

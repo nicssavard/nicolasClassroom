@@ -2,7 +2,6 @@ import ListFlashcards from "../components/flashcards/ListFlashcards";
 import WordsGame from "../components/wordsGame/WordsGame";
 import { useState } from "react";
 import useStore from "../store/userStore";
-import type { GetServerSideProps } from "next";
 import prisma from "../utils/prisma";
 import { api } from "../utils/api";
 
@@ -23,9 +22,7 @@ export default function Flashcards({
   });
   const [game, setGame] = useState(false);
   const [flashcardsList, setFlashcardslist] = useState<Flashcard[]>([]);
-  // const [flashcardsDisplayed, setFlashcardsDisplayed] = useState<Flashcard[]>(
-  //   flashcards.filter((f) => f.subject_id === 1)
-  // );
+
   const [flashcardsSubject, setFlashcardsSubject] = useState<number>(1);
   const subjectsList = subjects.map((subject: Subject) => {
     return (
@@ -36,11 +33,7 @@ export default function Flashcards({
   });
 
   const subjectHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    //console.log(e.target.value);
     const subjectId = parseInt(e.target.value);
-    // setFlashcardsDisplayed(
-    //   flashcards.filter((f) => f.subject_id === subjectId)
-    // );
     setFlashcardsSubject(subjectId);
   };
 
@@ -96,7 +89,7 @@ export default function Flashcards({
   return <div></div>;
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export async function getStaticProps() {
   const flashcards = await prisma.flashcard.findMany();
   const teacher = await prisma.teacher.findFirst();
   const subjects = await prisma.subject.findMany();
@@ -108,4 +101,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
       subjects: subjects,
     },
   };
-};
+}
