@@ -51,14 +51,20 @@ export default function WordsGame({ flashcards, teacher, students }: Props) {
       }
     }
   };
-  const askQuestion = () => {
-    const audio = new Audio(`/flashcards/${flashcards[question]?.audio}`);
-    audio.play();
-  };
 
-  let audio: HTMLAudioElement = new Audio(
+  const audio: HTMLAudioElement = new Audio(
     `/flashcards/${flashcards[question]?.audio}`
   );
+
+  const askQuestion = () => {
+    if (!audioIsPlaying) {
+      audioIsPlaying = true;
+      audio.play();
+      setTimeout(() => {
+        console.log("finish");
+      }, audio.duration * 1000 + 1000);
+    }
+  };
 
   const checkAnswer = (answer: string) => {
     const rightAnswer = answer === flashcards[question]?.name;
@@ -66,16 +72,7 @@ export default function WordsGame({ flashcards, teacher, students }: Props) {
       correctAnswers();
       changeQuestion();
     } else {
-      if (!audioIsPlaying) {
-        audioIsPlaying = true;
-        audio = new Audio(`/flashcards/${flashcards[question]?.audio}`);
-        setTimeout(() => {
-          audio.play();
-        }, 1000);
-        setTimeout(() => {
-          audioIsPlaying = false;
-        }, audio.duration * 1000 + 1000);
-      }
+      askQuestion();
     }
   };
 
