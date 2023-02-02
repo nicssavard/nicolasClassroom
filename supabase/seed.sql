@@ -53,9 +53,9 @@ values ('cld3oqdd01000vkp0l96pt39i', 'nicolas', 'nicolas', 3, TRUE, '$2b$10$QkPC
        ('cld3qqda01210vsp0l96ot39a', 'kc2sun', 'sun', 2, FALSE, '$2b$10$JqouTnz4C0N8cDhCZp/.cOM5dvhTwdEOqtwqiUcllVEbIgsVcYDC6', 'kc2sun.jpg'),
        ('cld3wqda01210vsp0l96ot39z', 'kc2tina', 'tina', 2, FALSE, '$2b$10$124HWrOFwrZvAlEbCWdMW.Ei4VJZ.ysRt6.I6eXDIBrJ4Wfy8Clne', 'kc2tina.jpg'),
        ('cld3wqda01210csp0l96ot39z', 'kc2frank', 'frank', 2, FALSE, '$2b$10$tpvihzm3HlJ5vNapk5yPI.nAiulRd5i/zUde9/ohn7XCsv59xG8H6', 'kc2frank.jpg'),
-       ('cld3wqda01210nsp0l96ot39z', 'kc2nic', 'nic', 2, FALSE, '$2b$10$IbX/gQE7KiYEViAn/UOnUeWWsGT6Xyip0dAQtp6DQuPKet1TwGzqC', 'kc2nic.jpg'),
-       ('cld3wqda01250nsp0l96ot39z', 'kc2susie', 'susie', 2, FALSE, '$2b$10$CYV27GhIygMZoSjgJaXrIu7dU06lSbNizH9RDXjo/eq2P9T0vd8su', 'kc2susie.jpg'),
-       ('cld3wqda01210nsp0l96ot39z', 'kc2zoey', 'zoey', 2, FALSE, '$2b$10$D0Xg2u.CpldTsscT365q9OQ7i.16rUJTPLKwYVVN/keOKXmO7x9N2', 'kc2zoey.jpg');
+       ('cld5wqda01210nsp0l96ot39z', 'kc2nic', 'nic', 2, FALSE, '$2b$10$IbX/gQE7KiYEViAn/UOnUeWWsGT6Xyip0dAQtp6DQuPKet1TwGzqC', 'kc2nic.jpg'),
+       ('cld4wqda01250nsp0l96ot39z', 'kc2susie', 'susie', 2, FALSE, '$2b$10$CYV27GhIygMZoSjgJaXrIu7dU06lSbNizH9RDXjo/eq2P9T0vd8su', 'kc2susie.jpg'),
+       ('cld2wqda01210nsp0l96ot39z', 'kc2zoey', 'zoey', 2, FALSE, '$2b$10$D0Xg2u.CpldTsscT365q9OQ7i.16rUJTPLKwYVVN/keOKXmO7x9N2', 'kc2zoey.jpg');
        
 
        
@@ -84,7 +84,9 @@ values (1, 'Domestic animals', 'domestic_animals.png', 1),
   (12, '5-8', '5-8.jpg', 4),
   (13, '9-12', '9-12.jpg', 4),
   (14, 'what is your name?', 'what is your name.jpg', 2),
-  (15, 'how is the weather?', 'how is the weather.jpg', 2);
+  (15, 'how is the weather?', 'how is the weather.jpg', 2),
+  (16, 'weather', 'weather.jpg', 1);
+
   
 
   -- ('Numbers', 'numbers.jpg', 'Math');
@@ -179,7 +181,32 @@ values ('Cat', 'cat.png', 'cat.mp3', 1, 1),
   ('it is cloudy', 'cloudy.jpg', 'cloudy.mp3', 2, 15),
   ('it is windy', 'windy.jpg', 'windy.mp3', 2, 15),
   ('it is stormy', 'stormy.jpg', 'stormy.mp3', 2, 15),
-  ('it is snowy', 'snowy.jpg', 'snowy.mp3', 2, 15);
+  ('it is snowy', 'snowy.jpg', 'snowy.mp3', 2, 15),
+  ('sun', 'sun.jpg', 'sun.mp3', 1, 16),
+  ('cloud', 'cloud.jpg', 'cloud.mp3', 1, 16),
+  ('rain', 'rain.jpg', 'rain.mp3', 1, 16),
+  ('snow', 'snow.jpg', 'snow.mp3', 1, 16),
+  ('wind', 'wind.jpg', 'wind.mp3', 1, 16);
+  -- ('moon', 'moon.jpg', 'moon.mp3', 1, 16),
+  -- ('star', 'star.jpg', 'star.mp3', 1, 16), 
+  -- ('tree', 'tree.jpg', 'tree.mp3', 1, 17),
+  -- ('flower', 'flower.jpg', 'flower.mp3', 1, 17),
+  -- ('grass', 'grass.jpg', 'grass.mp3', 1, 17),
+  -- ('leaf', 'leaf.jpg', 'leaf.mp3', 1, 17),
+  -- ('bush', 'bush.jpg', 'bush.mp3', 1, 17),
+  -- ('butterfly', 'butterfly.jpg', 'butterfly.mp3', 1, 18),
+  -- ('bee', 'bee.jpg', 'bee.mp3', 1, 18),
+  -- ('ant', 'ant.jpg', 'ant.mp3', 1, 18),
+  -- ('spider', 'spider.jpg', 'spider.mp3', 1, 18),
+  -- ('mosquito', 'mosquito.jpg', 'mosquito.mp3', 1, 18),
+  -- ('fly', 'fly.jpg', 'fly.mp3', 1, 18),
+  -- ('horse', 'horse.jpg', 'horse.mp3', 1, 19),
+  -- ('cow', 'cow.jpg', 'cow.mp3', 1, 19),
+  -- ('pig', 'pig.jpg', 'pig.mp3', 1, 19),
+  -- ('lion', 'lion.jpg', 'lion.mp3', 1, 20),
+  -- ('tiger', 'tiger.jpg', 'tiger.mp3', 1, 20);
+
+
   
   -- ('Cow', 'cow.jpg', 'cow.mp3', 'Farm animals'),
   -- ('Pig', 'pig.jpg', 'pig.mp3', 'Farm animals'),

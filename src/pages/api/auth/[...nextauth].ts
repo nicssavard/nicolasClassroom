@@ -44,16 +44,23 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
+        let username = "";
+        let password = "";
+        if (credentials?.username && credentials?.password) {
+          username = credentials.username.toLowerCase();
+          password = credentials.password.toLocaleLowerCase();
+        }
+
         if (!credentials?.username) {
           return null;
         }
 
         const user = await prisma.user.findFirst({
-          where: { username: credentials?.username },
+          where: { username: username },
         });
 
         const passwordIsValid = await bcrypt.compare(
-          credentials?.password,
+          password,
           user?.encrypted_password
         );
 
