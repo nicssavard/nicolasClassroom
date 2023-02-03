@@ -24,7 +24,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
         </Head>
         <Authorization>
           <Header></Header>
-          <div className={`font-face-gm text-center`}>
+          <div className={`font-face-gm pt-14 text-center`}>
             <Component {...pageProps} />
           </div>
         </Authorization>

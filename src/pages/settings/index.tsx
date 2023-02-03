@@ -18,10 +18,10 @@ import prisma from "../../utils/prisma";
 const navigation = [
   { name: "Group", href: "#", icon: HomeIcon, current: true },
   { name: "Users ranking", href: "#", icon: UsersIcon, current: false },
-  { name: "Projects", href: "#", icon: FolderIcon, current: false },
-  { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
-  { name: "Documents", href: "#", icon: InboxIcon, current: false },
-  { name: "Reports", href: "#", icon: ChartBarIcon, current: false },
+  // { name: "Projects", href: "#", icon: FolderIcon, current: false },
+  // { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
+  // { name: "Documents", href: "#", icon: InboxIcon, current: false },
+  // { name: "Reports", href: "#", icon: ChartBarIcon, current: false },
 ];
 
 function classNames(...classes: string[]) {
@@ -138,10 +138,10 @@ export default function Settings({ groups, users }: Props): JSX.Element {
         </Transition.Root>
 
         {/* Static sidebar for desktop */}
-        <div className="top-[64px] hidden md:fixed  md:flex md:w-64 md:flex-col">
+        <div className="top-[56px] hidden md:fixed  md:flex md:w-48 md:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex flex-grow flex-col overflow-y-auto  bg-transparent pt-5">
-            <div className="mt-5 flex flex-grow flex-col">
+          <div className="flex flex-grow flex-col overflow-y-auto  rounded-br-xl bg-palette-700">
+            <div className=" flex flex-grow flex-col">
               <nav className="flex-1 space-y-1 px-2 pb-4">
                 {navigation.map((item) => (
                   <div
@@ -170,8 +170,8 @@ export default function Settings({ groups, users }: Props): JSX.Element {
             </div>
           </div>
         </div>
-        <div className="flex flex-1 flex-col md:pl-64">
-          <div className="sticky top-0 z-0 flex h-16 flex-shrink-0 bg-transparent ">
+        <div className="flex flex-1 flex-col md:pl-48">
+          <div className="fixed top-14 z-0 flex h-16 flex-shrink-0 bg-transparent ">
             <button
               type="button"
               className=" px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"

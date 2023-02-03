@@ -36,7 +36,7 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="flex flex-1 justify-center px-2 lg:ml-6 lg:justify-end">
+    <div className="h-13 flex flex-1 justify-center px-2 lg:ml-6 lg:justify-end">
       <form onSubmit={searchClass}>
         <div className="w-full max-w-lg lg:max-w-xs">
           <label htmlFor="search" className="sr-only">

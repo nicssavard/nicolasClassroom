@@ -25,35 +25,38 @@ const Header: React.FC = () => {
   }
 
   return (
-    <Disclosure as="nav" className="font-face-gm bg-green-dark shadow-2xl">
+    <Disclosure
+      as="nav"
+      className="font-face-gm fixed z-10 w-full bg-green-dark shadow-2xl"
+    >
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
-            <div className="relative flex h-16 items-center justify-between">
-              <div className="flex items-center px-2 lg:px-0">
+          <div className="mx-auto max-w-7xl px-2 sm:px-4 md:px-8">
+            <div className="relative flex h-14 items-center justify-between">
+              <div className="flex items-center px-2 md:px-0">
                 <Link href="/subjects">
                   <Image
-                    className="block h-9 w-auto lg:hidden"
+                    className="block h-9 w-auto md:hidden"
                     src={WFLKLogo}
                     alt="WFLK"
                   />
                   <Image
-                    className="hidden h-9 w-auto lg:block"
+                    className="hidden h-9 w-auto md:block"
                     src={WFLKLogo}
                     alt="WFLK"
                   />
                 </Link>
-                <div className="hidden lg:ml-6 lg:block">
+                <div className="hidden md:ml-6 md:block">
                   <div className="flex space-x-4">
                     <NavLink href="subjects">subjects</NavLink>
                     <NavLink href="flashcards">flashcards</NavLink>
-                    <NavLink href="games">games</NavLink>
+                    {/* <NavLink href="games">games</NavLink> */}
                     <NavLink href="#">homeworks</NavLink>
                   </div>
                 </div>
               </div>
               <SearchBar />
-              <div className="flex lg:hidden">
+              <div className="flex md:hidden">
                 {/* Mobile menu button */}
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md  text-green-light  hover:text-green-dark focus:outline-none   ">
                   <span className="sr-only">Open main menu</span>
@@ -74,7 +77,7 @@ const Header: React.FC = () => {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="hidden lg:ml-4 lg:block">
+              <div className="hidden md:ml-4 md:block">
                 <div className="flex items-center">
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-4 flex-shrink-0">
@@ -105,7 +108,7 @@ const Header: React.FC = () => {
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                      <Menu.Items className="absolute right-0 z-10 mt-2 flex w-48 origin-top-right flex-col rounded-md bg-green-dark py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Items className="absolute right-0 z-10 mt-2 flex w-48 origin-top-right flex-col rounded-md bg-green-dark py-1 shadow-md ring-1 ring-black ring-opacity-5 focus:outline-none">
                         {user?.is_admin && (
                           <Menu.Item>
                             <NavLink href="settings">{user.name}</NavLink>
@@ -141,7 +144,7 @@ const Header: React.FC = () => {
             </div>
           </div>
 
-          <Disclosure.Panel className="lg:hidden">
+          <Disclosure.Panel className="md:hidden">
             <div className="flex flex-col space-y-1 px-2 pt-2 pb-3">
               {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
               <Disclosure.Button as={NavLink} href="subjects">
@@ -150,9 +153,9 @@ const Header: React.FC = () => {
               <Disclosure.Button as={NavLink} href="flashcards">
                 flashcards
               </Disclosure.Button>
-              <Disclosure.Button as={NavLink} href="#">
+              {/* <Disclosure.Button as={NavLink} href="#">
                 games
-              </Disclosure.Button>
+              </Disclosure.Button> */}
               <Disclosure.Button as={NavLink} href="#">
                 homeworks
               </Disclosure.Button>
@@ -195,7 +198,7 @@ const Header: React.FC = () => {
                   {/* <div className="text-4xl font-medium text-gold-500">
                     {sessionData?.user?.name}
                   </div> */}
-                  {/* <div className="text-lg font-medium text-gray-400">
+                  {/* <div className="text-md font-medium text-gray-400">
                     {user?.position}
                   </div> */}
                 </div>
