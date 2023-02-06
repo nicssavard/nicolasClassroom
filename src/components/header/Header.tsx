@@ -51,7 +51,7 @@ const Header: React.FC = () => {
                     <NavLink href="subjects">subjects</NavLink>
                     <NavLink href="flashcards">flashcards</NavLink>
                     {/* <NavLink href="games">games</NavLink> */}
-                    <NavLink href="#">homeworks</NavLink>
+                    <NavLink href="homeworks">homeworks</NavLink>
                   </div>
                 </div>
               </div>
@@ -156,7 +156,7 @@ const Header: React.FC = () => {
               {/* <Disclosure.Button as={NavLink} href="#">
                 games
               </Disclosure.Button> */}
-              <Disclosure.Button as={NavLink} href="#">
+              <Disclosure.Button as={NavLink} href="homeworks">
                 homeworks
               </Disclosure.Button>
               {user?.is_admin && (

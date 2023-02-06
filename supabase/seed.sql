@@ -55,7 +55,9 @@ values ('cld3oqdd01000vkp0l96pt39i', 'nicolas', 'nicolas', 3, TRUE, '$2b$10$QkPC
        ('cld3wqda01210csp0l96ot39z', 'kc2frank', 'frank', 2, FALSE, '$2b$10$tpvihzm3HlJ5vNapk5yPI.nAiulRd5i/zUde9/ohn7XCsv59xG8H6', 'kc2frank.jpg'),
        ('cld5wqda01210nsp0l96ot39z', 'kc2nic', 'nic', 2, FALSE, '$2b$10$IbX/gQE7KiYEViAn/UOnUeWWsGT6Xyip0dAQtp6DQuPKet1TwGzqC', 'kc2nic.jpg'),
        ('cld4wqda01250nsp0l96ot39z', 'kc2susie', 'susie', 2, FALSE, '$2b$10$CYV27GhIygMZoSjgJaXrIu7dU06lSbNizH9RDXjo/eq2P9T0vd8su', 'kc2susie.jpg'),
-       ('cld2wqda01210nsp0l96ot39z', 'kc2zoey', 'zoey', 2, FALSE, '$2b$10$D0Xg2u.CpldTsscT365q9OQ7i.16rUJTPLKwYVVN/keOKXmO7x9N2', 'kc2zoey.jpg');
+       ('cld2wqda01210nsp0l96ot39z', 'kc2zoey', 'zoey', 2, FALSE, '$2b$10$D0Xg2u.CpldTsscT365q9OQ7i.16rUJTPLKwYVVN/keOKXmO7x9N2', 'kc2zoey.jpg'),
+       ('cld2wqda01210nkp0l96ot39z', 'kc2berkeley', 'berkeley', 2, FALSE, '$2b$10$oHxapYCrxbbUlmcmNtP3GuI9nY4qeQoEJ1ygXTDCEJD6zbg9TOd2O', 'kc2berkeley.jpg'),
+       ('cld2wqda01210nsp9l96ot39z', 'kc2kevin', 'kevin', 2, FALSE, '$2b$10$KwmWq.r4DDv.oW4.D/.ACu6Gztif4bfTrxqXIs4b.f5gc81aVMP1e', 'kc1kevin.jpg');
        
 
        
@@ -213,6 +215,54 @@ values ('Cat', 'cat.png', 'cat.mp3', 1, 1),
   -- ('Lion', 'lion.jpg', 'lion.mp3', 'Zoo animals'),
   -- ('Tiger', 'tiger.jpg', 'tiger.mp3', 'Zoo animals');
   
+insert into public."Homework" (name, file, image)
+values ('a', 'a.pdf', 'a.jpg'),
+       ('b', 'b.pdf', 'b.jpg'),
+       ('c', 'c.pdf', 'c.jpg'),
+       ('d', 'd.pdf', 'd.jpg'),
+       ('e', 'e.pdf', 'e.jpg'),
+       ('f', 'f.pdf', 'f.jpg'),
+       ('g', 'g.pdf', 'g.jpg'),
+       ('h', 'h.pdf', 'h.jpg'),
+       ('i', 'i.pdf', 'i.jpg'),
+       ('j', 'j.pdf', 'j.jpg'),
+       ('k', 'k.pdf', 'k.jpg'),
+       ('l', 'l.pdf', 'l.jpg'),
+       ('m', 'm.pdf', 'm.jpg'),
+       ('n', 'n.pdf', 'n.jpg'),
+       ('o', 'o.pdf', 'o.jpg'),
+       ('p', 'p.pdf', 'p.jpg'),
+       ('q', 'q.pdf', 'q.jpg'),
+       ('r', 'r.pdf', 'r.jpg'),
+       ('s', 's.pdf', 's.jpg'),
+       ('t', 't.pdf', 't.jpg'),
+       ('u', 'u.pdf', 'u.jpg'),
+       ('v', 'v.pdf', 'v.jpg'),
+       ('w', 'w.pdf', 'w.jpg'),
+       ('x', 'x.pdf', 'x.jpg'),
+       ('y', 'y.pdf', 'y.jpg'),
+       ('z', 'z.pdf', 'z.jpg'),
+       ('1', '1.pdf', '1.jpg'),
+       ('2', '2.pdf', '2.jpg'),
+       ('3', '3.pdf', '3.jpg'),
+       ('4', '4.pdf', '4.jpg'),
+       ('5', '5.pdf', '5.jpg'),
+       ('6', '6.pdf', '6.jpg'),
+       ('7', '7.pdf', '7.jpg'),
+       ('8', '8.pdf', '8.jpg'),
+       ('9', '9.pdf', '9.jpg'),
+       ('10', '10.pdf', '10.jpg'),
+       ('11', '11.pdf', '11.jpg'),
+       ('12', '12.pdf', '12.jpg'),
+       ('13', '13.pdf', '13.jpg'),
+       ('14', '14.pdf', '14.jpg'),
+       ('15', '15.pdf', '15.jpg'),
+       ('16', '16.pdf', '16.jpg'),
+       ('17', '17.pdf', '17.jpg'),
+       ('18', '18.pdf', '18.jpg'),
+       ('19', '19.pdf', '19.jpg'),
+       ('20', '20.pdf', '20.jpg');
+       
 -- drop table if exists public."Account";
 -- drop table if exists public."Class";
 -- drop table if exists public."Example";

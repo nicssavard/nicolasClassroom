@@ -1,19 +1,20 @@
-import { signIn, signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 
 export default function Admin() {
-  const { data: sessionData } = useSession();
-
-  if (sessionData) {
-    return <h1>Admin section</h1>;
-  } else {
-    console.log("not logged in");
-    return (
-      <button
-        className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
-        onClick={sessionData ? () => signOut() : () => signIn()}
+  const download = () => {
+    console.log("download");
+  };
+  return (
+    <div>
+      <Link
+        href={"/homeworks/a.pdf"}
+        passHref
+        rel="noopener noreferrer"
+        onClick={download}
+        target="_blank"
       >
-        {sessionData ? "Sign out" : "Sign in"}
-      </button>
-    );
-  }
+        download
+      </Link>
+    </div>
+  );
 }

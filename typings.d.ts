@@ -33,7 +33,7 @@ type User = {
   image: string;
   is_admin: boolean;
   points: number;
-  tries: number;
+  weekly_points: number;
   group_id: number;
 };
 
@@ -43,4 +43,11 @@ type Teacher = {
   image: string;
   success_image: string[];
   failure_image: string[];
+};
+
+type Homework = {
+  id: number;
+  name: string;
+  file: string;
+  image: string;
 };
