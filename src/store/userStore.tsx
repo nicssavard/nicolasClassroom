@@ -21,7 +21,7 @@ const useStore = create<UserState>()(
           id: "",
           image: "",
           points: 0,
-          tries: 0,
+          weekly_points: 0,
           group_id: 0,
         },
         group: { id: 1, name: "kc1" },
