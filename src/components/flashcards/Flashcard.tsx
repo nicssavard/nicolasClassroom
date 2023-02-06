@@ -39,7 +39,7 @@ export default function Flashcard(props: Props) {
             fill={true}
           />
         </div>
-        <div className="w-32 pt-2 text-3xl text-gold-500 sm:w-32 sm:pt-2 lg:w-40 1080:w-64 1080:text-4xl">
+        <div className="w-20 pt-1 text-lg text-gold-500 sm:w-32 sm:pt-2 sm:text-3xl lg:w-40 1080:w-64 1080:text-4xl">
           <h1>{props.flashcard.name}</h1>
         </div>
       </div>
