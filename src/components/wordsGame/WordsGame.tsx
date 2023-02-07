@@ -61,7 +61,7 @@ export default function WordsGame({ flashcards, teacher, students }: Props) {
       audioIsPlaying = true;
       audio.play();
       setTimeout(() => {
-        console.log("finish");
+        audioIsPlaying = false;
       }, audio.duration * 1000 + 1000);
     }
   };
