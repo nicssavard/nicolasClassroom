@@ -87,7 +87,9 @@ values (1, 'Domestic animals', 'domestic_animals.png', 1),
   (13, '9-12', '9-12.jpg', 4),
   (14, 'what is your name?', 'what is your name.jpg', 2),
   (15, 'how is the weather?', 'how is the weather.jpg', 2),
-  (16, 'weather', 'weather.jpg', 1);
+  (16, 'weather', 'weather.jpg', 1),
+  (17, '13-16', '13-16.jpg', 4);
+
 
   
 
@@ -188,7 +190,12 @@ values ('Cat', 'cat.png', 'cat.mp3', 1, 1),
   ('cloud', 'cloud.jpg', 'cloud.mp3', 1, 16),
   ('rain', 'rain.jpg', 'rain.mp3', 1, 16),
   ('snow', 'snow.jpg', 'snow.mp3', 1, 16),
-  ('wind', 'wind.jpg', 'wind.mp3', 1, 16);
+  ('wind', 'wind.jpg', 'wind.mp3', 1, 16),
+  ('13', '13.jpg', '13.mp3', 4, 17),
+  ('14', '14.jpg', '14.mp3', 4, 17),
+  ('15', '15.jpg', '15.mp3', 4, 17),
+  ('16', '16.jpg', '16.mp3', 4, 17);
+
   -- ('moon', 'moon.jpg', 'moon.mp3', 1, 16),
   -- ('star', 'star.jpg', 'star.mp3', 1, 16), 
   -- ('tree', 'tree.jpg', 'tree.mp3', 1, 17),
@@ -261,7 +268,10 @@ values ('a', 'a.pdf', 'a.jpg'),
        ('17', '17.pdf', '17.jpg'),
        ('18', '18.pdf', '18.jpg'),
        ('19', '19.pdf', '19.jpg'),
-       ('20', '20.pdf', '20.jpg');
+       ('20', '20.pdf', '20.jpg'),
+       ('letter recognition a-f', 'letter recognition a-f.pdf', 'letter recognition a-f.jpg'),
+       ('letter recognition g-l', 'letter recognition g-l.pdf', 'letter recognition g-l.jpg'),
+       ('letter recognition m-r', 'letter recognition m-r.pdf', 'letter recognition m-r.jpg');
        
 -- drop table if exists public."Account";
 -- drop table if exists public."Class";
