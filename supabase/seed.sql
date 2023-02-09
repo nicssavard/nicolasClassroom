@@ -284,3 +284,55 @@ values ('a', 'a.pdf', 'a.jpg'),
 -- drop table if exists public."Teacher";
 -- drop table if exists public."User";
 -- drop table if exists public."VerificationToken";
+
+
+      --  kc1abby abby
+      --  kc1amy amy
+      --  kc1annie annie
+      --  kc1arthur arthur
+      --  kc1ayden ayden
+      --  kc1bill bill
+      --  kc1coco coco
+      --  kc1darren darren
+      --  kc1dipsy dipsy
+      --  kc1domi domi
+      --  kc1eason eason
+      --  kc1eden eden
+      --  kc1elsa elsa
+      --  kc1emily emily
+      --  kc1eric eric
+      --  kc1harry harry
+      --  kc1jo myers jo myers
+      --  kc1lucis lucis
+      --  kc1madows madows
+      --  kc1marvin marvin 
+      --  kc1mia mia
+      --  kc1moana moana
+      --  kc1oliver oliver
+      --  kc1wisdom wisdom
+      --  kc2aiden aiden
+      --  kc2cassie cassie
+      --  kc2charlie charlie
+      --  kc2elsa elsa
+      --  kc2enen enen
+      --  kc2hattie hattie
+      --  kc2heron heron
+      --  kc2jason jason
+      --  kc2kevin kevin
+      --  kc2kris kris
+      --  kc2leon leon
+      --  kc2levi levi
+      --  kc2michelle michelle
+      --  kc2nico nico
+      --  kc2oscar oscar
+      --  kc2ray ray
+      --  kc2saga saga
+      --  kc2simon simon
+      --  kc2sun sun
+      --  kc2tina tina
+      --  kc2frank frank
+      --  kc2nic', 'nic
+      --  kc2susie susie
+      --  kc2zoey zoey
+      --  kc2berkeley berkeley
+      --  kc1kevin kevin
