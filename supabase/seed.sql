@@ -57,7 +57,8 @@ values ('cld3oqdd01000vkp0l96pt39i', 'nicolas', 'nicolas', 3, TRUE, '$2b$10$QkPC
        ('cld4wqda01250nsp0l96ot39z', 'kc2susie', 'susie', 2, FALSE, '$2b$10$CYV27GhIygMZoSjgJaXrIu7dU06lSbNizH9RDXjo/eq2P9T0vd8su', 'kc2susie.jpg'),
        ('cld2wqda01210nsp0l96ot39z', 'kc2zoey', 'zoey', 2, FALSE, '$2b$10$D0Xg2u.CpldTsscT365q9OQ7i.16rUJTPLKwYVVN/keOKXmO7x9N2', 'kc2zoey.jpg'),
        ('cld2wqda01210nkp0l96ot39z', 'kc2berkeley', 'berkeley', 2, FALSE, '$2b$10$oHxapYCrxbbUlmcmNtP3GuI9nY4qeQoEJ1ygXTDCEJD6zbg9TOd2O', 'kc2berkeley.jpg'),
-       ('cld2wqda01210nsp9l96ot39z', 'kc1kevin', 'kevin', 1, FALSE, '$2b$10$K8gizehBtMBTDGOh66Tln.QB9r2xr6EQQVADu4r75NwJFjpUC7YAm', 'kc1kevin.jpg');
+       ('cld2wqda01210nsp9l96ot39z', 'kc1kevin', 'kevin', 1, FALSE, '$2b$10$K8gizehBtMBTDGOh66Tln.QB9r2xr6EQQVADu4r75NwJFjpUC7YAm', 'kc1kevin.jpg'),
+       ('cld2wqda01210vdp9l96ot39z', 'guest', 'guest', 3, FALSE, '$2b$10$3Ym7pQb5MpCJqBL.R7x8uuXizbotyh7yAZT3CbR98eh1yZSz/jdEC', 'guest.jpg');
        
 
        
