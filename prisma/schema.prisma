@@ -85,6 +85,12 @@ model Group {
   users     User[]
 }
 
+model Game {
+    id      Int      @id @default(autoincrement())
+    name    String
+    image   String
+}
+
 model Subject {
     id     Int  @id @default(autoincrement())
     name   String

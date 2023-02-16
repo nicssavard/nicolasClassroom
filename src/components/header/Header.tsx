@@ -50,8 +50,8 @@ const Header: React.FC = () => {
                   <div className="flex space-x-4">
                     <NavLink href="subjects">subjects</NavLink>
                     <NavLink href="flashcards">flashcards</NavLink>
-                    {/* <NavLink href="games">games</NavLink> */}
                     <NavLink href="homeworks">homeworks</NavLink>
+                    <NavLink href="games">games</NavLink>
                   </div>
                 </div>
               </div>
@@ -153,11 +153,11 @@ const Header: React.FC = () => {
               <Disclosure.Button as={NavLink} href="flashcards">
                 flashcards
               </Disclosure.Button>
-              {/* <Disclosure.Button as={NavLink} href="#">
-                games
-              </Disclosure.Button> */}
               <Disclosure.Button as={NavLink} href="homeworks">
                 homeworks
+              </Disclosure.Button>
+              <Disclosure.Button as={NavLink} href="games">
+                games
               </Disclosure.Button>
               {user?.is_admin && (
                 <Disclosure.Button as={NavLink} href="settings">

@@ -19,6 +19,12 @@ type Group = {
   name: string;
 };
 
+type Game = {
+  id: number;
+  name: string;
+  image: string;
+};
+
 type Subject = {
   id: number;
   name: string;

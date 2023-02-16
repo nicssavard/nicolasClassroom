@@ -27,7 +27,8 @@
     "**/*.tsx",
     "**/*.cjs",
     "**/*.mjs",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "__test__/components/mathGame/Number.test.js"
   ],
   "exclude": ["node_modules"]
 }
