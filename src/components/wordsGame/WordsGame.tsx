@@ -10,10 +10,9 @@ import { api } from "../../utils/api";
 interface Props {
   teacher: Teacher;
   flashcards: Flashcard[];
-  students: User[];
 }
 
-export default function WordsGame({ flashcards, teacher, students }: Props) {
+export default function WordsGame({ flashcards, teacher }: Props) {
   const user = useStore((state) => state.user);
   const addOne: any = api.users.addOnePoint.useMutation();
 
@@ -35,21 +34,8 @@ export default function WordsGame({ flashcards, teacher, students }: Props) {
     initialiseVar();
   }, [flashcards.length]);
 
-  const pickStudent = () => {
-    if (students.length === 1) {
-      setStudent(students[0]);
-    } else {
-      if (students[0]) {
-        let newStudent = students[Math.floor(Math.random() * students.length)];
-        while (student === newStudent) {
-          newStudent = students[Math.floor(Math.random() * students.length)];
-        }
-
-        if (newStudent) {
-          setStudent(newStudent);
-        }
-      }
-    }
+  const changeStudent = (student: User | undefined) => {
+    setStudent(student);
   };
 
   const audio: HTMLAudioElement = new Audio(
@@ -128,7 +114,7 @@ export default function WordsGame({ flashcards, teacher, students }: Props) {
               {displayStars}
             </div>
             {user?.is_admin && (
-              <Student student={student} pickStudent={pickStudent}></Student>
+              <Student changeStudent={changeStudent}></Student>
             )}
             <div
               onClick={() => {

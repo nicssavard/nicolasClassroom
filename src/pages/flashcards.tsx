@@ -1,9 +1,7 @@
 import ListFlashcards from "../components/flashcards/ListFlashcards";
 import WordsGame from "../components/wordsGame/WordsGame";
 import { useState } from "react";
-import useStore from "../store/userStore";
 import prisma from "../utils/prisma";
-import { api } from "../utils/api";
 
 interface Props {
   flashcards: Flashcard[];
@@ -16,10 +14,6 @@ export default function Flashcards({
   teacher,
   subjects,
 }: Props): JSX.Element {
-  const group = useStore((state) => state.group);
-  const { data: students } = api.users.getUsersByGroup.useQuery({
-    group_id: group.id,
-  });
   const [game, setGame] = useState(false);
   const [flashcardsList, setFlashcardslist] = useState<Flashcard[]>([]);
 
@@ -44,13 +38,9 @@ export default function Flashcards({
   const removeFlashcard = (flashcard: Flashcard) => {
     setFlashcardslist(flashcardsList.filter((f) => f !== flashcard));
   };
-  if (game && teacher && students) {
+  if (game && teacher) {
     return (
-      <WordsGame
-        students={students}
-        teacher={teacher}
-        flashcards={flashcardsList}
-      ></WordsGame>
+      <WordsGame teacher={teacher} flashcards={flashcardsList}></WordsGame>
     );
   }
   if (flashcards) {

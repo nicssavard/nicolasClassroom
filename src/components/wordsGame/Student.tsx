@@ -1,18 +1,47 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import useStore from "../../store/userStore";
+import { api } from "../../utils/api";
+import { useState, useEffect } from "react";
 
 interface Props {
-  student: User | undefined;
-  pickStudent: () => void;
+  changeStudent: (student: User | undefined) => void;
 }
-export default function Student(props: Props) {
+
+export default function Student({ changeStudent }: Props) {
+  const [student, setStudent] = useState<User | undefined>();
+  const [students, setStudents] = useState<User[]>([]);
   const group = useStore((state) => state.group);
   const pickStudent = () => {
-    props.pickStudent();
+    if (students.length === 1) {
+      setStudent(students[0]);
+      changeStudent(students[0]);
+    } else {
+      if (students[0]) {
+        let newStudent = students[Math.floor(Math.random() * students.length)];
+        while (student === newStudent) {
+          newStudent = students[Math.floor(Math.random() * students.length)];
+        }
+
+        if (newStudent) {
+          setStudent(newStudent);
+          changeStudent(newStudent);
+        }
+      }
+    }
   };
 
-  if (props.student) {
+  const { data: studentsData } = api.users.getUsersByGroup.useQuery({
+    group_id: group.id,
+  });
+
+  useEffect(() => {
+    if (studentsData) {
+      setStudents(studentsData);
+    }
+  }, [studentsData]);
+
+  if (student) {
     return (
       <div
         onClick={pickStudent}
@@ -34,13 +63,13 @@ export default function Student(props: Props) {
               <Image
                 draggable="false"
                 className="rounded-lg"
-                src={`/users/${props.student.image}`}
+                src={`/users/${student.image}`}
                 alt="Subject Image"
                 fill={true}
               />
             </div>
             <div className="text-md pt-1 text-gold-500 sm:pt-2 sm:text-2xl 1080:text-4xl">
-              <h1>{props.student.points}</h1>
+              <h1>{student.points}</h1>
             </div>
           </div>
         </motion.div>

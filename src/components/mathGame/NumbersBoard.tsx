@@ -6,7 +6,7 @@ interface Props {
 }
 
 export default function NumberBoard({ guess, maxNumber }: Props) {
-  let numbers = [];
+  const numbers = [];
 
   for (let i = 1; i <= maxNumber; i++) {
     numbers.push(<Number guess={guess} key={i} number={i} />);
