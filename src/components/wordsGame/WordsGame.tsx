@@ -22,6 +22,7 @@ export default function WordsGame({ flashcards, teacher }: Props) {
   const [modalIsOpen, setModalIsOpen] = useState<boolean | undefined>();
   let audioIsPlaying = false;
   const isMobile = screen.width < 768;
+  //const isTouch = "ontouchstart" in document.documentElement;
   const successImage =
     teacher.success_image[
       Math.floor(Math.random() * teacher.success_image.length)

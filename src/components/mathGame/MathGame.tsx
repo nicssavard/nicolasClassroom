@@ -1,7 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NumberBoard from "./NumbersBoard";
+import Operand from "./Operand";
+import Result from "./Result";
+import Student from "../wordsGame/Student";
+import useStore from "../../store/userStore";
+import { api } from "../../utils/api";
 
 export default function MathGame() {
+  const user = useStore((state) => state.user);
+  const addOne: any = api.users.addOnePoint.useMutation();
+  const [student, setStudent] = useState<User | undefined>();
+
   const minAnswer = 1;
   const maxAnswer = 10;
   const [answer, setAnswer] = useState(0);
@@ -9,8 +18,10 @@ export default function MathGame() {
   const [secondNumber, setSecondNumber] = useState(0);
   const [isCorrect, setIsCorrect] = useState(false);
   const [isWrong, setIsWrong] = useState(false);
+  const [guess, setGuess] = useState<number | null>(null);
   const [operator, setOperator] = useState("+");
-
+  const isMobile = screen.width < 768;
+  //check if device is touch screen
   const generateQuestion = () => {
     let tempAnswer = -1;
     let tempFirstNumber = 0;
@@ -25,28 +36,58 @@ export default function MathGame() {
           ? tempFirstNumber + tempSecondNumber
           : tempFirstNumber - tempSecondNumber;
     }
-    // const firstNumber = Math.floor(Math.random() * 10) + 1;
-    // const secondNumber = Math.floor(Math.random() * 10) + 1;
-    // const operator = Math.floor(Math.random() * 2) === 0 ? "+" : "-";
-    console.log(tempFirstNumber, tempOperator, tempSecondNumber, tempAnswer);
     setFirstNumber(tempFirstNumber);
     setSecondNumber(tempSecondNumber);
     setOperator(tempOperator);
     setAnswer(tempAnswer);
   };
+  useEffect(() => {
+    generateQuestion();
+  }, []);
+
+  const changeStudent = (student: User | undefined) => {
+    setStudent(student);
+  };
 
   const checkAnswer = (guess: number) => {
+    setGuess(guess);
     if (answer === guess) {
-      generateQuestion();
+      setIsCorrect(true);
+      if (student?.username) {
+        addOne.mutate({ username: student.username });
+      } else if (user?.username) {
+        addOne.mutate({ username: user.username });
+      }
+      setTimeout(() => {
+        setIsCorrect(false);
+        setGuess(null);
+        generateQuestion();
+      }, 2000);
+    } else {
+      setIsWrong(true);
+      setTimeout(() => {
+        setIsWrong(false);
+        setGuess(null);
+      }, 2000);
     }
   };
+
   return (
     <div>
-      <div>
-        {firstNumber} {operator} {secondNumber}
+      <Student changeStudent={changeStudent}></Student>
+      <div className="align-center flex flex-row content-center justify-center">
+        <Operand number={firstNumber} />
+        <div className="my-auto text-5xl">{operator}</div>
+        <Operand number={secondNumber} />
+        <div className="my-auto text-5xl">=</div>
+        <Result isCorrect={isCorrect} isWrong={isWrong} guess={guess} />
       </div>
-      <button onClick={generateQuestion}>{answer}</button>
-      <NumberBoard maxNumber={10} guess={checkAnswer} />
+      <NumberBoard
+        maxNumber={10}
+        guess={checkAnswer}
+        answer={answer}
+        isMobile={isMobile}
+      />
     </div>
   );
 }
