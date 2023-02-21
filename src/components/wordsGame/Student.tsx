@@ -56,7 +56,7 @@ export default function Student({ changeStudent }: Props) {
           initial={{ scale: 0 }}
           animate={{ scale: 1, transition: { duration: 1 } }}
           whileTap={{ scale: 0.95, transition: { duration: 1 } }}
-          className="m-auto w-fit cursor-pointer rounded-lg bg-palette-800 p-1 shadow-2xl sm:p-2 1080:p-3"
+          className="m-auto w-fit cursor-pointer rounded-lg bg-palette-800 p-1 shadow-2xl sm:p-1 1080:p-2"
         >
           <div>
             <div className=" relative h-24 w-24 sm:h-32 sm:w-32 1080:h-56 1080:w-56">
@@ -68,9 +68,9 @@ export default function Student({ changeStudent }: Props) {
                 fill={true}
               />
             </div>
-            <div className="text-md pt-1 text-gold-500 sm:pt-2 sm:text-2xl 1080:text-4xl">
+            {/* <div className="text-md pt-1 text-gold-500 sm:pt-2 sm:text-2xl 1080:text-4xl">
               <h1>{student.points}</h1>
-            </div>
+            </div> */}
           </div>
         </motion.div>
       </div>

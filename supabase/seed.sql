@@ -61,7 +61,9 @@ values ('cld3oqdd01000vkp0l96pt39i', 'nicolas', 'nicolas', 3, TRUE, '$2b$10$QkPC
        ('cld2wqda01210vdp9l96ot39z', 'guest', 'guest', 3, FALSE, '$2b$10$3Ym7pQb5MpCJqBL.R7x8uuXizbotyh7yAZT3CbR98eh1yZSz/jdEC', 'guest.jpg');
        
 insert into public."Game" (name, image) 
-values ('math', 'math.jpg');
+values ('math', 'math.jpg'),
+  ('matching', 'matching.png');
+  
        
 
 
