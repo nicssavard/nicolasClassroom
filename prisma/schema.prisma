@@ -99,6 +99,12 @@ model Subject {
     class Class[]
 }
 
+model CurriculumClasses {
+    id     Int  @id @default(autoincrement())
+    group_id Int
+    class_id Int
+}
+
 model Class {
     id     Int  @id @default(autoincrement())
     name   String

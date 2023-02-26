@@ -25,4 +25,20 @@ export const classesRouter = createTRPCRouter({
         },
       });
     }),
+  getClassesForSubjectAndGroup: publicProcedure
+    .input(
+      z.object({
+        subject_id: z.number(),
+        group_id: z.number(),
+      })
+    )
+    .query(({ ctx, input }) => {
+      return ctx.prisma.class.findMany({
+        where: {
+          subject_id: input.subject_id,
+          group_id: input.group_id,
+        },
+      });
+    }),
+  // getClasses for a specific subject and a specific group
 });
