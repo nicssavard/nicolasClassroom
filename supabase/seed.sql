@@ -39,7 +39,8 @@ values (1, 'Domestic animals', 'domestic_animals.png', 1),
   (15, 'how is the weather?', 'how is the weather.jpg', 2),
   (16, 'weather', 'weather.jpg', 1),
   (17, '13-16', '13-16.jpg', 4),
-  (18, 'natural phenomena', 'natural phenomena.png', 1);
+  (18, 'natural phenomena', 'natural phenomena.png', 1),
+  (19, 'natural disasters', 'natural disasters.jpg', 1);
 
 insert into public."CurriculumClasses" (group_id, class_id)
 values (1, 1),
@@ -201,7 +202,11 @@ values ('Cat', 'cat.png', 'cat.mp3', 1, 1),
   ('volcano', 'volcano.png', 'volcano.mp3', 1, 18),
   ('waterfall', 'waterfall.jpg', 'waterfall.mp3', 1, 18),
   ('rainbow', 'rainbow.png', 'rainbow.mp3', 1, 18),
-  ('lightning', 'lightning.jpg', 'lightning.mp3', 1, 18);
+  ('lightning', 'lightning.jpg', 'lightning.mp3', 1, 18),
+  ('thunderstorm', 'thunderstorm.jpg', 'thunderstorm.mp3', 1, 19),
+  ('flood', 'flood.jpg', 'flood.mp3', 1, 19),
+  ('earthquake', 'earthquake.jpg', 'earthquake.mp3', 1, 19),
+  ('tornado', 'tornado.jpg', 'tornado.mp3', 1, 19);
   
 
   -- ('moon', 'moon.jpg', 'moon.mp3', 1, 16),
