@@ -40,7 +40,8 @@ values (1, 'Domestic animals', 'domestic_animals.png', 1),
   (16, 'weather', 'weather.jpg', 1),
   (17, '13-16', '13-16.jpg', 4),
   (18, 'natural phenomena', 'natural phenomena.png', 1),
-  (19, 'natural disasters', 'natural disasters.jpg', 1);
+  (19, 'natural disasters', 'natural disasters.jpg', 1),
+  (20, 'clothes', 'clothes.jpg', 1);
 
 insert into public."CurriculumClasses" (group_id, class_id)
 values (1, 1),
@@ -133,7 +134,7 @@ values (1, 1),
   -- ('Animals', 'animals.jpg', 'Words');
   -- ('Plants', 'plants.jpg
 insert into public."Teacher" (name, image, success_image, failure_image)
-values ('nicolas', 'nicolas.jpg', ARRAY ['success1.jpg', 'success2.jpg'], ARRAY ['failure1', 'failure2']);
+values ('nicolas', 'nicolas.jpg', ARRAY ['success1.jpg', 'success2.jpg', 'success3.jpg'], ARRAY ['failure1', 'failure2']);
   
 insert into public."Flashcard" (name, image, audio, subject_id, class_id)
 values ('Cat', 'cat.png', 'cat.mp3', 1, 1),
@@ -206,7 +207,12 @@ values ('Cat', 'cat.png', 'cat.mp3', 1, 1),
   ('thunderstorm', 'thunderstorm.jpg', 'thunderstorm.mp3', 1, 19),
   ('flood', 'flood.jpg', 'flood.mp3', 1, 19),
   ('earthquake', 'earthquake.jpg', 'earthquake.mp3', 1, 19),
-  ('tornado', 'tornado.jpg', 'tornado.mp3', 1, 19);
+  ('tornado', 'tornado.jpg', 'tornado.mp3', 1, 19),
+  ('hat', 'hat.jpg', 'hat.mp3', 1, 20),
+  ('jacket', 'jacket.jpg', 'jacket.mp3', 1, 20),
+  ('pants', 'pants.jpg', 'pants.mp3', 1, 20),
+  ('scarf', 'scarf.jpg', 'scarf.mp3', 1, 20);
+
   
 
   -- ('moon', 'moon.jpg', 'moon.mp3', 1, 16),
