@@ -5,7 +5,7 @@ interface Props {
 export default function Operand({ number }: Props) {
   return (
     <div
-      data-testid={`${number}`}
+      data-testid={`operand-${number}`}
       className="m-1 select-none rounded-lg bg-palette-800 p-1 shadow sm:p-2"
     >
       <div>

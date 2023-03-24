@@ -7,7 +7,7 @@ interface Props {
 export default function Result({ guess, isCorrect, isWrong }: Props) {
   return (
     <div
-      data-testid={`${guess}`}
+      data-testid={`result-${guess}`}
       className={`m-1 select-none rounded-lg bg-palette-500 p-1 shadow-2xl sm:p-2 ${
         isCorrect && "bg-green-500"
       } ${isWrong && "bg-red-500"}`}
