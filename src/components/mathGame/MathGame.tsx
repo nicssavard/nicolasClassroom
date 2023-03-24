@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import NumberBoard from "./NumbersBoard";
 import Operand from "./Operand";
 import Result from "./Result";
@@ -22,7 +22,7 @@ export default function MathGame() {
   const [operator, setOperator] = useState("+");
   const isMobile = screen.width < 768;
   //check if device is touch screen
-  const generateQuestion = () => {
+  const generateQuestion = useCallback(() => {
     let tempAnswer = -1;
     let tempFirstNumber = 0;
     let tempSecondNumber = 0;
@@ -40,10 +40,11 @@ export default function MathGame() {
     setSecondNumber(tempSecondNumber);
     setOperator(tempOperator);
     setAnswer(tempAnswer);
-  };
+  }, []);
+
   useEffect(() => {
     generateQuestion();
-  }, []);
+  }, [generateQuestion]);
 
   const changeStudent = (student: User | undefined) => {
     setStudent(student);

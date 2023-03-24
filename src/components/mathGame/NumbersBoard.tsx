@@ -13,19 +13,16 @@ export default function NumberBoard({
   answer,
   isMobile,
 }: Props) {
-  const numbers = [];
+  const numbers = Array.from({ length: maxNumber }, (_, i) => (
+    <Number
+      isMobile={isMobile}
+      guess={guess}
+      key={i + 1}
+      number={i + 1}
+      answer={answer}
+    />
+  ));
 
-  for (let i = 1; i <= maxNumber; i++) {
-    numbers.push(
-      <Number
-        isMobile={isMobile}
-        guess={guess}
-        key={i}
-        number={i}
-        answer={answer}
-      />
-    );
-  }
   return (
     <div className="m-auto flex flex-wrap justify-center pt-5 text-center sm:w-4/5 xl:w-4/6 1080:w-4/6 1440:w-1/2">
       {numbers}

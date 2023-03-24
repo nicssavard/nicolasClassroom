@@ -43,7 +43,7 @@ values (1, 'Domestic animals', 'domestic_animals.png', 1),
   (19, 'natural disasters', 'natural disasters.jpg', 1),
   (20, 'clothes', 'clothes.jpg', 1),
   (21, 'space', 'space.png', 1),
-  (22, 'og', 'og.jpg', 3);
+  (22, 'og', 'bog.jpg', 3);
 
 insert into public."CurriculumClasses" (group_id, class_id)
 values (1, 1),
