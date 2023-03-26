@@ -5,8 +5,8 @@ interface Props {
 }
 
 export default function ListSubject(props: Props) {
-  const subjectList = props.subjects.map((subject, index) => {
-    return <Subject subject={subject} key={index} />;
+  const subjectList = props.subjects.map((subject) => {
+    return <Subject subject={subject} key={subject.id} />;
   });
 
   return (

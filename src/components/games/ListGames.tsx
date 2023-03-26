@@ -5,8 +5,8 @@ interface Props {
 }
 
 export default function ListGames({ games }: Props) {
-  const gamesList = games.map((game, index) => {
-    return <Game game={game} key={index} />;
+  const gamesList = games.map((game) => {
+    return <Game game={game} key={game.id} />;
   });
 
   return (

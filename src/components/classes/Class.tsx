@@ -7,7 +7,6 @@ interface Props {
     image: string;
     name: string;
   };
-  key: number;
 }
 
 export default function Class(props: Props) {

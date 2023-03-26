@@ -4,7 +4,6 @@ import { useState } from "react";
 interface Props {
   flashcard: Flashcard;
   flashcardsSubject: number;
-  key: number;
   addFlashcard: (flashcard: Flashcard) => void;
   removeFlashcard: (flashcard: Flashcard) => void;
 }

@@ -5,8 +5,8 @@ interface Props {
 }
 
 export default function ListClasses(props: Props) {
-  const classList = props.classes.map((eclass, index) => {
-    return <Class class={eclass} key={index} />;
+  const classList = props.classes.map((eclass) => {
+    return <Class class={eclass} key={eclass.id} />;
   });
 
   return (

@@ -3,7 +3,6 @@ import Image from "next/image";
 
 interface Props {
   game: Game;
-  key: number;
 }
 
 export default function Game({ game }: Props) {

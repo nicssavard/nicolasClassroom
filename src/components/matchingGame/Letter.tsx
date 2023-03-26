@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 
 interface Props {
   letter: string;
@@ -10,6 +9,21 @@ interface Props {
   selectHandler: (x: number, y: number) => void;
 }
 
+function getDisplayClass(display: string): string {
+  switch (display) {
+    case "hidden":
+      return "opacity-0";
+    case "selected":
+      return "bg-palette-dark";
+    case "failure":
+      return "bg-red-500";
+    case "success":
+      return "bg-green-500";
+    default:
+      return "";
+  }
+}
+
 export default function Letter({
   letter,
   isDisplayed = true,
@@ -18,36 +32,26 @@ export default function Letter({
   y,
   display,
 }: Props) {
-  //const [display, setDisplay] = useState(isDisplayed);
   const positionRef = useRef(null);
-  //   useEffect(() => {
-  //     const initialiseDisplay = () => {
-  //       setDisplay(true);
-  //     };
-
-  //     initialiseDisplay();
-  //   }, []);
 
   const clickHandler = () => {
-    if (x !== 1 && display != "success" && display != "hidden") {
+    if (x !== 1 && display !== "success" && display !== "hidden") {
       selectHandler(x, y);
     }
   };
-  console.log(display);
+
+  const displayClass = getDisplayClass(display);
+
   return (
     <div
       onClick={clickHandler}
-      className={`${display === "hidden" && "opacity-0"} ${
-        display === "selected" && "bg-palette-dark"
-      } ${display === "failure" && "bg-red-500"} ${
-        display === "success" && "bg-green-500"
-      } m-1 cursor-pointer select-none rounded-lg bg-palette-700 p-1 shadow sm:p-2`}
+      className={`${
+        displayClass ? displayClass + " " : ""
+      }m-1 cursor-pointer select-none rounded-lg bg-palette-700 p-1 shadow sm:p-2`}
       data-testid={`${letter}`}
     >
-      <div>
-        <div className="relative flex h-20 w-20 justify-center text-6xl text-gold-500  1080:h-28 1080:w-28 1440:h-48 1440:w-48">
-          <div className="my-auto">{letter}</div>
-        </div>
+      <div className="relative flex h-20 w-20 justify-center text-6xl text-gold-500 1080:h-28 1080:w-28 1440:h-48 1440:w-48">
+        <div className="my-auto">{letter}</div>
       </div>
     </div>
   );

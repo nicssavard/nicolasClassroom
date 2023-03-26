@@ -3,7 +3,6 @@ import Image from "next/image";
 
 interface Props {
   homework: Homework;
-  key: number;
 }
 
 export default function Homework(props: Props) {

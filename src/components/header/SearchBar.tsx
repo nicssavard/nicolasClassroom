@@ -7,7 +7,7 @@ import DataList from "./DataList";
 export default function SearchBar() {
   const [isValid, setIsValid] = useState<boolean>(true);
 
-  const search = useRef<any>();
+  const searchInput = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
   const { data: classesData } = api.classes.getClasses.useQuery();
@@ -16,23 +16,23 @@ export default function SearchBar() {
     setIsValid(true);
   };
 
-  const searchClass = (event: any) => {
+  const searchClass = (event: React.FormEvent) => {
     event.preventDefault();
-    let valid = false;
-    if (classesData)
-      classesData.forEach((eclass: any) => {
-        if (eclass.name === search.current.value) {
-          setIsValid(true);
-          router.push(`/class/${eclass.id}`);
-          valid = true;
-          return;
-        }
-      });
-    search.current.value = "";
-    if (valid) {
-      return;
+    if (!searchInput.current || !classesData) return;
+
+    const searchTerm = searchInput.current.value;
+    const foundClass = classesData.find(
+      (eclass: Class) => eclass.name === searchTerm
+    );
+
+    if (foundClass) {
+      setIsValid(true);
+      router.push(`/class/${foundClass.id}`);
+    } else {
+      setIsValid(false);
     }
-    setIsValid(false);
+
+    searchInput.current.value = "";
   };
 
   return (
@@ -52,7 +52,7 @@ export default function SearchBar() {
             <input
               id="search"
               list="classes"
-              ref={search}
+              ref={searchInput}
               onBlur={enteredClassChangeHandler}
               name="search"
               className={`block w-full rounded-md  bg-palette-100 py-2 pl-10 pr-3 leading-5 text-gray-500 focus:bg-palette-50 focus:text-gray-900 focus:outline-none  sm:text-xl ${

@@ -8,14 +8,14 @@ interface Props {
 }
 
 export default function ListFlashcards(props: Props) {
-  const flashcardList = props.flashcards.map((flashcard, index) => {
+  const flashcardList = props.flashcards.map((flashcard) => {
     return (
       <Flashcard
         flashcardsSubject={props.flashcardsSubject}
         addFlashcard={props.addFlashcard}
         removeFlashcard={props.removeFlashcard}
         flashcard={flashcard}
-        key={index}
+        key={flashcard.id}
       />
     );
   });

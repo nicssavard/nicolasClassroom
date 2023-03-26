@@ -1,40 +1,26 @@
 import { useState, useEffect } from "react";
 import Letter from "./Letter";
 
+const LETTERS_COUNT = 5;
+
+const getRandomLetters = (array: string[], length: number) => {
+  const randomLetters: any = [];
+  while (randomLetters.length < length) {
+    const randomNumber = Math.floor(Math.random() * array.length);
+    if (!randomLetters.includes(array[randomNumber])) {
+      randomLetters.push(array[randomNumber]);
+    }
+  }
+  return randomLetters;
+};
+
 export default function MatchingGame() {
-  const letters = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z",
-  ];
-  const lettersNumber = 5;
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
   const initializer = [
-    new Array(lettersNumber).fill(""),
-    new Array(lettersNumber).fill("hidden"),
-    new Array(lettersNumber).fill(""),
+    new Array(LETTERS_COUNT).fill(""),
+    new Array(LETTERS_COUNT).fill("hidden"),
+    new Array(LETTERS_COUNT).fill(""),
   ];
   const [selectedLetter, setSelectedLetter] = useState<[number, number] | null>(
     null
@@ -43,16 +29,6 @@ export default function MatchingGame() {
   const [currentLettersDisplay, setCurrentLettersDisplay] =
     useState<any>(initializer);
   console.log(currentLettersDisplay);
-  const getRandomLetters = (array: string[], length: number) => {
-    const randomLetters: any = [];
-    while (randomLetters.length < length) {
-      const randomNumber = Math.floor(Math.random() * array.length);
-      if (!randomLetters.includes(array[randomNumber])) {
-        randomLetters.push(array[randomNumber]);
-      }
-    }
-    return randomLetters;
-  };
 
   const selectHandler = (x: number, y: number) => {
     const newDisplay = [...currentLettersDisplay];
@@ -99,8 +75,8 @@ export default function MatchingGame() {
   };
 
   useEffect(() => {
-    const lettersArray = getRandomLetters(letters, lettersNumber);
-    const shuffledLettersArray = getRandomLetters(lettersArray, lettersNumber);
+    const lettersArray = getRandomLetters(letters, LETTERS_COUNT);
+    const shuffledLettersArray = getRandomLetters(lettersArray, LETTERS_COUNT);
     for (let i = 0; i < shuffledLettersArray.length; i++) {
       shuffledLettersArray[i] = shuffledLettersArray[i].toLowerCase();
     }
