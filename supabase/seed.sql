@@ -227,7 +227,7 @@ values ('Cat', 'cat.png', 'cat.mp3', 1, 1),
   ('win', 'win.jpg', 'win.mp3', 3, 23),
   ('sit', 'sit.jpg', 'sit.mp3', 3, 23),
   ('dog', 'cvcdog.jpg', 'cvcdog.mp3', 3, 23),
-  ('pit', 'pit.jpg', 'pit.mp3', 3, 23);
+  ('pot', 'pot.jpg', 'pot.mp3', 3, 23);
 
   
 

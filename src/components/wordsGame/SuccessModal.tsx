@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { StarIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
@@ -6,13 +6,14 @@ import { motion } from "framer-motion";
 
 interface Props {
   image: string | undefined;
+  isOpen: boolean;
+  onClose: () => void;
 }
-export default function SuccessModal(props: Props) {
-  const [open, setOpen] = useState(true);
 
+export default function SuccessModal({ image, isOpen, onClose }: Props) {
   return (
-    <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={setOpen}>
+    <Transition.Root show={isOpen} as={Fragment}>
+      <Dialog as="div" className="relative z-10" onClose={onClose}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -36,17 +37,17 @@ export default function SuccessModal(props: Props) {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="rounded-lg  p-2">
+              <Dialog.Panel className="rounded-lg p-2">
                 <motion.div
                   initial={{ y: -1000 }}
                   animate={{ y: 0 }}
                   transition={{ duration: 1 }}
                 >
-                  <div className="relative h-64 w-64 2xl:h-96 2xl:w-96 ">
+                  <div className="relative h-64 w-64 2xl:h-96 2xl:w-96">
                     <Image
                       draggable="false"
                       className="rounded-lg"
-                      src={`/teachers/${props.image}`}
+                      src={`/teachers/${image}`}
                       alt="Flashcard Image"
                       fill={true}
                     />

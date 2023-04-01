@@ -2,39 +2,41 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
+interface Flashcard {
+  image: string;
+  name: string;
+}
+
 interface Props {
-  flashcard: {
-    image: string;
-    name: string;
-  };
+  flashcard: Flashcard;
   onClick: (answer: string) => void;
   key: number;
   answer: string | undefined;
   isMobile: boolean;
 }
 
-export default function Flashcard(props: Props) {
+export default function Flashcard({
+  flashcard,
+  onClick,
+  answer,
+  isMobile,
+}: Props) {
   const [display, setDisplay] = useState(true);
   const positionRef = useRef(null);
-  useEffect(() => {
-    const initialiseDisplay = () => {
-      setDisplay(true);
-    };
 
-    initialiseDisplay();
-  }, [props.answer]);
+  useEffect(() => {
+    setDisplay(true);
+  }, [answer]);
 
   const clickHandler = () => {
-    if (props.answer !== props.flashcard.name) {
-      //execute function after 1 second
+    if (answer !== flashcard.name) {
       setTimeout(() => {
         setDisplay(false);
       }, 100);
     }
-    props.onClick(props.flashcard.name);
+    onClick(flashcard.name);
   };
 
-  //if (!display) return <div></div>;
   return (
     <motion.div ref={positionRef} className="m-2 sm:m-5 1080:mx-10">
       <motion.div
@@ -42,21 +44,14 @@ export default function Flashcard(props: Props) {
         dragConstraints={positionRef}
         dragElastic={1}
         whileTap={{ scale: 0.95 }}
-        // onPanEnd={(event, info) => {
         onPanEnd={(event, info) => {
-          if (props.isMobile) {
+          if (isMobile) {
             clickHandler();
           }
         }}
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.2 }}
-        // initial={{ scale: 0 }}
-        // animate={{ scale: 1, transition: { duration: 1 } }}
-        onClick={() => {
-          //Make sure that the function is not executed on twice mobile devices
-
-          clickHandler();
-        }}
+        onClick={clickHandler}
         className={`${
           !display && "opacity-40"
         } cursor-pointer rounded-lg bg-palette-700 p-1 shadow-2xl sm:p-2`}
@@ -66,13 +61,13 @@ export default function Flashcard(props: Props) {
             <Image
               draggable="false"
               className="rounded-lg"
-              src={`/flashcards/${props.flashcard.image}`}
+              src={`/flashcards/${flashcard.image}`}
               alt="Flashcard Image"
               fill={true}
             />
           </div>
-          <div className="w-32 pt-1 text-2xl text-gold-500  sm:w-40 sm:pt-2 sm:text-3xl 1080:w-64 1080:text-4xl">
-            <h1>{props.flashcard.name}</h1>
+          <div className="w-32 pt-1 text-2xl text-gold-500 sm:w-40 sm:pt-2 sm:text-3xl 1080:w-64 1080:text-4xl">
+            <h1>{flashcard.name}</h1>
           </div>
         </motion.div>
       </motion.div>

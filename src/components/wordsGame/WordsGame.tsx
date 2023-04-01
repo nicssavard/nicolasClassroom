@@ -1,11 +1,11 @@
-import Teacher from "./Teacher";
-import FlashcardsBoard from "./FlashcardsBoard";
-import SuccessModal from "./SuccessModal";
-import Student from "./Student";
 import { useState, useEffect } from "react";
 import { StarIcon } from "@heroicons/react/24/outline";
 import useStore from "../../store/userStore";
 import { api } from "../../utils/api";
+import SuccessModal from "./SuccessModal";
+import Teacher from "./Teacher";
+import FlashcardsBoard from "./FlashcardsBoard";
+import Student from "./Student";
 
 interface Props {
   teacher: Teacher;
@@ -19,20 +19,22 @@ export default function WordsGame({ flashcards, teacher }: Props) {
   const [correctAnswersAmount, setCorrectAnswersAmount] = useState<number>(0);
   const [student, setStudent] = useState<User | undefined>();
   const [question, setQuestion] = useState<number>(1);
-  const [modalIsOpen, setModalIsOpen] = useState<boolean | undefined>();
-  let audioIsPlaying = false;
-  const isMobile = screen.width < 768;
-  //const isTouch = "ontouchstart" in document.documentElement;
-  const successImage =
-    teacher.success_image[
-      Math.floor(Math.random() * teacher.success_image.length)
-    ];
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  const [successImage, setSuccessImage] = useState<string | undefined>("");
+  // const successImage =
+  //   teacher.success_image[
+  //     Math.floor(Math.random() * teacher.success_image.length)
+  //   ];
+  // console.log(successImage);
+
   useEffect(() => {
-    const initialiseVar = () => {
-      setQuestion(Math.floor(Math.random() * flashcards.length));
-      setModalIsOpen(false);
-    };
-    initialiseVar();
+    setQuestion(Math.floor(Math.random() * flashcards.length));
+    setModalIsOpen(false);
+    setSuccessImage(
+      teacher.success_image[
+        Math.floor(Math.random() * teacher.success_image.length)
+      ]
+    );
   }, [flashcards.length]);
 
   const changeStudent = (student: User | undefined) => {
@@ -43,14 +45,16 @@ export default function WordsGame({ flashcards, teacher }: Props) {
     `/flashcards/${flashcards[question]?.audio}`
   );
 
+  useEffect(() => {
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, [audio]);
+
   const askQuestion = () => {
-    if (!audioIsPlaying) {
-      audioIsPlaying = true;
-      audio.play();
-      setTimeout(() => {
-        audioIsPlaying = false;
-      }, audio.duration * 1000 + 1000);
-    }
+    if (!audio.paused) return;
+    audio.play();
   };
 
   const checkAnswer = (answer: string) => {
@@ -72,6 +76,11 @@ export default function WordsGame({ flashcards, teacher }: Props) {
     setModalIsOpen(true);
     setTimeout(() => {
       setModalIsOpen(false);
+      setSuccessImage(
+        teacher.success_image[
+          Math.floor(Math.random() * teacher.success_image.length)
+        ]
+      );
     }, 5000);
     if (correctAnswersAmount < 9) {
       setCorrectAnswersAmount(correctAnswersAmount + 1);
@@ -79,36 +88,33 @@ export default function WordsGame({ flashcards, teacher }: Props) {
   };
 
   const changeQuestion = () => {
-    if (flashcards.length === 1) {
-      setQuestion(0);
-      return;
-    }
-    let newQuestion = Math.floor(Math.random() * flashcards.length);
-    while (question === newQuestion) {
+    let newQuestion = 0;
+    do {
       newQuestion = Math.floor(Math.random() * flashcards.length);
-    }
+    } while (question === newQuestion);
     setQuestion(newQuestion);
   };
 
-  const starsIcon = () => {
-    const starsList = [];
-    for (let i = 0; i < correctAnswersAmount; i++) {
-      starsList.push(
-        <StarIcon
-          key={i}
-          className="mx-auto h-8 w-8 fill-yellow-500 sm:h-12 sm:w-12"
-        ></StarIcon>
-      );
-    }
-    return starsList;
-  };
+  const displayStars = Array(correctAnswersAmount)
+    .fill(null)
+    .map((_, i) => (
+      <StarIcon
+        key={i}
+        className="mx-auto h-8 w-8 fill-yellow-500 sm:h-12 sm:w-12"
+      ></StarIcon>
+    ));
 
-  const displayStars = starsIcon();
+  const isMobile = screen.width < 768;
 
   if (question || question === 0) {
     return (
       <>
-        {modalIsOpen && <SuccessModal image={successImage}></SuccessModal>}
+        <SuccessModal
+          image={successImage}
+          isOpen={modalIsOpen}
+          onClose={() => setModalIsOpen(false)}
+        ></SuccessModal>
+
         <div className="select-none pt-5">
           <div className="mx-auto w-fit">
             <div className="flex-column fixed left-2 flex h-28 w-28 flex-wrap content-start items-start justify-start sm:h-40 sm:w-40">
