@@ -38,45 +38,40 @@ export default function Flashcards({
   const removeFlashcard = (flashcard: Flashcard) => {
     setFlashcardslist(flashcardsList.filter((f) => f !== flashcard));
   };
-  if (game && teacher) {
-    return (
-      <WordsGame teacher={teacher} flashcards={flashcardsList}></WordsGame>
-    );
-  }
-  if (flashcards) {
-    return (
-      <>
-        <div className="mt-4 flex flex-row justify-center">
-          <select
-            className="rounded-xl p-1"
-            onChange={subjectHandler}
-            name="subject"
-            id="subject"
-          >
-            {subjectsList}
-          </select>
-        </div>
 
-        <ListFlashcards
-          flashcardsSubject={flashcardsSubject}
-          addFlashcard={addFlashcard}
-          removeFlashcard={removeFlashcard}
-          flashcards={flashcards}
-        ></ListFlashcards>
-        <div className="pt-5">
-          <button
-            className="m-4 rounded-full bg-palette-700 py-2 px-4 text-4xl font-bold text-gold-500 hover:bg-green-light"
-            onClick={() => {
-              setGame(true);
-            }}
-          >
-            Start Game
-          </button>
-        </div>
-      </>
-    );
-  }
-  return <div></div>;
+  return game && teacher ? (
+    <WordsGame teacher={teacher} flashcards={flashcardsList}></WordsGame>
+  ) : (
+    <>
+      <div className="mt-4 flex flex-row justify-center">
+        <select
+          className="rounded-xl p-1"
+          onChange={subjectHandler}
+          name="subject"
+          id="subject"
+        >
+          {subjectsList}
+        </select>
+      </div>
+
+      <ListFlashcards
+        flashcardsSubject={flashcardsSubject}
+        addFlashcard={addFlashcard}
+        removeFlashcard={removeFlashcard}
+        flashcards={flashcards}
+      ></ListFlashcards>
+      <div className="pt-5">
+        <button
+          className="m-4 rounded-full bg-palette-700 py-2 px-4 text-4xl font-bold text-gold-500 hover:bg-green-light"
+          onClick={() => {
+            setGame(true);
+          }}
+        >
+          Start Game
+        </button>
+      </div>
+    </>
+  );
 }
 
 export async function getStaticProps() {

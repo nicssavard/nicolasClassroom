@@ -14,18 +14,13 @@ interface Props {
 
 export default function WordsGame({ flashcards, teacher }: Props) {
   const user = useStore((state) => state.user);
-  const addOne: any = api.users.addOnePoint.useMutation();
+  const addOne = api.users.addOnePoint.useMutation();
 
   const [correctAnswersAmount, setCorrectAnswersAmount] = useState<number>(0);
   const [student, setStudent] = useState<User | undefined>();
   const [question, setQuestion] = useState<number>(1);
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [successImage, setSuccessImage] = useState<string | undefined>("");
-  // const successImage =
-  //   teacher.success_image[
-  //     Math.floor(Math.random() * teacher.success_image.length)
-  //   ];
-  // console.log(successImage);
 
   useEffect(() => {
     setQuestion(Math.floor(Math.random() * flashcards.length));
@@ -35,7 +30,7 @@ export default function WordsGame({ flashcards, teacher }: Props) {
         Math.floor(Math.random() * teacher.success_image.length)
       ]
     );
-  }, [flashcards.length]);
+  }, [flashcards, teacher]);
 
   const changeStudent = (student: User | undefined) => {
     setStudent(student);
@@ -104,7 +99,7 @@ export default function WordsGame({ flashcards, teacher }: Props) {
       ></StarIcon>
     ));
 
-  const isMobile = screen.width < 768;
+  const isMobile = window.innerWidth < 768;
 
   if (question || question === 0) {
     return (

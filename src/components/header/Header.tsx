@@ -50,6 +50,7 @@ const Header: React.FC = () => {
                   <div className="flex space-x-4">
                     <NavLink href="subjects">subjects</NavLink>
                     <NavLink href="flashcards">flashcards</NavLink>
+                    <NavLink href="practice">practice</NavLink>
                     <NavLink href="homeworks">homeworks</NavLink>
                     <NavLink href="games">games</NavLink>
                   </div>
@@ -152,6 +153,9 @@ const Header: React.FC = () => {
               </Disclosure.Button>
               <Disclosure.Button as={NavLink} href="flashcards">
                 flashcards
+              </Disclosure.Button>
+              <Disclosure.Button as={NavLink} href="practice">
+                practice
               </Disclosure.Button>
               <Disclosure.Button as={NavLink} href="homeworks">
                 homeworks

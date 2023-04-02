@@ -5,7 +5,7 @@ interface Props {
 }
 
 export default function ListHomeworks(props: Props) {
-  const homeworksList = props.homeworks.map((homework, index) => {
+  const homeworksList = props.homeworks.map((homework) => {
     return <Homework homework={homework} key={homework.id} />;
   });
 

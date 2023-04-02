@@ -1,15 +1,17 @@
 import ListSubject from "../components/subjects/ListSubjects";
 import prisma from "../utils/prisma";
+import LoadingPage from "../components/LoadingPage";
 
 interface Props {
   subjects: Subject[];
 }
 
 export default function Subjects({ subjects }: Props): JSX.Element {
-  if (subjects) {
-    return <ListSubject subjects={subjects}></ListSubject>;
-  }
-  return <div></div>;
+  return subjects ? (
+    <ListSubject subjects={subjects}></ListSubject>
+  ) : (
+    <LoadingPage />
+  );
 }
 export async function getStaticProps() {
   const subjects = await prisma.subject.findMany();
