@@ -16,9 +16,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   )
     ? context.query.subject[0]
     : context.query.subject;
+
   if (subject_id) {
     subject_id = parseInt(subject_id);
   }
+
   const classes = await prisma.class.findMany({
     where: { subject_id: subject_id },
   });
