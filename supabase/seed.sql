@@ -44,7 +44,9 @@ values (1, 'Domestic animals', 'domestic_animals.png', 1),
   (20, 'clothes', 'clothes.jpg', 1),
   (21, 'space', 'space.png', 1),
   (22, 'og', 'bog.jpg', 3),
-  (23, 'cvc review', 'win.jpg', 3);
+  (23, 'cvc review', 'win.jpg', 3),
+  (24, 'face', 'eyes.png', 1),
+  (25, 'limbs', 'hand.png', 1);
 
 insert into public."CurriculumClasses" (group_id, class_id)
 values (1, 1),
@@ -227,7 +229,14 @@ values ('Cat', 'cat.png', 'cat.mp3', 1, 1),
   ('win', 'win.jpg', 'win.mp3', 3, 23),
   ('sit', 'sit.jpg', 'sit.mp3', 3, 23),
   ('dog', 'cvcdog.jpg', 'cvcdog.mp3', 3, 23),
-  ('pot', 'pot.jpg', 'pot.mp3', 3, 23);
+  ('nose', 'nose.jpg', 'nose.mp3', 1, 24),
+  ('eyes', 'eyes.png', 'eyes.mp3', 1, 24),
+  ('mouth', 'mouth.png', 'mouth.mp3', 1, 24),
+  ('ears', 'ears.jpg', 'ears.mp3', 1, 24),
+  ('arm', 'arm.png', 'arm.mp3', 1, 25),
+  ('hand', 'hand.png', 'hand.mp3', 1, 25),
+  ('legs', 'legs.jpg', 'legs.mp3', 1, 25),
+  ('foot', 'feet.jpg', 'foot.mp3', 1, 25);
 
   
 
