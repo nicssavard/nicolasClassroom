@@ -139,7 +139,7 @@ values (1, 1),
   -- ('Animals', 'animals.jpg', 'Words');
   -- ('Plants', 'plants.jpg
 insert into public."Teacher" (name, image, success_image, failure_image)
-values ('nicolas', 'nicolas.jpg', ARRAY ['success1.jpg', 'success2.jpg', 'success3.jpg', 'success4.jpg'], ARRAY ['failure1', 'failure2']);
+values ('nicolas', 'nicolas.jpg', ARRAY ['success1.jpg', 'success2.jpg', 'success3.jpg', 'success4.jpg', 'success5.jpg'], ARRAY ['failure1', 'failure2']);
   
 insert into public."Flashcard" (name, image, audio, subject_id, class_id)
 values ('Cat', 'cat.png', 'cat.mp3', 1, 1),
