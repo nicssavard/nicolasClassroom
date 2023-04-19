@@ -47,7 +47,13 @@ values (1, 'Domestic animals', 'domestic_animals.png', 1),
   (23, 'cvc review', 'win.jpg', 3),
   (24, 'face', 'eyes.png', 1),
   (25, 'limbs', 'hand.png', 1),
-  (26, 'animals', 'domestic_animals.png', 1);
+  (26, 'animals', 'domestic_animals.png', 1),
+  (27, 'un', 'run.jpg', 3),
+  (28, 'ut', 'hut.jpg', 3),
+  (29, 'ap', 'cap.jpg', 3),
+  (30, 'ig', 'big.jpg', 3),
+  (31, 'op', 'top.jpg', 3),
+  (32, 'sports', 'basketball.jpg', 1);
 
 insert into public."CurriculumClasses" (group_id, class_id)
 values (1, 1),
@@ -241,7 +247,31 @@ values ('Cat', 'cat.png', 'cat.mp3', 1, 1),
   ('cat', 'dcat.png', 'dcat.mp3', 1, 26),
   ('dog', 'ddog.jpg', 'ddog.mp3', 1, 26),
   ('bird', 'dbird.jpg', 'dbird.mp3', 1, 26),
-  ('duck', 'dduck.png', 'dduck.mp3', 1, 26);
+  ('duck', 'dduck.png', 'dduck.mp3', 1, 26),
+  ('gun', 'gun.jpg', 'gun.mp3', 3, 27),
+  ('run', 'run.jpg', 'run.mp3', 3, 27),
+  ('fun', 'fun.jpg', 'fun.mp3', 3, 27),
+  ('bun', 'bun.jpg', 'bun.mp3', 3, 27),
+  ('cut', 'cut.jpg', 'cut.mp3', 3, 28),
+  ('hut', 'hut.jpg', 'hut.mp3', 3, 28),
+  ('nut', 'nut.jpg', 'nut.mp3', 3, 28),
+  ('gut', 'gut.jpg', 'gut.mp3', 3, 28),
+  ('tap', 'tap.jpg', 'tap.mp3', 3, 29),
+  ('map', 'map.jpg', 'map.mp3', 3, 29),
+  ('nap', 'nap.jpg', 'nap.mp3', 3, 29),
+  ('cap', 'cap.jpg', 'cap.mp3', 3, 29),
+  ('big', 'big.jpg', 'big.mp3', 3, 30),
+  ('dig', 'dig.jpg', 'dig.mp3', 3, 30),
+  ('wig', 'wig.jpg', 'wig.mp3', 3, 30),
+  ('fig', 'fig.jpg', 'fig.mp3', 3, 30),
+  ('top', 'top.jpg', 'top.mp3', 3, 31),
+  ('mop', 'mop.jpg', 'mop.mp3', 3, 31),
+  ('hop', 'hop.jpg', 'hop.mp3', 3, 31),
+  ('pop', 'pop.jpg', 'pop.mp3', 3, 31),
+  ('basketball', 'basketball.jpg', 'basketball.mp3', 1, 32),
+  ('ping pong', 'ping pong.jpg', 'ping pong.mp3', 1, 32),
+  ('football', 'football.jpg', 'football.mp3', 1, 32),
+  ('badminton', 'badminton.jpg', 'badminton.mp3', 1, 32);
 
   
 
