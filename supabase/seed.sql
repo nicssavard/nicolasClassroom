@@ -56,7 +56,8 @@ values (1, 'Domestic animals', 'domestic_animals.png', 1),
   (32, 'sports', 'basketball.jpg', 1),
   (33, 'materials', 'wood.jpg', 1),
   (34, 'vegetables', 'carrot.png', 1),
-  (35, 'restaurant', 'pizza.jpg', 1);
+  (35, 'restaurant', 'pizza.jpg', 1),
+  (36, 'food', 'burger.jpg', 1);
 
 insert into public."CurriculumClasses" (group_id, class_id)
 values (1, 1),
@@ -289,6 +290,11 @@ values ('Cat', 'cat.png', 'cat.mp3', 1, 1),
   ('soup', 'soup.jpg', 'soup.mp3', 1, 35),
   ('cake', 'cake.jpg', 'cake.mp3', 1, 35),
   ('milkshake', 'milkshake.jpg', 'milkshake.mp3', 1, 35);
+  ('bread', 'bread.jpg', 'bread.mp3', 1, 36);
+  ('burger', 'burger.jpg', 'burger.mp3', 1, 36);
+  ('sandwich', 'sandwich.jpg', 'sandwich.mp3', 1, 36);
+  ('ice cream', 'ice cream.png', 'ice cream.mp3', 1, 36);
+  ('rice', 'rice.jpg', 'rice.mp3', 1, 36);
 
   
 
