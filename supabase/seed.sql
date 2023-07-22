@@ -289,11 +289,11 @@ values ('Cat', 'cat.png', 'cat.mp3', 1, 1),
   ('noodles', 'noodles.jpg', 'noodles.mp3', 1, 35),
   ('soup', 'soup.jpg', 'soup.mp3', 1, 35),
   ('cake', 'cake.jpg', 'cake.mp3', 1, 35),
-  ('milkshake', 'milkshake.jpg', 'milkshake.mp3', 1, 35);
-  ('bread', 'bread.jpg', 'bread.mp3', 1, 36);
-  ('burger', 'burger.jpg', 'burger.mp3', 1, 36);
-  ('sandwich', 'sandwich.jpg', 'sandwich.mp3', 1, 36);
-  ('ice cream', 'ice cream.png', 'ice cream.mp3', 1, 36);
+  ('milkshake', 'milkshake.jpg', 'milkshake.mp3', 1, 35),
+  ('bread', 'bread.jpg', 'bread.mp3', 1, 36),
+  ('burger', 'burger.jpg', 'burger.mp3', 1, 36),
+  ('sandwich', 'sandwich.jpg', 'sandwich.mp3', 1, 36),
+  ('ice cream', 'ice cream.png', 'ice cream.mp3', 1, 36),
   ('rice', 'rice.jpg', 'rice.mp3', 1, 36);
 
   
