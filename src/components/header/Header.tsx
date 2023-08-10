@@ -4,7 +4,6 @@ import DefaultUserImage from "../../../public/user.png";
 
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-//import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import NavLink from "./NavLink";
 import SearchBar from "./SearchBar";
@@ -68,13 +67,11 @@ const Header: React.FC = () => {
                       alt=""
                     />
                   ) : (
-                    //<XMarkIcon className="block h-8 w-8" aria-hidden="true" />
                     <img
                       className="h-9 w-9 rounded-full"
                       src={`/users/${sessionData?.user?.image}`}
                       alt=""
                     />
-                    //<Bars3Icon className="block h-8 w-8" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
@@ -115,18 +112,12 @@ const Header: React.FC = () => {
                             <NavLink href="settings">{user.name}</NavLink>
                           </Menu.Item>
                         )}
-                        {/* {sessionData?.user?.name !== null && (
-                          <Menu.Item>
-                            <NavLink href="settings">
-                              {sessionData?.user?.name}
-                            </NavLink>
-                          </Menu.Item>
-                        )} */}
-                        {user?.is_admin && (
+
+                        {/* {user?.is_admin && (
                           <Menu.Item>
                             <NavLink href="admin">admin</NavLink>
                           </Menu.Item>
-                        )}
+                        )} */}
                         <Menu.Item>
                           <NavLink
                             href=""
@@ -168,11 +159,11 @@ const Header: React.FC = () => {
                   {sessionData?.user?.name}
                 </Disclosure.Button>
               )}
-              {user?.is_admin && (
+              {/* {user?.is_admin && (
                 <Disclosure.Button as={NavLink} href="admin">
                   admin
                 </Disclosure.Button>
-              )}
+              )} */}
               <Disclosure.Button
                 as={NavLink}
                 href="#"
@@ -183,49 +174,8 @@ const Header: React.FC = () => {
             </div>
             <div className="border-t border-gray-700">
               <div className="flex items-center justify-center px-5">
-                {/* <div className="flex-shrink-0">
-                  {sessionData?.user?.image ? (
-                    <img
-                      className="h-8 w-8 rounded-full"
-                      src={`/users/${sessionData?.user?.image}`}
-                      alt=""
-                    />
-                  ) : (
-                    <Image
-                      className="h-8 w-8 rounded-full"
-                      src={DefaultUserImage}
-                      alt="WFLK"
-                    />
-                  )}
-                </div> */}
-                <div className="ml-3">
-                  {/* <div className="text-4xl font-medium text-gold-500">
-                    {sessionData?.user?.name}
-                  </div> */}
-                  {/* <div className="text-md font-medium text-gray-400">
-                    {user?.position}
-                  </div> */}
-                </div>
+                <div className="ml-3"></div>
               </div>
-              {/* <div className="mt-3 flex flex-col space-y-1 px-2">
-                {user?.is_admin && (
-                  <Disclosure.Button as={NavLink} href="settings">
-                    {sessionData?.user?.name}
-                  </Disclosure.Button>
-                )}
-                {user?.is_admin && (
-                  <Disclosure.Button as={NavLink} href="admin">
-                    admin
-                  </Disclosure.Button>
-                )}
-                <Disclosure.Button
-                  as={NavLink}
-                  href="#"
-                  onClick={sessionData ? () => signOut() : () => signIn()}
-                >
-                  {sessionData ? "Log out" : "Log in"}
-                </Disclosure.Button>
-              </div> */}
             </div>
           </Disclosure.Panel>
         </>

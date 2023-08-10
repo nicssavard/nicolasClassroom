@@ -13,10 +13,6 @@ import AdminSubject from "../components/admin/AdminSubjects";
 const navigation = [
   { name: "Subject", href: "#", icon: HomeIcon, current: true },
   { name: "Class", href: "#", icon: UsersIcon, current: false },
-  // { name: "Projects", href: "#", icon: FolderIcon, current: false },
-  // { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
-  // { name: "Documents", href: "#", icon: InboxIcon, current: false },
-  // { name: "Reports", href: "#", icon: ChartBarIcon, current: false },
 ];
 
 function classNames(...classes: string[]) {
@@ -144,15 +140,6 @@ export default function Settings(): JSX.Element {
                       "group flex cursor-pointer items-center rounded-md px-2 py-2 text-2xl font-medium"
                     )}
                   >
-                    {/* <item.icon
-                      className={classNames(
-                        item.current
-                          ? "text-gray-500"
-                          : "text-gray-400 group-hover:text-gray-500",
-                        "mr-3 h-6 w-6 flex-shrink-0"
-                      )}
-                      aria-hidden="true"
-                    /> */}
                     {item.name}
                   </div>
                 ))}

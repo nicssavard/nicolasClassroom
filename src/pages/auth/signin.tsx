@@ -2,20 +2,36 @@ import { signIn } from "next-auth/react";
 import { useRef } from "react";
 import Image from "next/image";
 import { useState } from "react";
-import { useRouter } from "next/router";
 
 export default function SignIn() {
   //ref for username and password input
   const usernameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const [isInvalid, setIsInvalid] = useState(false);
-  const router = useRouter();
+
+  const GUEST_EMAIL = "nicolas";
+  const GUEST_PASSWORD = "nicolas";
 
   const signinHandler = async (e: any) => {
     e.preventDefault();
     const test = await signIn("credentials", {
       username: usernameRef.current?.value,
       password: passwordRef.current?.value,
+      //redirect to home page after successfull login
+      redirect: false,
+    });
+    if (test?.error) {
+      setIsInvalid(true);
+    } else {
+      //router.push("/");
+    }
+  };
+
+  const guestLoginHandler = async (e: any) => {
+    e.preventDefault();
+    const test = await signIn("credentials", {
+      username: GUEST_EMAIL,
+      password: GUEST_PASSWORD,
       //redirect to home page after successfull login
       redirect: false,
     });
@@ -35,7 +51,7 @@ export default function SignIn() {
       <div className="my-10 flex w-4/6 flex-col rounded-2xl bg-palette-600 text-center sm:w-1/4 1080:w-1/6">
         {/* username and password input */}
         <div className="p-3">
-          <h1 className="text-xl font-bold text-gray-700">
+          <h1 className="text-2xl font-bold text-gray-700">
             Welcome to my classroom!
           </h1>
           <form
@@ -71,9 +87,16 @@ export default function SignIn() {
             {/* submit button */}
             <button
               type="submit"
-              className="rounded-full bg-white/10 px-10 py-3 font-semibold text-gray-700 no-underline transition hover:bg-white/20"
+              className="rounded-full bg-white/10 px-10 py-3 text-2xl font-semibold text-gray-700 no-underline transition hover:bg-white/20"
             >
-              Sign in
+              Log in
+            </button>
+            <button
+              type="submit"
+              onClick={guestLoginHandler}
+              className="rounded-full bg-white/10 px-10 py-3 text-2xl font-semibold text-gray-700 no-underline transition hover:bg-white/20"
+            >
+              Log in as guest
             </button>
           </form>
         </div>
